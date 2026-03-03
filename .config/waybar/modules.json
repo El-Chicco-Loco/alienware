@@ -1,0 +1,158 @@
+//  __  __           _       _
+// |  \/  | ___   __| |_   _| | ___  ___
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
+// | |  | | (_) | (_| | |_| | |  __/\__ \
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/
+//
+//
+{
+    // Network traffic
+  "custom/network_traffic": {
+             "exec": "~/.config/waybar/scripts/network_traffic.sh",
+             "return-type": "json",
+             "format-ethernet": "{icon} {ifname} ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",    // optional
+  },
+
+    // Network
+  "network": {
+    "format": "offline",
+    "format-wifi": "online",
+    "format-ethernet": "online",
+    "format-disconnected": "offline",
+    "family": "ipv4",
+    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format-wifi": " {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "on-click": "nm-connection-editor"
+  },
+
+    // Tray
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+
+  // ========================================================
+
+  // Workspaces
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "focused": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 0
+    },
+    "tooltip-format": "",
+    "tooltip": false
+  },
+
+  // ========================================================
+
+    // Clock
+  "clock": {
+      "format": "{:%d/%m/%Y  %H:%M}",
+      "interval": 1,
+      "on-click": "~/.config/waybar/scripts/OCV",
+      "tooltip": false
+  },
+
+  // Brightness
+  "custom/brightness": {
+    "format": "   {percentage}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+    "return-type": "json",
+    "exec": "echo '{\"percentage\":'$(($(brightnessctl -c backlight get)*100/255/5*5))'}'",
+    "on-click": "brightnessctl -c backlight set +10%",
+    "on-click-right": "brightnessctl -c backlight set 10%-",
+    "on-scroll-down": "brightnessctl -c backlight set 10-",
+    "on-scroll-up": "brightnessctl -c backlight set +10",
+    "interval": 1,
+    "tooltip": false
+  },  
+
+  // Audio
+  "pulseaudio": {
+        "on-scroll-up": "",
+        "on-scroll-down": "",
+        "format": "    {volume}%",
+        "format-muted": "    mute",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "    muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol -t 3",
+        "on-click-right": "hyde-shell volumecontrol -s ''"
+  },
+        
+
+  // Temperature
+  "temperature": {
+      "thermal-zone": 7,  // Check with: # cat /sys/class/hwmon/hwmon*/temp1_input
+      "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+      "critical-threshold": 80,
+      "format-critical": " {temperatureC}°C",
+      "format": "   {temperatureC}°C",
+      "on-click": "sensors"
+  },
+
+  // Disk
+  "disk": {
+    "interval": 30,
+    "format": "󰉉  {percentage_used}%",
+    "path": "/",
+    "on-click": "btop"
+  },
+
+  // Memory
+  "memory": {
+      "format": "󰍛{:>3}%",
+      "on-click": "btop"
+  },
+
+  // CPU
+  "cpu": {
+      "format": "CPU {usage}%",
+      "on-click": "btop"
+  },
+
+  // GPU
+  "custom/gpu": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "format": "GPU {}%",
+    "return-type": "",
+    "interval": 1
+  },
+
+  // Battery
+  "battery": {
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰁹 {capacity}%",
+    "format-icons": ["󰁺", "󰁻" , "󰁼" , "󰁽" , "󰁾" , "󰁿" , "󰂀" , "󰂁" , "󰂂" , "󰁹"]
+  },
+
+  // Group Hardware
+  "group/hardware": {
+    "orientation": "inherit",
+    "modules": ["custom/brightness", "pulseaudio", "temperature", "disk", "memory", "cpu", "custom/gpu", "battery"]
+  }
+}
+ 
