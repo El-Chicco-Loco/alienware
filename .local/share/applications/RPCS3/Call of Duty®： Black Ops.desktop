@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec="/usr/bin/rpcs3" --no-gui "%%RPCS3_GAMEID%%:BLUS30591"
+Name=Call of Duty®: Black Ops
+Categories=Application;Game
+Comment=Call of Duty®: Black Ops
+Icon=/home/alienware/.config/rpcs3/Icons/game_icons/BLUS30591/shortcut.png

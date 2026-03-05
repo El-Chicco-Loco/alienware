@@ -1,0 +1,5 @@
+[Runtime]
+name=io.gitlab.theevilskeleton.Upscaler.Locale
+
+[ExtensionOf]
+ref=app/io.gitlab.theevilskeleton.Upscaler/x86_64/stable

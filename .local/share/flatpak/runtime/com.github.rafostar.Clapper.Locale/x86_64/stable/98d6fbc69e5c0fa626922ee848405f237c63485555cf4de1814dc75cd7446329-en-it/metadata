@@ -1,0 +1,5 @@
+[Runtime]
+name=com.github.rafostar.Clapper.Locale
+
+[ExtensionOf]
+ref=app/com.github.rafostar.Clapper/x86_64/stable

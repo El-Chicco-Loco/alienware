@@ -1,0 +1,96 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+Source: https://dl.winehq.org/vkd3d/source
+Upstream-Name: vkd3d
+Files-Excluded:
+ bin
+ m4/lt*.m4
+ m4/libtool.m4
+ aclocal.m4
+ configure
+ Makefile.in
+ include/config.h.in
+ include/vkd3d_d3d12.h
+ include/vkd3d_d3d12sdklayers.h
+ include/vkd3d_d3d12shader.h
+ include/vkd3d_d3dcommon.h
+ include/vkd3d_d3dx9shader.h
+ include/vkd3d_dxgi.h
+ include/vkd3d_dxgi1_2.h
+ include/vkd3d_dxgi1_3.h
+ include/vkd3d_dxgi1_4.h
+ include/vkd3d_dxgibase.h
+ include/vkd3d_dxgiformat.h
+ include/vkd3d_dxgitype.h
+ tests/dxcompiler.h
+
+Files: *
+Copyright:
+ 2016-2023 the Vkd3d project authors (see AUTHORS file)
+ 2016 Józef Kucia for CodeWeavers
+ 2016-2025 Henri Verbeet for CodeWeavers
+ 2025 Henri Verbeet
+License: LGPL-2.1+
+
+Files: debian/*
+Copyright:
+ 2018-2021 Michael Gilbert <mgilbert@debian.org>
+ 2019 Jens Reyer <jre.winesim@gmail.com>
+License: LGPL-2.1+
+
+Files: demos/triangle.hlsl
+Copyright:
+ 2015 Microsoft
+ 2016 Henri Verbeet for CodeWeavers
+License: LGPL-2.1+ and Expat
+
+Files:
+ include/private/spirv.core.grammar.json
+ include/private/spirv_grammar.h
+Copyright:
+ 2014-2024 The Khronos Group Inc.
+License: Khronos
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: Khronos
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and/or associated documentation files (the "Materials"),
+ to deal in the Materials without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Materials, and to permit persons to whom the
+ Materials are furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Materials.
+ .
+ MODIFICATIONS TO THIS FILE MAY MEAN IT NO LONGER ACCURATELY REFLECTS KHRONOS
+ STANDARDS. THE UNMODIFIED, NORMATIVE VERSIONS OF KHRONOS SPECIFICATIONS AND
+ HEADER INFORMATION ARE LOCATED AT https://www.khronos.org/registry/
+ .
+ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM,OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS
+ IN THE MATERIALS.
+
+License: LGPL-2.1+
+ See /usr/share/common-licenses/LGPL-2.1

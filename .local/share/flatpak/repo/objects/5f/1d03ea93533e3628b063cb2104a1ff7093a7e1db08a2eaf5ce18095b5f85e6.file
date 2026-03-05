@@ -1,0 +1,6 @@
+[Runtime]
+name = org.freedesktop.Platform.codecs-extra
+
+[ExtensionOf]
+ref = runtime/org.freedesktop.Platform/x86_64/25.08
+

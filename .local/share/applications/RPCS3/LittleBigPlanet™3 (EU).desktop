@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec="/usr/bin/rpcs3" --no-gui "%%RPCS3_GAMEID%%:BCES01663"
+Name=LittleBigPlanet™3 (EU)
+Categories=Application;Game
+Comment=LittleBigPlanet™3 (EU)
+Icon=/home/alienware/.config/rpcs3/Icons/game_icons/BCES01663/shortcut.png

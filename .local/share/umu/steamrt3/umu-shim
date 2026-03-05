@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "${XDG_CURRENT_DESKTOP}" = "gamescope" ] || [ "${XDG_SESSION_DESKTOP}" = "gamescope" ]; then
+    # Check if STEAM_MULTIPLE_XWAYLANDS is set to 1
+    if [ "${STEAM_MULTIPLE_XWAYLANDS}" = "1" ]; then
+        # Check if DISPLAY is set, if not, set it to ":1"
+        if [ -z "${DISPLAY}" ]; then
+            export DISPLAY=":1"
+        fi
+    fi
+fi
+
+# Execute the passed command
+exec "$@"

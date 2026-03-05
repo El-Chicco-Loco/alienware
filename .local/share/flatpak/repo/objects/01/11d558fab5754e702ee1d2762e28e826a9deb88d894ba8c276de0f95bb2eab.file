@@ -1,0 +1,8 @@
+[Runtime]
+name = org.freedesktop.Platform.VAAPI.Intel
+runtime = org.freedesktop.Platform/x86_64/24.08
+sdk = org.freedesktop.Sdk/x86_64/24.08
+
+[ExtensionOf]
+ref = runtime/org.freedesktop.Platform/x86_64/24.08
+

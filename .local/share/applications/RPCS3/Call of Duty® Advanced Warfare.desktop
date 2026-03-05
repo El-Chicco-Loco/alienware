@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec="/usr/bin/rpcs3" --no-gui "%%RPCS3_GAMEID%%:BLUS31466"
+Name=Call of Duty® Advanced Warfare
+Categories=Application;Game
+Comment=Call of Duty® Advanced Warfare
+Icon=/home/alienware/.config/rpcs3/Icons/game_icons/BLUS31466/shortcut.png

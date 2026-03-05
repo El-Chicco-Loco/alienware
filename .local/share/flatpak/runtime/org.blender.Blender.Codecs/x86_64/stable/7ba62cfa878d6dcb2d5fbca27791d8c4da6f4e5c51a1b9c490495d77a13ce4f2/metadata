@@ -1,0 +1,5 @@
+[Runtime]
+name=org.blender.Blender.Codecs
+
+[ExtensionOf]
+ref=app/org.blender.Blender/x86_64/stable

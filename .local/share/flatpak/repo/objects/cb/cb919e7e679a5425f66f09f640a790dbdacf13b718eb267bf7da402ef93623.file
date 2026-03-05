@@ -1,0 +1,5 @@
+[Runtime]
+name=io.missioncenter.MissionCenter.Locale
+
+[ExtensionOf]
+ref=app/io.missioncenter.MissionCenter/x86_64/stable

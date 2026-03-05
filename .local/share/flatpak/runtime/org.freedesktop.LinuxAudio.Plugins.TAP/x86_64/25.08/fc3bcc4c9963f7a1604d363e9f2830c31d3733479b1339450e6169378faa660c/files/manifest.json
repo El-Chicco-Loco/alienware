@@ -1,0 +1,103 @@
+{
+  "id" : "org.freedesktop.LinuxAudio.Plugins.TAP",
+  "branch" : "25.08",
+  "runtime" : "org.freedesktop.LinuxAudio.BaseExtension",
+  "runtime-version" : "stable",
+  "runtime-commit" : "35e852ae3d649ec7afd9da639b4c9a108ddd6719b2743636316bcb1525093aba",
+  "sdk" : "org.freedesktop.Sdk//25.08",
+  "sdk-commit" : "a81f22cc0dabc0975a0fc70f67c4b29188d5fd6b87fea309debcc20696525976",
+  "build-options" : {
+    "prefix" : "/app/extensions/Plugins/TAP",
+    "prepend-pkg-config-path" : "/app/extensions/Plugins/TAP/lib/pkgconfig"
+  },
+  "modules" : [
+    {
+      "name" : "lv2",
+      "buildsystem" : "meson",
+      "sources" : [
+        {
+          "url" : "https://lv2plug.in/spec/lv2-1.18.10.tar.xz",
+          "sha256" : "78c51bcf21b54e58bb6329accbb4dae03b2ed79b520f9a01e734bd9de530953f",
+          "type" : "archive"
+        }
+      ],
+      "cleanup" : [
+        "/bin",
+        "/include",
+        "/lib/pkgconfig",
+        "/share"
+      ],
+      "post-install" : [
+        "install -Dm644 -t $FLATPAK_DEST/share/licenses/lv2 ../COPYING",
+        "ln -sf lv2.pc $FLATPAK_DEST/lib/pkgconfig/lv2core.pc"
+      ]
+    },
+    {
+      "name" : "tap-lv2",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "url" : "https://github.com/moddevices/tap-lv2.git",
+          "commit" : "cab6e0dfb2ce20e4ad34b067d1281ec0b193598a",
+          "type" : "git"
+        }
+      ],
+      "build-options" : {
+        "env" : {
+          "CFLAGS" : "`pkg-config --cflags lv2`"
+        },
+        "arch" : {
+          "aarch64" : {
+            "env" : {
+              "NOOPT" : "true"
+            }
+          },
+          "arm" : {
+            "env" : {
+              "NOOPT" : "true"
+            }
+          }
+        }
+      },
+      "post-install" : [
+        "install -Dm644 -t $FLATPAK_DEST/share/licenses/tap-lv2 COPYING"
+      ],
+      "build-commands" : [
+        "make NOOPT=${NOOPT}",
+        "make install INSTALL_PATH=/app/extensions/Plugins/TAP/lv2"
+      ]
+    },
+    {
+      "name" : "tap",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "url" : "https://github.com/LMMS/tap-plugins.git",
+          "commit" : "85640223047d49a305e90ba1b92303eb066ba474",
+          "type" : "git"
+        },
+        {
+          "path" : "build-fixes.patch",
+          "type" : "patch"
+        },
+        {
+          "path" : "org.freedesktop.LinuxAudio.Plugins.TAP.metainfo.xml",
+          "type" : "file"
+        }
+      ],
+      "post-install" : [
+        "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.freedesktop.LinuxAudio.Plugins.TAP.metainfo.xml",
+        "install -Dm644 -t $FLATPAK_DEST/share/licenses/tap COPYING"
+      ],
+      "build-commands" : [
+        "make",
+        "make install"
+      ]
+    }
+  ],
+  "cleanup" : [
+    "/lib/lv2"
+  ],
+  "build-extension" : true,
+  "source-date-epoch" : 1321009871
+}

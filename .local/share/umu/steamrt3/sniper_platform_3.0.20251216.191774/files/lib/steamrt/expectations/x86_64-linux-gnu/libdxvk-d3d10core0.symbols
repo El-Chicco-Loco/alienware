@@ -1,0 +1,4 @@
+libdxvk_d3d10core.so.0 libdxvk-d3d10core0 #MINVER#
+ D3D10CoreCreateDevice@Base 0
+ D3D10CoreGetVersion@Base 0
+ D3D10CoreRegisterLayers@Base 0

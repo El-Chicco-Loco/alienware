@@ -1,0 +1,10 @@
+[Runtime]
+name=org.freedesktop.LinuxAudio.Plugins.TAP
+sdk=org.freedesktop.Sdk/x86_64/25.08
+
+[ExtensionOf]
+ref=app/org.freedesktop.LinuxAudio.BaseExtension/x86_64/stable
+runtime=org.freedesktop.Platform/x86_64/24.08
+
+[Build]
+built-extensions=org.freedesktop.LinuxAudio.Plugins.TAP.Sources;

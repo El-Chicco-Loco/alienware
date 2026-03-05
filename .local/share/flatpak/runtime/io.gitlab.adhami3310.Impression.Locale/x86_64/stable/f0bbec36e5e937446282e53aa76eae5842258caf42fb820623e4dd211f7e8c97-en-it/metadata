@@ -1,0 +1,5 @@
+[Runtime]
+name=io.gitlab.adhami3310.Impression.Locale
+
+[ExtensionOf]
+ref=app/io.gitlab.adhami3310.Impression/x86_64/stable

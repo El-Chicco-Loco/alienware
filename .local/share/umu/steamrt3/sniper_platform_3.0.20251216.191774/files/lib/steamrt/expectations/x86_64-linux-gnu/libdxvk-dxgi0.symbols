@@ -1,0 +1,6 @@
+libdxvk_dxgi.so.0 libdxvk-dxgi0 #MINVER#
+ CreateDXGIFactory1@Base 0
+ CreateDXGIFactory2@Base 0
+ CreateDXGIFactory@Base 0
+ DXGIDeclareAdapterRemovalSupport@Base 0
+ DXGIGetDebugInterface1@Base 0
