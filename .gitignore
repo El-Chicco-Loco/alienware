@@ -16,6 +16,8 @@
 .local/lib/
 .local/share/Steam/
 .local/share/shadPS4/
+.local/share/flatpak/
+.local/share/gvfs-metadata
 .local/state/
 .oh-my-zsh/
 .parallel/
