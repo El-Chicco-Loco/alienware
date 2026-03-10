@@ -1,0 +1,5 @@
+libdxvk_d3d11.so.0 libdxvk-d3d11-0 #MINVER#
+ D3D11CoreCreateDevice@Base 0
+ D3D11CreateDevice@Base 0
+ D3D11CreateDeviceAndSwapChain@Base 0
+ D3D11On12CreateDevice@Base 0

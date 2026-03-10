@@ -1,0 +1,5 @@
+[Runtime]
+name=io.github.flattool.Warehouse.Locale
+
+[ExtensionOf]
+ref=app/io.github.flattool.Warehouse/x86_64/stable

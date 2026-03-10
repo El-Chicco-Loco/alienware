@@ -1,0 +1,6 @@
+[Context]
+filesystems=/home/alienware/.icons;/home/alienware/.local/share/themes;/home/alienware/.themes;/home/alienware/.local/share/icons;
+
+[Environment]
+GTK_THEME=Catppuccin-Mocha
+ICON_THEME=Tela-circle-dracula

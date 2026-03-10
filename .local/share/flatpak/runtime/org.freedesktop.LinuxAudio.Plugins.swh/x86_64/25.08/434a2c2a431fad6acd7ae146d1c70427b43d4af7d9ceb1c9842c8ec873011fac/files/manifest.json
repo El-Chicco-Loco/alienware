@@ -1,0 +1,115 @@
+{
+  "id" : "org.freedesktop.LinuxAudio.Plugins.swh",
+  "branch" : "25.08",
+  "runtime" : "org.freedesktop.LinuxAudio.BaseExtension",
+  "runtime-version" : "stable",
+  "runtime-commit" : "35e852ae3d649ec7afd9da639b4c9a108ddd6719b2743636316bcb1525093aba",
+  "sdk" : "org.freedesktop.Sdk//25.08",
+  "sdk-commit" : "a81f22cc0dabc0975a0fc70f67c4b29188d5fd6b87fea309debcc20696525976",
+  "build-options" : {
+    "prefix" : "/app/extensions/Plugins/swh",
+    "prepend-pkg-config-path" : "/app/extensions/Plugins/swh/lib/pkgconfig"
+  },
+  "modules" : [
+    {
+      "name" : "fftw3f",
+      "config-opts" : [
+        "--enable-threads",
+        "--enable-static",
+        "--disable-shared",
+        "--enable-float"
+      ],
+      "sources" : [
+        {
+          "url" : "https://www.fftw.org/fftw-3.3.10.tar.gz",
+          "sha256" : "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467",
+          "type" : "archive"
+        }
+      ],
+      "build-options" : {
+        "cflags" : "-fPIC",
+        "arch" : {
+          "aarch64" : {
+            "config-opts" : [
+              "--enable-neon"
+            ]
+          },
+          "x86_64" : {
+            "config-opts" : [
+              "--enable-sse2",
+              "--enable-avx",
+              "--enable-avx-128-fma"
+            ]
+          }
+        }
+      },
+      "cleanup" : [
+        "/bin",
+        "/include",
+        "/lib/cmake",
+        "/lib/pkgconfig",
+        "/share/info",
+        "/share/man",
+        "*.a",
+        "*.la",
+        "*.so"
+      ]
+    },
+    {
+      "name" : "swh-lv2",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "url" : "https://github.com/swh/lv2/archive/v1.0.16.tar.gz",
+          "sha256" : "bc24512de6e2fb7a493226e2e01a80ba8462a318b15c3b0fd0cd914b018c3548",
+          "type" : "archive"
+        },
+        {
+          "path" : "swh-lv2-build-fixes.patch",
+          "type" : "patch"
+        }
+      ],
+      "build-options" : {
+        "cflags" : "-fPIC",
+        "env" : {
+          "PREFIX" : "${FLATPAK_DEST}"
+        }
+      },
+      "post-install" : [
+        "strip ${FLATPAK_DEST}/lv2/*.lv2/*.so",
+        "install -Dm644 -t $FLATPAK_DEST/share/licenses/swh-lv2/ COPYING"
+      ],
+      "build-commands" : [
+        "make",
+        "make install-system"
+      ]
+    },
+    {
+      "name" : "swh",
+      "config-opts" : [
+        "--libdir=${FLATPAK_DEST}"
+      ],
+      "sources" : [
+        {
+          "url" : "https://github.com/swh/ladspa/archive/v0.4.17.tar.gz",
+          "sha256" : "d1b090feec4c5e8f9605334b47faaad72db7cc18fe91d792b9161a9e3b821ce7",
+          "type" : "archive"
+        },
+        {
+          "path" : "org.freedesktop.LinuxAudio.Plugins.swh.metainfo.xml",
+          "type" : "file"
+        }
+      ],
+      "build-options" : {
+        "cflags" : "-fPIC"
+      },
+      "post-install" : [
+        "strip ${FLATPAK_DEST}/ladspa/*.so",
+        "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.freedesktop.LinuxAudio.Plugins.swh.metainfo.xml",
+        "install -Dm644 -t $FLATPAK_DEST/share/licenses/swh/ COPYING"
+      ]
+    }
+  ],
+  "build-extension" : true,
+  "source-date-epoch" : 1321009871
+}

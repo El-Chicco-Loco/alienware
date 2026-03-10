@@ -1,0 +1,5 @@
+libdxvk_d3d8.so.0 libdxvk-d3d8-0 #MINVER#
+ DebugSetMute@Base 0
+ Direct3DCreate8@Base 0
+ ValidatePixelShader@Base 0
+ ValidateVertexShader@Base 0

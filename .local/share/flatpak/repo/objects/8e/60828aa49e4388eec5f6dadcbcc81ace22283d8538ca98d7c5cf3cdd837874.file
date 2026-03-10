@@ -1,0 +1,5 @@
+[Runtime]
+name=com.github.unrud.VideoDownloader.Locale
+
+[ExtensionOf]
+ref=app/com.github.unrud.VideoDownloader/x86_64/stable

@@ -1,0 +1,12 @@
+description=2574x1724 10.00fps
+frame_rate_num=10
+frame_rate_den=1
+width=2574
+height=1724
+progressive=1
+bottom_field_first=0
+sample_aspect_num=1
+sample_aspect_den=1
+display_aspect_num=2574
+display_aspect_den=1724
+colorspace=709

@@ -1,0 +1,5 @@
+[Runtime]
+name=com.obsproject.Studio.Locale
+
+[ExtensionOf]
+ref=app/com.obsproject.Studio/x86_64/stable
