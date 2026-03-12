@@ -3,186 +3,6 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///home/alienware/Repositories/Sweet/components/Battery.qml" added="2025-12-28T20:02:00.839000Z" modified="2025-12-28T20:02:00.839000Z" visited="2025-12-28T20:02:00.839000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:02:00.839000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/components/Clock.qml" added="2025-12-28T20:02:06.759000Z" modified="2025-12-28T20:02:06.759000Z" visited="2025-12-28T20:02:06.759000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:02:06.759000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/components/Input.qml" added="2025-12-28T20:02:14.283000Z" modified="2025-12-28T20:16:06.984000Z" visited="2025-12-28T20:16:06.984000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:16:06.984000Z" count="3"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/components/SessionManagementScreen.qml" added="2025-12-28T20:03:36.849000Z" modified="2025-12-28T20:03:36.849000Z" visited="2025-12-28T20:03:36.849000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:03:36.849000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/components/UserDelegate.qml" added="2025-12-28T20:03:49.645000Z" modified="2025-12-28T20:03:49.645000Z" visited="2025-12-28T20:03:49.645000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:03:49.645000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/components/UserList.qml" added="2025-12-28T20:05:50.068000Z" modified="2025-12-28T20:05:50.068000Z" visited="2025-12-28T20:05:50.068000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:05:50.068000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/components/VirtualKeyboard.qml" added="2025-12-28T20:05:57.956000Z" modified="2025-12-28T20:05:57.956000Z" visited="2025-12-28T20:05:57.956000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:05:57.956000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/DropdownMenuStyle.qml" added="2025-12-28T20:10:56.075000Z" modified="2025-12-28T20:10:56.075000Z" visited="2025-12-28T20:10:56.075000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:10:56.075000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/Sweet/Login.qml" added="2025-12-28T20:12:19.844000Z" modified="2025-12-28T20:12:19.844000Z" visited="2025-12-28T20:12:19.844000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-28T20:12:19.844000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/gtkCustomTheme/gtk-3.0/gtk.css" added="2025-12-29T16:45:33.495000Z" modified="2025-12-29T16:45:33.495000Z" visited="2025-12-29T16:45:33.495000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/css"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-29T16:45:33.495000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/gtkCustomTheme/cinnamon/cinnamon.css" added="2025-12-29T17:01:13.555000Z" modified="2025-12-29T17:01:13.555000Z" visited="2025-12-29T17:01:13.555000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/css"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-29T17:01:13.555000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/gtkCustomTheme/gnome-shell/gnome-shell.css" added="2025-12-29T17:03:22.810000Z" modified="2025-12-29T17:03:22.810000Z" visited="2025-12-29T17:03:22.810000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/css"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-29T17:03:22.810000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/hydeCustomTheme/kvantum/kvantum.theme" added="2025-12-29T17:04:32.384000Z" modified="2025-12-29T22:46:27.948000Z" visited="2025-12-29T22:46:27.948000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="application/x-theme"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-29T22:46:27.948000Z" count="2"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/hydeCustomTheme/kvantum/kvconfig.theme" added="2025-12-29T17:04:35.459000Z" modified="2025-12-29T22:47:12.760000Z" visited="2025-12-29T22:47:12.760000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="application/x-theme"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-29T22:47:12.760000Z" count="2"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/sddmCustomTheme/components/UserDelegate.qml" added="2025-12-30T15:11:58.919000Z" modified="2025-12-30T15:16:48.069000Z" visited="2025-12-30T15:16:48.069000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-30T15:16:48.069000Z" count="3"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/sddmCustomTheme/components/ActionButton.qml" added="2025-12-30T15:12:10.117000Z" modified="2025-12-30T15:12:10.117000Z" visited="2025-12-30T15:12:10.117000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-30T15:12:10.117000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/sddmCustomTheme/components/Input.qml" added="2025-12-30T15:12:16.512000Z" modified="2025-12-30T15:16:40.348000Z" visited="2025-12-30T15:16:40.348000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-30T15:16:40.348000Z" count="2"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
-  <bookmark href="file:///home/alienware/Repositories/sddmCustomTheme/components/SessionManagementScreen.qml" added="2025-12-30T15:12:27.357000Z" modified="2025-12-30T15:12:27.357000Z" visited="2025-12-30T15:12:27.357000Z">
-    <info>
-      <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-qml"/>
-        <bookmark:applications>
-          <bookmark:application name="code" exec="/usr/bin/code %f" modified="2025-12-30T15:12:27.357000Z" count="1"/>
-        </bookmark:applications>
-      </metadata>
-    </info>
-  </bookmark>
   <bookmark href="file:///home/alienware/Repositories/sddmCustomTheme/components/UserList.qml" added="2025-12-30T15:12:36.480000Z" modified="2025-12-30T15:12:36.480000Z" visited="2025-12-30T15:12:36.480000Z">
     <info>
       <metadata owner="http://freedesktop.org">
@@ -9115,12 +8935,12 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/alienware/.config/wlogout/style.css" added="2026-02-20T21:49:54.223489Z" modified="2026-02-20T21:49:54.223492Z" visited="2026-02-20T21:49:54.223489Z">
+  <bookmark href="file:///home/alienware/.config/wlogout/style.css" added="2026-02-20T21:49:54.223489Z" modified="2026-03-11T15:04:53.871427Z" visited="2026-02-20T21:49:54.223489Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="text/css"/>
         <bookmark:applications>
-          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-02-20T21:49:54.223490Z" count="1"/>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-03-11T15:04:53.871425Z" count="2"/>
         </bookmark:applications>
       </metadata>
     </info>
@@ -9175,12 +8995,12 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/alienware/.config/wlogout/layout" added="2026-02-20T22:04:56.761407Z" modified="2026-02-20T22:17:13.129495Z" visited="2026-02-20T22:04:56.761408Z">
+  <bookmark href="file:///home/alienware/.config/wlogout/layout" added="2026-02-20T22:04:56.761407Z" modified="2026-03-11T15:04:53.871416Z" visited="2026-02-20T22:04:56.761408Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="application/octet-stream"/>
         <bookmark:applications>
-          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-02-20T22:17:13.129494Z" count="2"/>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-03-11T15:04:53.871414Z" count="3"/>
         </bookmark:applications>
       </metadata>
     </info>
@@ -11524,6 +11344,226 @@
         <mime:mime-type type="application/x-desktop"/>
         <bookmark:applications>
           <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-03-05T14:44:57.833984Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/assets/CREDIT.md" added="2026-03-11T15:19:31.174153Z" modified="2026-03-11T15:19:31.174157Z" visited="2026-03-11T15:19:31.174154Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/markdown"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-03-11T15:19:31.174155Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/.local/lib/hypr/logoutlaunch.sh" added="2026-03-11T15:22:35.067445Z" modified="2026-03-11T15:22:35.067450Z" visited="2026-03-11T15:22:35.067446Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-shellscript"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-03-11T15:22:35.067448Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/imgui.ini" added="2026-03-11T15:29:09.797028Z" modified="2026-03-11T15:29:09.797033Z" visited="2026-03-11T15:29:09.797029Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-03-11T15:29:09.797031Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/assets/hibernate.svg" added="2026-03-11T15:32:43.477354Z" modified="2026-03-11T15:32:45.361992Z" visited="2026-03-11T15:32:43.477355Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/svg+xml"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;thunar %u&apos;" modified="2026-03-11T15:32:43.477356Z" count="1"/>
+          <bookmark:application name="org.inkscape.Inkscape" exec="&apos;org.inkscape.Inkscape %u&apos;" modified="2026-03-11T15:32:45.361991Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/assets/shutdown.svg" added="2026-03-11T15:34:39.263424Z" modified="2026-03-11T15:34:39.263428Z" visited="2026-03-11T15:34:39.263425Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/svg+xml"/>
+        <bookmark:applications>
+          <bookmark:application name="org.inkscape.Inkscape" exec="&apos;org.inkscape.Inkscape %u&apos;" modified="2026-03-11T15:34:39.263426Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/icons/shutdown.png" added="2026-03-11T15:37:12.310395Z" modified="2026-03-11T15:37:12.907970Z" visited="2026-03-11T15:37:12.310396Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T15:37:12.907969Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/icons/reboot.png" added="2026-03-11T15:37:12.310416Z" modified="2026-03-11T15:37:13.201979Z" visited="2026-03-11T15:37:12.310416Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T15:37:13.201977Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/icons/suspend.png" added="2026-03-11T15:37:12.310427Z" modified="2026-03-11T15:37:12.644370Z" visited="2026-03-11T15:37:12.310427Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T15:37:12.644368Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/icons/logout.png" added="2026-03-11T15:37:12.310437Z" modified="2026-03-11T15:37:13.446998Z" visited="2026-03-11T15:37:12.310437Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T15:37:13.446997Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/icons/lock.png" added="2026-03-11T15:37:12.310445Z" modified="2026-03-11T15:37:13.714406Z" visited="2026-03-11T15:37:12.310445Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T15:37:13.714405Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///usr/share/wlogout/icons/hibernate.png" added="2026-03-11T15:37:12.310455Z" modified="2026-03-11T15:37:13.952363Z" visited="2026-03-11T15:37:12.310455Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T15:37:13.952362Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/.config/wlogout/icons/hibernate.png" added="2026-03-11T16:08:51.845518Z" modified="2026-03-11T16:08:56.909629Z" visited="2026-03-11T16:08:51.845519Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T16:08:56.909628Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/.config/wlogout/icons/lock.png" added="2026-03-11T16:09:17.709954Z" modified="2026-03-11T16:09:20.322235Z" visited="2026-03-11T16:09:17.709955Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T16:09:20.322233Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/.config/wlogout/icons/logout.png" added="2026-03-11T16:09:51.044907Z" modified="2026-03-11T16:09:53.555614Z" visited="2026-03-11T16:09:51.044908Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T16:09:53.555613Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/.config/wlogout/icons/reboot.png" added="2026-03-11T16:10:32.733742Z" modified="2026-03-11T16:10:35.657230Z" visited="2026-03-11T16:10:32.733743Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T16:10:35.657229Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/.config/wlogout/icons/shutdown.png" added="2026-03-11T16:11:08.554954Z" modified="2026-03-11T16:11:11.351632Z" visited="2026-03-11T16:11:08.554955Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T16:11:11.351631Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/.config/wlogout/icons/suspend.png" added="2026-03-11T16:11:35.292363Z" modified="2026-03-11T16:11:38.130499Z" visited="2026-03-11T16:11:35.292364Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T16:11:38.130498Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alienware/Pictures/gimpProjects/wlogoutIcons.xcf" added="2026-03-11T16:12:52.854023Z" modified="2026-03-11T16:12:53.178346Z" visited="2026-03-11T16:12:52.854024Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/x-xcf"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNU Image Manipulation Program" exec="&apos;gimp-3.0 %u&apos;" modified="2026-03-11T16:12:53.178345Z" count="2"/>
         </bookmark:applications>
       </metadata>
     </info>

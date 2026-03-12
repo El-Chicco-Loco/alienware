@@ -1,0 +1,19 @@
+[
+  {
+    "filename": "/home/alienware/.local/share/anifetch/assets/example.mp4",
+    "width": 40,
+    "height": 20,
+    "top": 2,
+    "framerate": 10,
+    "sound": null,
+    "chafa_arguments": "--symbols ascii --fg-only",
+    "quality": 6,
+    "chroma": null,
+    "cache_list": false,
+    "delete": null,
+    "clear": false,
+    "sound_flag_given": false,
+    "chroma_flag_given": false,
+    "hash": "b72b9ccc911d0611a0cbefce84d00416db88869a46a9f0136bf79e5b862a805b"
+  }
+]
