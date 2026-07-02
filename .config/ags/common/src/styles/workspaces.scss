@@ -1,0 +1,62 @@
+window#workspaces {
+  all: unset;
+  color: $fg0;
+  font-size: $font-size;
+  background: transparent;
+  // min-width: 10pt;
+
+  .panel {
+    margin: 0pt 10pt 0pt 10pt;
+    border-radius: $widget-radius;
+    background: $bg0;
+    min-width: 200pt;
+    // max-width: 200pt;
+    // overflow: hidden;
+    
+  }
+
+
+  .bar-item {
+    background: transparent;
+    font-weight: normal;
+    @if $bar-vertical {
+      padding: 0 $bar-padding;
+    } @else {
+      padding: $bar-padding 0;
+    }
+
+    .content {
+      min-width: 10pt;
+      // max-width: 10pt;
+      
+      border-radius: $widget-radius;
+      // background: rgba($bar-button-bg, $bar-button-opacity);
+      background: $bg1;
+      border: $bar-button-border-width solid $bar-button-border-color;
+      color: $bar-button-fg;
+      padding: $bar-button-padding;
+      @if $shadow and $bar-opacity == 0 {
+        box-shadow: $bar-shadow-offset
+          $bar-shadow-blur
+          $bar-shadow-spread
+          rgba($bar-shadow-color, $bar-shadow-opacity);
+      }
+    }
+  }
+
+  // .workspaces {
+  //   @if $bar-position == "top" or $bar-position == "bottom" {
+  //     .workspaces {
+  //       &.minimal,
+  //       &.empty,
+  //       &.active {
+  //         .content {
+  //           background: $accent;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  
+}

@@ -1,0 +1,8 @@
+require("hyprland/general")
+require("hyprland/autostart")
+require("hyprland/env")
+-- require("hyprland/permissions")
+require("hyprland/look")
+require("hyprland/keybindings")
+require("hyprland/windowrules")
+require("hyprland/notifications")

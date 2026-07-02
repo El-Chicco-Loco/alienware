@@ -1,0 +1,613 @@
+--------------------------------
+---- WINDOWS AND WORKSPACES ----
+--------------------------------
+
+
+-- -- Disable blur for xwayland context menus
+-- hl.window_rule({
+--     name  = "no-blur-xwayland-context-menus",
+--     match = { class = "^()$", title = "^()$", xwayland = true },
+--     no_blur = true,
+-- })
+-- 
+-- -- Disable blur for every window
+-- hl.window_rule({
+--     name  = "no-blur-all",
+--     match = { class = ".*" },
+--     no_blur = true,
+-- })
+
+-- Floating common dialogs (consolidated)
+local float_dialogs = {
+    { title = "^Open File(.*)$" },
+    { title = "^Select a File(.*)$" },
+    { title = "^Open Folder(.*)$" },
+    { title = "^Save As(.*)$" },
+    { title = "^Rename(.*)$" },
+    { title = "^Library(.*)$" },
+    { title = "^File Upload(.*)$" },
+    { title = "^(.*)(wants to save)$" },
+    { title = "^(.*)(wants to open)$" },
+    { title = "^(Choose wallpaper)(.*)$" },
+}
+
+for _, cfg in ipairs(float_dialogs) do
+    hl.window_rule({
+        name  = "float-dialog-" .. cfg.title,
+        match = { title = cfg.title },
+        center = true,
+        float  = true,
+        opacity = 2.0,
+    })
+end
+
+local opaque_window = {
+    { class = "brave-browser" },
+    { class = "vlc" },
+}
+
+for _, cfg in ipairs(opaque_window) do
+    hl.window_rule({
+        name  = "opaque-window-" .. cfg.class,
+        match = { class = cfg.class },
+        float  = false,
+        opacity = 2.0,
+    })
+end
+
+hl.window_rule({
+    name  = "fullscreen-opacity",
+    match = { fullscreen = true },
+    opacity = 2.0,
+    float = false,
+})
+
+-- -- Specific classes: float/center/size (consolidated duplicates)
+-- hl.window_rule({
+--     name  = "float-blueberry",
+--     match = { class = "^blueberry%.py$" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-guifetch",
+--     match = { class = "^guifetch$" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-pavucontrol",
+--     match = { class = "^(pavucontrol|org.pulseaudio.pavucontrol)$" },
+--     float = true,
+--     center = true,
+--     size   = "(monitor_w*.45) (monitor_h*.45)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-nm-connection",
+--     match = { class = "^nm-connection-editor$" },
+--     float = true,
+--     center = true,
+--     size   = "(monitor_w*.45) (monitor_h*.45)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-plasmawindowed",
+--     match = { class = ".*plasmawindowed.*" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-kcm",
+--     match = { class = "kcm_.*" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-bluedevilwizard",
+--     match = { class = ".*bluedevilwizard" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-welcome",
+--     match = { title = ".*Welcome" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-illogical-settings",
+--     match = { title = "^(illogical-impulse Settings)$" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-shell-conflicts",
+--     match = { title = ".*Shell conflicts.*" },
+--     float = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-kde-portal",
+--     match = { class = "org.freedesktop.impl.portal.desktop.kde" },
+--     float = true,
+--     size   = "(monitor_w*.60) (monitor_h*.65)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "float-zotero",
+--     match = { class = "^(Zotero)$" },
+--     float = true,
+--     size   = "(monitor_w*.45) (monitor_h*.45)",
+-- })
+-- 
+-- -- Move (special cases)
+-- hl.window_rule({
+--     name  = "move-plasma-changeicons-away",
+--     match = { class = "^plasma-changeicons$" },
+--     float = true,
+--     no_initial_focus = true,
+--     move  = "999999 999999",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "move-dolphin-copy",
+--     match = { title = "^Copying — Dolphin$" },
+--     move  = "40 80",
+-- })
+-- 
+-- -- Tiling
+-- hl.window_rule({
+--     name  = "tile-warp",
+--     match = { class = "^dev%.warp%.Warp$" },
+--     tile  = true,
+-- })
+-- 
+-- -- Picture-in-Picture (deduplicated: was defined twice)
+-- hl.window_rule({
+--     name  = "picture-in-picture",
+--     match = { title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" },
+--     float = true,
+--     pin   = true,
+--     keep_aspect_ratio = true,
+--     move  = "(monitor_w*.73) (monitor_h*.72)",
+--     size  = "(monitor_w*.25) (monitor_h*.25)",
+-- })
+-- 
+-- -- Screen sharing
+-- hl.window_rule({
+--     name  = "screen-sharing",
+--     match = { title = ".*is sharing (a window|your screen).*" },
+--     float = true,
+--     pin   = true,
+--     move  = "(monitor_w*.5-window_w*.5) (monitor_h-window_h-12)",
+-- })
+-- 
+-- -- --- Tearing ---
+-- hl.window_rule({
+--     name  = "immediate-exe",
+--     match = { title = ".*%.exe" },
+--     immediate = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "immediate-minecraft",
+--     match = { title = ".*minecraft.*" },
+--     immediate = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "immediate-steam-app",
+--     match = { class = "^steam_app.*" },
+--     immediate = true,
+-- })
+-- 
+-- -- Fix JetBrains IDEs focus/rerendering
+-- hl.window_rule({
+--     name  = "jetbrains-focus-fix",
+--     match = { class = "^jetbrains-.*$", float = 1, title = "^$|^%s$|^win%d+$" },
+--     no_initial_focus = true,
+-- })
+-- 
+-- -- No shadow for tiled windows
+-- hl.window_rule({
+--     name  = "no-shadow-tiled",
+--     match = { float = 0 },
+--     no_shadow = true,
+-- })
+-- 
+-- -- ######## Workspace rules ########
+-- -- hl.workspace_rule({
+-- --     name = "special-workspace",
+-- --     match = { special = "special" },
+-- --     gapsout = 30,
+-- -- })
+-- 
+-- -- ######## Layer rules ########
+-- hl.layer_rule({
+--     name  = "xray-all",
+--     match = { namespace = ".*" },
+--     xray  = true,
+-- })
+-- 
+-- -- No-anim namespaces (consolidated)
+-- local noanim_ns = { "walker", "selection", "overview", "anyrun", "indicator.*", "osk", "hyprpicker", "noanim" }
+-- for _, ns in ipairs(noanim_ns) do
+--     hl.layer_rule({
+--         name  = "no-anim-" .. ns,
+--         match = { namespace = ns },
+--         no_anim = true,
+--     })
+-- end
+-- 
+-- hl.layer_rule({
+--     name  = "gtk-layer-shell-blur",
+--     match = { namespace = "gtk-layer-shell" },
+--     blur = true,
+--     ignore_alpha = 0,
+-- })
+-- 
+-- hl.layer_rule({
+--     name  = "launcher-blur",
+--     match = { namespace = "launcher" },
+--     blur = true,
+--     ignore_alpha = 0.5,
+-- })
+-- 
+-- hl.layer_rule({
+--     name  = "notifications-blur",
+--     match = { namespace = "notifications" },
+--     blur = true,
+--     ignore_alpha = 0.69,
+-- })
+-- 
+-- hl.layer_rule({
+--     name  = "logout_dialog-blur",
+--     match = { namespace = "logout_dialog" },
+--     blur = true,
+-- })
+-- 
+-- hl.layer_rule({
+--     name  = "rofi-blur",
+--     match = { namespace = "rofi" },
+--     blur = true,
+-- })
+-- 
+-- hl.layer_rule({
+--     name  = "quickshell-overview-blur",
+--     match = { namespace = "quickshell:overview" },
+--     blur = true,
+--     ignore_alpha = 0.5,
+-- })
+-- 
+-- -- ######## TAGS ########
+-- local function tag_rule(tag_name, match_def)
+--     hl.window_rule({
+--         name = "tag-" .. tag_name,
+--         match = match_def,
+--         tag = "+" .. tag_name,
+--     })
+-- end
+-- 
+-- -- browser
+-- tag_rule("browser", { class = "^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr|[Ff]irefox-bin)$" })
+-- tag_rule("browser", { class = "^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$" })
+-- tag_rule("browser", { class = "^chrome-.+-Default$" })
+-- tag_rule("browser", { class = "^([Cc]hromium)$" })
+-- tag_rule("browser", { class = "^([Mm]icrosoft-edge(-stable|-beta|-dev|-unstable))$" })
+-- tag_rule("browser", { class = "^(Brave-browser(-beta|-dev|-unstable)?)$" })
+-- tag_rule("browser", { class = "^([Tt]horium-browser|[Cc]achy-browser)$" })
+-- tag_rule("browser", { class = "^(zen-alpha|zen)$" })
+-- 
+-- -- notif
+-- tag_rule("notif", { class = "^(swaync-control-center|swaync-notification-window|swaync-client|class)$" })
+-- 
+-- -- KooL
+-- tag_rule("KooL_Cheat", { title = "^(KooL Quick Cheat Sheet)$" })
+-- tag_rule("KooL_Settings", { title = "^(KooL Hyprland Settings)$" })
+-- tag_rule("KooL-Settings", { class = "^(nwg-displays|nwg-look)$" })
+-- 
+-- -- terminal
+-- tag_rule("terminal", { class = "^(Alacritty|kitty|kitty-dropterm)$" })
+-- 
+-- -- email
+-- tag_rule("email", { class = "^([Tt]hunderbird|org.mozilla.Thunderbird)$" })
+-- tag_rule("email", { class = "^(eu.betterbird.Betterbird)$" })
+-- tag_rule("email", { class = "^(org.gnome.Evolution)$" })
+-- 
+-- -- projects
+-- tag_rule("projects", { class = "^(codium|codium-url-handler|VSCodium)$" })
+-- tag_rule("projects", { class = "^(VSCode|code|code-url-handler)$" })
+-- tag_rule("projects", { class = "^(jetbrains-.+)$" })
+-- tag_rule("projects", { class = "^(dev.zed.Zed|antigravity)$" })
+-- 
+-- -- screenshare
+-- tag_rule("screenshare", { class = "^(com.obsproject.Studio)$" })
+-- 
+-- -- im
+-- tag_rule("im", { class = "^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$" })
+-- tag_rule("im", { class = "^([Ff]erdium)$" })
+-- tag_rule("im", { class = "^([Ww]hatsapp-for-linux)$" })
+-- tag_rule("im", { class = "^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$" })
+-- tag_rule("im", { class = "^(teams-for-linux)$" })
+-- tag_rule("im", { class = "^(im.riot.Riot|Element)$" })
+-- 
+-- -- games
+-- tag_rule("games", { class = "^(gamescope)$" })
+-- tag_rule("games", { class = "^steam_app_\\d+$" })
+-- 
+-- -- gamestore
+-- tag_rule("gamestore", { class = "^([Ss]team)$" })
+-- tag_rule("gamestore", { title = "^([Ll]utris)$" })
+-- tag_rule("gamestore", { class = "^(com.heroicgameslauncher.hgl)$" })
+-- 
+-- -- file-manager
+-- tag_rule("file-manager", { class = "^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$" })
+-- tag_rule("file-manager", { class = "^(app.drey.Warp)$" })
+-- 
+-- -- wallpaper
+-- tag_rule("wallpaper", { class = "^([Ww]aytrogen)$" })
+-- 
+-- -- multimedia
+-- tag_rule("multimedia", { class = "^([Aa]udacious)$" })
+-- tag_rule("multimedia_video", { class = "^([Mm]pv|vlc)$" })
+-- 
+-- -- settings (consolidated)
+-- local settings_cls = {
+--     "ROG Control", "wihotspot(-gui)?", "[Bb]aobab|org.gnome.[Bb]aobab", "gnome-disks",
+--     "file-roller|org.gnome.FileRoller", "nm-applet|nm-connection-editor|blueman-manager",
+--     "pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol", "qt5ct|qt6ct",
+--     "xdg-desktop-portal-gtk", "org.kde.polkit-kde-authentication-agent-1", "[Rr]ofi",
+--     "btrfs-assistant", "timeshift-gtk", "Kvantum Manager",
+-- }
+-- for _, cls in ipairs(settings_cls) do
+--     if cls:match("^ROG Control$") or cls:match("^Kvantum Manager$") then
+--         tag_rule("settings", { title = cls })
+--     else
+--         tag_rule("settings", { class = "^(" .. cls .. ")$" })
+--     end
+-- end
+-- 
+-- -- viewer
+-- tag_rule("viewer", { class = "^(gnome-system-monitor|org.gnome.SystemMonitor|io.missioncenter.MissionCenter)$" })
+-- tag_rule("viewer", { class = "^(evince)$" })
+-- tag_rule("viewer", { class = "^(eog|org.gnome.Loupe)$" })
+-- 
+-- -- ######## Special overrides (tags) ########
+-- hl.window_rule({
+--     name = "multimedia_video-no-blur",
+--     match = { tag = "multimedia_video" },
+--     no_blur = true,
+--     opacity = 1.0,
+-- })
+-- 
+-- hl.window_rule({
+--     name = "multimedia-no-blur",
+--     match = { tag = "multimedia" },
+--     no_blur = true,
+--     opacity = 1.0,
+-- })
+-- 
+-- -- ######## POSITION (consolidated) ########
+-- local center_rules = {
+--     { name = "KooL_Cheat", match = { tag = "KooL_Cheat" } },
+--     { name = "KooL-Settings", match = { tag = "KooL-Settings" } },
+--     { name = "ROG-Control", match = { title = "^(ROG Control)$" } },
+--     { name = "Keybindings", match = { title = "^(Keybindings)$" } },
+--     { name = "pavucontrol", match = { class = "^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$" } },
+--     { name = "ferdium", match = { class = "^([Ff]erdium)$" } },
+-- }
+-- 
+-- for _, r in ipairs(center_rules) do
+--     hl.window_rule({
+--         name = "center-" .. r.name,
+--         match = r.match,
+--         center = true,
+--     })
+-- end
+-- 
+-- -- ######## idle_inhibit fullscreen (removed wild match duplicates) ########
+-- hl.window_rule({
+--     name = "idle-inhibit-fullscreen",
+--     match = { fullscreen = true },
+--     idle_inhibit = "fullscreen",
+-- })
+-- 
+-- -- ######## FLOAT (tag-based consolidated) ########
+-- hl.window_rule({
+--     name = "float-KooL_Cheat", match = { tag = "KooL_Cheat" }, float = true,
+-- })
+-- hl.window_rule({
+--     name = "float-wallpaper", match = { tag = "wallpaper" }, float = true, center = true,
+-- })
+-- hl.window_rule({
+--     name = "float-settings", match = { tag = "settings" }, float = true, center = true,
+-- })
+-- hl.window_rule({
+--     name = "float-viewer", match = { tag = "viewer" }, float = true, center = true,
+-- })
+-- hl.window_rule({
+--     name = "float-KooL-Settings", match = { tag = "KooL-Settings" }, float = true, center = true,
+-- })
+-- 
+-- -- FLOAT (class-based)
+-- local float_classes = {
+--     { name = "zoom-onedriver", class = "([Zz]oom|onedriver|onedriver-launcher)" },
+--     { name = "calculators", class = "(org.gnome.Calculator|qalculate-gtk)" },
+--     { name = "mpv-clapper", class = "^(mpv|com.github.rafostar.Clapper)$" },
+--     { name = "qalculate", class = "^([Qq]alculate-gtk)$" },
+--     { name = "ferdium", class = "^([Ff]erdium)$", center = true },
+-- }
+-- 
+-- for _, fc in ipairs(float_classes) do
+--     hl.window_rule({
+--         name = "float-" .. fc.name,
+--         match = { class = fc.class },
+--         float = true,
+--         center = fc.center,
+--     })
+-- end
+-- 
+-- -- ######## POPUPS/DIALOGUES ########
+-- hl.window_rule({
+--     name = "auth-required",
+--     match = { title = "^(Authentication Required)$" },
+--     float = true, center = true,
+-- })
+-- 
+-- -- hl.window_rule({
+-- --     name  = "codium-popup",
+-- --     match = { class = "(codium|codium-url-handler|VSCodium)", title_negative = "(.*codium.*|.*VSCodium.*)" },
+-- --     float = true,
+-- -- })
+-- -- 
+-- -- hl.window_rule({
+-- --     name  = "heroic-popup",
+-- --     match = { class = "^com.heroicgameslauncher.hgl$", title_negative = "(Heroic Games Launcher)" },
+-- --     float = true,
+-- -- })
+-- -- 
+-- -- hl.window_rule({
+-- --     name  = "steam-popup",
+-- --     match = { class = "^([Ss]team)$", title_negative = "^([Ss]team)$" },
+-- --     float = true,
+-- -- })
+-- 
+-- local sized_popups = {
+--     { title = "^(Add Folder to Workspace)$", size = "(monitor_w*0.7) (monitor_h*0.6)" },
+--     { title = "^(Save As)$", size = "(monitor_w*0.7) (monitor_h*0.6)" },
+-- }
+-- 
+-- for _, sp in ipairs(sized_popups) do
+--     hl.window_rule({
+--         name = "popup-" .. sp.title,
+--         match = { title = sp.title },
+--         float = true, center = true, size = sp.size,
+--     })
+-- end
+-- 
+-- hl.window_rule({
+--     name  = "open-files-initial",
+--     match = { initial_title = "(Open Files)" },
+--     float = true,
+--     size  = "(monitor_w*0.7) (monitor_h*0.6)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "sddm-background",
+--     match = { title = "^(SDDM Background)$" },
+--     float = true, center = true,
+--     size  = "(monitor_w*0.16) (monitor_h*0.12)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "yad-small",
+--     match = { class = "^(yad)$" },
+--     float = true, center = true,
+--     size  = "(monitor_w*0.2) (monitor_h*0.2)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "hyprland-donate",
+--     match = { class = "^(hyprland-donate-screen)$" },
+--     float = true, center = true,
+-- })
+-- 
+-- -- ######## OPACITY (consolidated) ########
+-- local opacity_tags = { "browser", "projects", "im", "multimedia", "file-manager", "terminal", "settings", "viewer", "wallpaper" }
+-- for _, t in ipairs(opacity_tags) do
+--     hl.window_rule({
+--         name = "opacity-" .. t,
+--         match = { tag = t },
+--         opacity = "0.9 0.9",
+--     })
+-- end
+-- 
+-- local opacity_classes = {
+--     "gedit|org.gnome.TextEditor|mousepad",
+--     "deluge",
+--     "seahorse",
+-- }
+-- 
+-- for _, cls in ipairs(opacity_classes) do
+--     hl.window_rule({
+--         name = "opacity-" .. cls,
+--         match = { class = "^(" .. cls .. ")$" },
+--         opacity = "0.9 0.9",
+--     })
+-- end
+-- 
+-- hl.window_rule({
+--     name = "opacity-pip",
+--     match = { title = "^(Picture-in-Picture)$" },
+--     opacity = "0.9 0.9",
+-- })
+-- 
+-- -- ######## SIZE ########
+-- hl.window_rule({
+--     name = "size-KooL_Cheat",
+--     match = { tag = "KooL_Cheat" },
+--     size = "(monitor_w*0.65) (monitor_h*0.9)",
+-- })
+-- 
+-- hl.window_rule({
+--     name = "size-wallpaper",
+--     match = { tag = "wallpaper" },
+--     size = "(monitor_w*0.7) (monitor_h*0.7)",
+-- })
+-- 
+-- hl.window_rule({
+--     name = "size-settings",
+--     match = { tag = "settings" },
+--     size = "(monitor_w*0.7) (monitor_h*0.7)",
+-- })
+-- 
+-- hl.window_rule({
+--     name = "size-ferdium",
+--     match = { class = "^([Ff]erdium)$" },
+--     size = "(monitor_w*0.6) (monitor_h*0.7)",
+-- })
+-- 
+-- -- ######## BLUR & FULLSCREEN ########
+-- hl.window_rule({
+--     name = "games-no-blur",
+--     match = { tag = "games" },
+--     no_blur = true,
+--     fullscreen = 0,
+-- })
+-- 
+-- -- ######## JetBrains focus exceptions ########
+-- hl.window_rule({
+--     name = "jetbrains-no-initial",
+--     match = { class = "^jetbrains-.*" },
+--     no_initial_focus = true,
+-- })
+-- 
+-- hl.window_rule({
+--     name = "wind-no-initial",
+--     match = { title = "^wind.*$" },
+--     no_initial_focus = true,
+-- })
+-- 
+-- -- ######## Named special cases ########
+-- hl.window_rule({
+--     name  = "Whatsapp-zapzap",
+--     match = { class = "^([Ww]hatsapp-for-linux|ZapZap|com.rtosta.zapzap)$" },
+--     float = true, center = true,
+--     size  = "(monitor_w*0.6) (monitor_h*0.7)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "Picture-in-Picture-named",
+--     match = { title = "^(Picture-in-Picture)$" },
+--     float = true, pin = true, keep_aspect_ratio = true,
+--     move  = "72% 7%", opacity = "0.95 0.75",
+--     size  = "(monitor_w*0.3) (monitor_h*0.3)",
+-- })
+-- 
+-- hl.window_rule({
+--     name  = "Thunar-Progress-bar",
+--     match = { class = "^(thunar)$", title = "^(File Operation Progress)$" },
+--     float = true, center = true,
+--     size  = "(monitor_w*0.26) (monitor_h*0.18)",
+-- })

@@ -1,0 +1,302 @@
+---
+-- Utility Helper Functions
+-- Provides common utility functions used across user-functions
+--
+-- @module utils.helpers
+-- @author Brett
+-- @license MIT
+
+local helpers = {}
+local callbacks = {}
+
+local function exec_id()
+    return tostring(os.time()) .. "_" .. tostring(math.random(10000, 99999))
+end
+
+local function exec_files(id)
+    local base = "/tmp/exec_" .. id
+
+    return base .. ".out", base .. ".ec", base .. ".sh"
+end
+
+local function write_exec_script(id, cmd, tail)
+    local outfile, ecfile, scriptfile = exec_files(id)
+
+    helpers.write_file(scriptfile, string.format(
+        "#!/bin/sh\n{\n(%s)\n} > %s 2>&1\necho $? > %s\n%s",
+        cmd, outfile, ecfile, tail or ""
+    ))
+
+    return scriptfile
+end
+
+local function collect_exec_result(outfile, ecfile)
+    local result = { success = false, stdout = "", stderr = "" }
+    local of = io.open(outfile, "r")
+
+    if of then
+        result.stdout = of:read("*a") or ""
+        of:close()
+        os.remove(outfile)
+    end
+
+    local ef = io.open(ecfile, "r")
+
+    if ef then
+        local code = tonumber(ef:read("*a"):match("%d+"))
+
+        ef:close()
+        os.remove(ecfile)
+
+        result.exit_code = code
+        result.success   = (code == 0)
+    end
+
+    return result
+end
+
+---Run a shell command synchronously and capture its output.
+-- stdout and stderr are both captured in result.stdout.
+--
+-- @param cmd string Shell command to run
+-- @return table { success = boolean, stdout = string, exit_code = number, stderr = string }
+function helpers.exec(cmd)
+    local id = exec_id()
+    local outfile, ecfile, scriptfile = exec_files(id)
+
+    write_exec_script(id, cmd)
+
+    os.execute("chmod +x " .. scriptfile .. " && " .. scriptfile)
+    os.remove(scriptfile)
+
+    return collect_exec_result(outfile, ecfile)
+end
+
+---Run a shell command asynchronously and invoke a callback upon completion.
+--
+-- @param cmd string Shell command to run
+-- @param cb closure Called with (exit_code, stdout_stderr) where exit_code is a number
+function helpers.exec_async(cmd, cb)
+    local id = exec_id()
+
+    callbacks[id] = cb
+
+    local scriptfile = write_exec_script(id, cmd, string.format(
+        "hyprctl eval 'helpers.exec_callback(\"%s\")'\nrm -f /tmp/exec_%s.sh\n", id, id
+    ))
+
+    hl.exec_cmd("chmod +x " .. scriptfile .. " && " .. scriptfile .. " &")
+end
+
+function helpers.exec_callback(id)
+    local cb = callbacks[id]
+
+    callbacks[id] = nil
+
+    if not cb then return end
+
+    local outfile, ecfile = exec_files(id)
+    local result = collect_exec_result(outfile, ecfile)
+
+    cb(result.exit_code or 0, result.stdout)
+end
+
+---Delay execution asynchronously and invoke a callback after the specified time.
+-- This is a convenience wrapper around exec_async that sleeps in the shell.
+-- Unlike helpers.sleep(), this does NOT block the compositor event loop.
+--
+-- @param seconds number The number of seconds to delay (can be fractional, e.g., 0.5)
+-- @param cb function The callback to invoke after the delay (receives no arguments)
+function helpers.delay(seconds, cb)
+    helpers.exec_async("sleep " .. tonumber(seconds) or 1, function(_, _)
+        cb()
+    end)
+end
+
+---Pause execution for a specified number of seconds
+-- Uses os.execute to spawn a sleep command
+-- Note: This blocks the current Lua execution context
+--
+-- @param seconds number The number of seconds to sleep (can be fractional, e.g., 0.5)
+-- @function sleep
+function helpers.sleep(seconds)
+    -- Ensure seconds is a valid number
+    local s = tonumber(seconds) or 1
+
+    -- Use os.execute for the sleep (standard Lua approach)
+    -- Supports fractional seconds (e.g., 0.1, 0.5)
+    os.execute("sleep " .. s)
+end
+
+---Read the entire contents of a file.
+-- Synchronous, no shell. Returns nil if the file doesn't exist or is unreadable.
+--
+-- @param path string Absolute path to the file
+-- @return string|nil contents (or nil on error)
+-- @return string|nil error message (or nil on success)
+function helpers.read_file(path)
+    local f, err = io.open(path, "r")
+    if not f then
+        return nil, err
+    end
+    local data = f:read("*a")
+    f:close()
+    return data
+end
+
+---Write contents to a file, replacing any existing content.
+-- Synchronous, no shell, atomic from this process's view.
+--
+-- @param path string Absolute path to the file
+-- @param contents string The content to write
+-- @return boolean success
+-- @return string|nil error message (or nil on success)
+function helpers.write_file(path, contents)
+    local f, err = io.open(path, "w")
+    if not f then
+        return false, err
+    end
+    f:write(contents or "")
+    f:close()
+    return true
+end
+
+---Check whether a path exists (file or directory).
+-- @param path string
+-- @return boolean
+function helpers.path_exists(path)
+    local f = io.open(path, "r")
+    if f then
+        f:close()
+        return true
+    end
+    return false
+end
+
+---Check whether a file exists (not a directory).
+-- Uses io.open in read mode; directories typically fail to open this way.
+-- @param path string
+-- @return boolean
+function helpers.file_exists(path)
+    local f = io.open(path, "r")
+    if not f then
+        return false
+    end
+    f:close()
+    return true
+end
+
+---Check whether a directory exists.
+-- Tries to open path with trailing slash appended; directories can be "opened" as streams.
+-- @param path string
+-- @return boolean
+function helpers.dir_exists(path)
+    local f = io.open(path .. "/", "r")
+    if f then
+        f:close()
+        return true
+    end
+    return false
+end
+
+---Create a directory and its parents (mkdir -p equivalent).
+-- Uses os.execute with mkdir -p as Lua has no native recursive directory creation.
+-- @param path string The directory path to create
+-- @return boolean success
+function helpers.mkdir_p(path)
+    local result = os.execute("mkdir -p " .. path .. " 2>/dev/null")
+    return result == 0 or result == true
+end
+
+---Execute a function with automatic error handling.
+-- Wraps fn in pcall; shows a notification on failure and returns default_value.
+-- When default_value is omitted the function still returns nil on error.
+-- safe_call_with_return is kept as an alias for backward compatibility.
+--
+-- @param error_context string The error message prefix
+-- @param fn function The function to execute
+-- @param default_value any (optional) Value to return on error
+-- @return any Result of fn() on success, default_value (or nil) on failure
+function helpers.safe_call(error_context, fn, default_value)
+    local success, result = pcall(fn)
+    if not success then
+        local notify = require("utils.notify")
+        notify.error(error_context, tostring(result))
+        return default_value
+    end
+    return result
+end
+
+helpers.safe_call_with_return = helpers.safe_call
+
+---Trim trailing whitespace from a string.
+-- @param s string
+-- @return string
+function helpers.trim(s)
+    return (s or ""):gsub("%s+$", "")
+end
+
+---Single-quote a string for safe shell embedding.
+-- @param s any Value to quote (coerced to string)
+-- @return string Shell-safe single-quoted string
+function helpers.shquote(s)
+    return "'" .. tostring(s):gsub("'", [['\'']]) .. "'"
+end
+
+---Decode an XKB modifier bitmask into an ordered list of modifier name strings.
+-- Recognises Super(64), Ctrl(4), Shift(1), and Alt/Mod1(8).
+-- Other bits (Lock, NumLock, Mod3, Mod5) are ignored.
+-- @param modmask number The raw modifier bitmask from hyprctl
+-- @return table Array of modifier name strings in display order
+local function decode_modmask(modmask)
+    local mods = {}
+    if (modmask & 64) ~= 0 then table.insert(mods, "SUPER") end
+    if (modmask & 4)  ~= 0 then table.insert(mods, "CTRL")  end
+    if (modmask & 1)  ~= 0 then table.insert(mods, "SHIFT") end
+    if (modmask & 8)  ~= 0 then table.insert(mods, "ALT")   end
+    return mods
+end
+
+---Retrieve the currently active global keybindings from Hyprland.
+-- Shells out to hyprctl and jq to get the live bind list, then decodes each
+-- entry into a structured Lua table. Only global binds are returned — submap,
+-- mouse, and catchall entries are excluded.
+--
+-- Each returned record has:
+--   keys        string  Human-readable key combo, e.g. "SUPER + SHIFT + S"
+--   description string  The bind's description flag (may be "")
+--   dispatcher  string  The internal dispatcher name, e.g. "exec", "closewindow"
+--   arg         string  The dispatcher argument (may be "")
+--
+-- @return table Array of bind record tables (empty on error or if jq is absent)
+function helpers.get_binds(cb)
+    helpers.exec_async(
+        "hyprctl binds -j | jq -r '.[] | select(.submap == \"\" and .catch_all == false and .mouse == false) | [(.modmask | tostring), .key, .description, .dispatcher, .arg] | @tsv'",
+        function(_, data)
+            local binds = {}
+
+            for line in data:gmatch("[^\r\n]+") do
+                local modmask_s, key, description, dispatcher, arg =
+                    line:match("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t?(.*)")
+
+                if key and key ~= "" then
+                    local mods = decode_modmask(tonumber(modmask_s) or 0)
+                    table.insert(mods, key)
+
+                    table.insert(binds, {
+                        keys        = table.concat(mods, " + "),
+                        description = description or "",
+                        dispatcher  = dispatcher  or "",
+                        arg         = arg         or "",
+                    })
+                end
+            end
+
+            cb(binds)         
+        end
+    )
+end
+
+_G.helpers = helpers
+
+return helpers

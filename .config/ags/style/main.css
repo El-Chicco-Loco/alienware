@@ -1,0 +1,816 @@
+window#bar {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+}
+window#bar .main {
+  margin: 0px 0px 0px 0px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  min-height: 20px;
+  border-bottom: 0px solid transparent;
+}
+window#bar tooltip {
+  background: rgba(22, 22, 22, 0.5);
+  border: 0px solid transparent;
+  border-radius: 8px;
+}
+window#bar separator {
+  border-radius: 8px;
+  background: rgba(54, 54, 54, 0.5);
+}
+window#bar separator.vertical {
+  margin: 0 6px;
+  min-height: 2px;
+}
+window#bar separator.horizontal {
+  margin: 6px 0;
+  min-width: 2px;
+}
+window#bar .modules-start > *:first-child .bar-item,
+window#bar .modules-start > .bar-item:first-child {
+  padding-left: 6px;
+}
+window#bar .modules-end > *:last-child .bar-item,
+window#bar .modules-end > .bar-item:last-child {
+  padding-right: 6px;
+}
+window#bar #quicksettings {
+  min-width: 300pt;
+}
+window#bar .bar-item {
+  background: transparent;
+  font-weight: normal;
+  padding: 6px 0;
+}
+window#bar .bar-item .content {
+  border-radius: 8px;
+  background: #161616;
+  border: 0px solid #363636;
+  color: #ffffff;
+  padding: 0px 8px;
+}
+window#bar .bar-item:hover .content {
+  background: #282828;
+  transition: background 0.2s;
+}
+window#bar .bar-item.active .content {
+  background: #363636;
+  transition: background 0.2s;
+}
+@keyframes blink {
+  to {
+    color: #e62d42;
+  }
+}
+window#bar .workspaces .workspaces.minimal .content, window#bar .workspaces .workspaces.empty .content {
+  background: #a09f9f;
+}
+window#bar .workspaces .workspaces.active .content {
+  background: #a09f9f;
+}
+window#bar .record-indicator {
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+window#bar .tray {
+  background: #161616;
+  border: 0px solid #363636;
+  border-radius: 8px;
+  margin: 6px 0;
+}
+window#bar .tray .toggle {
+  background: transparent;
+  padding: 0px 8px;
+  border-radius: 8px;
+}
+window#bar .tray .toggle:hover {
+  background: #282828;
+}
+window#bar .tray .menu.menu > contents {
+  background: #161616;
+  border: 0px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  margin-top: 5px;
+}
+window#bar .tray .menu modelbutton {
+  border-radius: 8px;
+  background: transparent;
+  color: #ffffff;
+}
+window#bar .tray .menu modelbutton:hover {
+  background: #282828;
+}
+window#bar .tray .menu.menu > arrow {
+  all: unset;
+}
+window#bar .tray .items .item {
+  padding: 0px 8px;
+  background: transparent;
+  border-radius: 8px;
+}
+window#bar .tray .items .item:hover {
+  background: #282828;
+}
+window#bar .tray .items .item.active {
+  background: #363636;
+  transition: background 0.2s;
+}
+window#bar .taskbar-button {
+  background: transparent;
+}
+window#bar .taskbar-button.focused .indicator {
+  transition: background 0.2s;
+  background: #a09f9f;
+}
+window#bar .taskbar-button .indicator {
+  border-radius: 8px;
+  min-width: 4px;
+  min-height: 4px;
+  background: dimgray;
+  transition: min-width 0.2s;
+}
+window#bar .taskbar-button .content {
+  padding: 0;
+}
+
+window#barshadow {
+  all: unset;
+}
+window#barshadow .shadow {
+  margin-right: 8px;
+  margin-left: 8px;
+  box-shadow: inset 0px 10px 8px -10px rgba(0, 0, 0, 0.4);
+}
+
+window#quicksettings {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+}
+window#quicksettings .hoverarea {
+  background: transparent;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+window#quicksettings .stack {
+  background: #161616;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#quicksettings tooltip {
+  background: #161616;
+  border: 2px solid #363636;
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#quicksettings .qs-main-page .header {
+  min-height: 50px;
+}
+window#quicksettings .qs-main-page .header .qs-header-button {
+  background: #282828;
+  outline: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: normal;
+  padding: 0;
+  min-width: 50px;
+}
+window#quicksettings .qs-main-page .header .qs-header-button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#quicksettings .qs-main-page .header .qs-header-button:hover {
+  background: #363636;
+}
+window#quicksettings .qs-main-page .header .battery-button {
+  padding: 0 10px;
+}
+window#quicksettings .qs-main-page .qs-button {
+  font-weight: normal;
+  padding: 0;
+  color: #ffffff;
+  outline: none;
+  min-height: 60px;
+}
+window#quicksettings .qs-main-page .qs-button .qs-button-box,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside {
+  font-weight: normal;
+  padding: 0;
+  padding-left: 10px;
+}
+window#quicksettings .qs-main-page .qs-button .arrow,
+window#quicksettings .qs-main-page .qs-button .arrow-label {
+  padding: 0px;
+  min-width: 36px;
+}
+window#quicksettings .qs-main-page .qs-button .qs-button-subtitle {
+  font-size: 13pt;
+}
+window#quicksettings .qs-main-page .qs-button .qs-button-box,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow,
+window#quicksettings .qs-main-page .qs-button .arrow,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside {
+  outline: none;
+  background: #282828;
+}
+window#quicksettings .qs-main-page .qs-button .qs-button-box:hover,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow:hover,
+window#quicksettings .qs-main-page .qs-button .arrow:hover,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside:hover {
+  background: #363636;
+  transition: all 0.2s;
+}
+window#quicksettings .qs-main-page .qs-button .qs-button-box:hover.active,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow:hover.active,
+window#quicksettings .qs-main-page .qs-button .arrow:hover.active,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside:hover.active {
+  color: get-contrast-color(rgb(185.3664921466, 184.6335078534, 184.6335078534), #ffffff, #161616);
+  background: rgb(185.3664921466, 184.6335078534, 184.6335078534);
+}
+window#quicksettings .qs-main-page .qs-button .qs-button-box:focus,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow:focus,
+window#quicksettings .qs-main-page .qs-button .arrow:focus,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#quicksettings .qs-main-page .qs-button .qs-button-box.active,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow.active,
+window#quicksettings .qs-main-page .qs-button .arrow.active,
+window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside.active {
+  background: #a09f9f;
+  color: get-contrast-color(#a09f9f, #ffffff, #161616);
+}
+window#quicksettings .qs-main-page .qs-button-box,
+window#quicksettings .qs-main-page .qs-button-box-arrow-inside {
+  border-radius: 8px;
+}
+window#quicksettings .qs-main-page .qs-button-box-arrow {
+  border-radius: 8px 0 0 8px;
+}
+window#quicksettings .qs-main-page .arrow {
+  border-radius: 0 8px 8px 0;
+}
+window#quicksettings .qs-main-page .slider-button {
+  border-radius: 8px;
+  background: #282828;
+  outline: none;
+}
+window#quicksettings .qs-main-page .slider-button:hover {
+  background: #363636;
+}
+window#quicksettings .qs-main-page .slider-button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#quicksettings .qs-main-page .slider-box {
+  border-radius: 8px;
+}
+window#quicksettings .qs-main-page .slider-box.low image {
+  color: #ffffff;
+}
+window#quicksettings .qs-main-page .slider-box image {
+  color: get-contrast-color(#a09f9f, #ffffff, #161616);
+  padding-left: 10px;
+  border-radius: 8px;
+}
+window#quicksettings .qs-main-page .slider-box scale {
+  padding: 0;
+}
+window#quicksettings .qs-main-page .slider-box scale trough {
+  all: unset;
+  background: #282828;
+  min-height: 36px;
+  border-radius: 8px;
+}
+window#quicksettings .qs-main-page .slider-box scale highlight {
+  all: unset;
+  min-height: 36px;
+  border-radius: 8px;
+  background: #a09f9f;
+}
+window#quicksettings .qs-main-page .slider-box scale slider {
+  all: unset;
+  border-radius: 8px;
+  margin: 0;
+}
+window#quicksettings .qs-main-page .slider-box scale:focus trough {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#quicksettings .qs-main-page .mediaplayer .content {
+  padding: 10px;
+}
+window#quicksettings .qs-main-page .mediaplayer {
+  font-style: normal;
+  color: #ffffff;
+  background: #161616;
+  border-radius: 8px;
+}
+window#quicksettings .qs-main-page .mediaplayer .buttons button {
+  min-height: 40px;
+  border-radius: 8px;
+  min-width: 40px;
+  outline: none;
+  padding: 0;
+  background: #282828;
+  color: #ffffff;
+}
+window#quicksettings .qs-main-page .mediaplayer .buttons button:hover, window#quicksettings .qs-main-page .mediaplayer .buttons button:active {
+  transition: background 0.2s;
+  background: #363636;
+}
+window#quicksettings .qs-main-page .mediaplayer .buttons button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#quicksettings .qs-main-page .mediaplayer .art {
+  border-radius: 8px;
+  opacity: 1;
+}
+window#quicksettings .qs-main-page .indicator {
+  padding: 15px 10px;
+}
+window#quicksettings .qs-main-page .indicator .active-dot {
+  border-radius: 8px;
+  background: white;
+  min-height: 6px;
+  min-width: 6px;
+  transition: background 0.2s;
+}
+window#quicksettings .qs-main-page .indicator .inactive-dot {
+  border-radius: 8px;
+  background: gray;
+  min-height: 6px;
+  min-width: 6px;
+  transition: background 0.2s;
+}
+
+@keyframes spin {
+  to {
+    -gtk-icon-transform: rotate(1turn);
+  }
+}
+.network .scanning.active,
+.bluetooth .scanning.active,
+.power .scanning.active,
+.weather .scanning.active,
+.notifications-list .scanning.active,
+.qs-menu-page .scanning.active {
+  animation: spin 1s linear infinite;
+}
+.network button,
+.bluetooth button,
+.power button,
+.weather button,
+.notifications-list button,
+.qs-menu-page button {
+  outline: none;
+  font-weight: normal;
+}
+.network .list .header,
+.bluetooth .list .header,
+.power .list .header,
+.weather .list .header,
+.notifications-list .list .header,
+.qs-menu-page .list .header {
+  min-height: 0;
+}
+.network .header,
+.network .notifs-header,
+.bluetooth .header,
+.bluetooth .notifs-header,
+.power .header,
+.power .notifs-header,
+.weather .header,
+.weather .notifs-header,
+.notifications-list .header,
+.notifications-list .notifs-header,
+.qs-menu-page .header,
+.qs-menu-page .notifs-header {
+  min-height: 40px;
+  border-radius: 8px;
+  background: transparent;
+}
+.network .header .toggle,
+.network .notifs-header .toggle,
+.bluetooth .header .toggle,
+.bluetooth .notifs-header .toggle,
+.power .header .toggle,
+.power .notifs-header .toggle,
+.weather .header .toggle,
+.weather .notifs-header .toggle,
+.notifications-list .header .toggle,
+.notifications-list .notifs-header .toggle,
+.qs-menu-page .header .toggle,
+.qs-menu-page .notifs-header .toggle {
+  all: unset;
+  padding: 0;
+  outline: none;
+  min-height: 20px;
+  min-width: 45px;
+  background: #363636;
+  border-radius: 8px;
+}
+.network .header .toggle:checked,
+.network .notifs-header .toggle:checked,
+.bluetooth .header .toggle:checked,
+.bluetooth .notifs-header .toggle:checked,
+.power .header .toggle:checked,
+.power .notifs-header .toggle:checked,
+.weather .header .toggle:checked,
+.weather .notifs-header .toggle:checked,
+.notifications-list .header .toggle:checked,
+.notifications-list .notifs-header .toggle:checked,
+.qs-menu-page .header .toggle:checked,
+.qs-menu-page .notifs-header .toggle:checked {
+  background: #a09f9f;
+}
+.network .header .toggle slider,
+.network .notifs-header .toggle slider,
+.bluetooth .header .toggle slider,
+.bluetooth .notifs-header .toggle slider,
+.power .header .toggle slider,
+.power .notifs-header .toggle slider,
+.weather .header .toggle slider,
+.weather .notifs-header .toggle slider,
+.notifications-list .header .toggle slider,
+.notifications-list .notifs-header .toggle slider,
+.qs-menu-page .header .toggle slider,
+.qs-menu-page .notifs-header .toggle slider {
+  background: get-contrast-color(#a09f9f, white, #161616);
+  border-radius: 8px;
+  margin: 4px;
+  box-shadow: none;
+}
+.network .header .toggle:focus,
+.network .notifs-header .toggle:focus,
+.bluetooth .header .toggle:focus,
+.bluetooth .notifs-header .toggle:focus,
+.power .header .toggle:focus,
+.power .notifs-header .toggle:focus,
+.weather .header .toggle:focus,
+.weather .notifs-header .toggle:focus,
+.notifications-list .header .toggle:focus,
+.notifications-list .notifs-header .toggle:focus,
+.qs-menu-page .header .toggle:focus,
+.qs-menu-page .notifs-header .toggle:focus {
+  transition: 0s;
+  outline-offset: 4px;
+  outline: 2px solid #c0c0c0;
+}
+.network .header .qs-header-button,
+.network .notifs-header .qs-header-button,
+.bluetooth .header .qs-header-button,
+.bluetooth .notifs-header .qs-header-button,
+.power .header .qs-header-button,
+.power .notifs-header .qs-header-button,
+.weather .header .qs-header-button,
+.weather .notifs-header .qs-header-button,
+.notifications-list .header .qs-header-button,
+.notifications-list .notifs-header .qs-header-button,
+.qs-menu-page .header .qs-header-button,
+.qs-menu-page .notifs-header .qs-header-button {
+  background: transparent;
+  border-radius: 8px;
+  min-width: 40px;
+  padding: 0;
+}
+.network .header .qs-header-button:focus,
+.network .notifs-header .qs-header-button:focus,
+.bluetooth .header .qs-header-button:focus,
+.bluetooth .notifs-header .qs-header-button:focus,
+.power .header .qs-header-button:focus,
+.power .notifs-header .qs-header-button:focus,
+.weather .header .qs-header-button:focus,
+.weather .notifs-header .qs-header-button:focus,
+.notifications-list .header .qs-header-button:focus,
+.notifications-list .notifs-header .qs-header-button:focus,
+.qs-menu-page .header .qs-header-button:focus,
+.qs-menu-page .notifs-header .qs-header-button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+.network .page-button,
+.bluetooth .page-button,
+.power .page-button,
+.weather .page-button,
+.notifications-list .page-button,
+.qs-menu-page .page-button {
+  background: transparent;
+  min-height: 50px;
+  padding: 0 10px;
+  border-radius: 8px;
+}
+.network .page-button:hover,
+.bluetooth .page-button:hover,
+.power .page-button:hover,
+.weather .page-button:hover,
+.notifications-list .page-button:hover,
+.qs-menu-page .page-button:hover {
+  background: #282828;
+}
+.network .page-button:focus,
+.bluetooth .page-button:focus,
+.power .page-button:focus,
+.weather .page-button:focus,
+.notifications-list .page-button:focus,
+.qs-menu-page .page-button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+
+window#applauncher,
+window#clipboard {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+}
+window#applauncher .main,
+window#clipboard .main {
+  background: #161616;
+  border: 2px solid #363636;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#applauncher .clear,
+window#clipboard .clear {
+  background: transparent;
+  padding: 0;
+  color: #e62d42;
+}
+window#applauncher .clear:hover,
+window#clipboard .clear:hover {
+  transition: color 0.2s;
+  color: rgb(235.4255319149, 90.5744680851, 107.0170212766);
+}
+window#applauncher .clear:focus,
+window#clipboard .clear:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#applauncher .appbutton,
+window#applauncher .clipbutton,
+window#clipboard .appbutton,
+window#clipboard .clipbutton {
+  min-height: 50px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: transparent;
+  transition: 0s;
+}
+window#applauncher .appbutton:hover,
+window#applauncher .clipbutton:hover,
+window#clipboard .appbutton:hover,
+window#clipboard .clipbutton:hover {
+  transition: background 0.3s;
+  background: #282828;
+}
+window#applauncher .appbutton:focus,
+window#applauncher .clipbutton:focus,
+window#clipboard .appbutton:focus,
+window#clipboard .clipbutton:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#applauncher .appbutton .name,
+window#applauncher .appbutton .id,
+window#applauncher .clipbutton .name,
+window#applauncher .clipbutton .id,
+window#clipboard .appbutton .name,
+window#clipboard .appbutton .id,
+window#clipboard .clipbutton .name,
+window#clipboard .clipbutton .id {
+  font-weight: normal;
+}
+window#applauncher .image-content,
+window#clipboard .image-content {
+  padding: 10px;
+}
+window#applauncher .image,
+window#applauncher .color,
+window#clipboard .image,
+window#clipboard .color {
+  border-radius: 8px;
+}
+window#applauncher .header,
+window#clipboard .header {
+  background: #282828;
+  border-radius: 8px;
+  padding: 0 10px;
+  color: #ffffff;
+}
+window#applauncher .header entry,
+window#clipboard .header entry {
+  min-height: 50px;
+  outline: none;
+  background: none;
+  box-shadow: none;
+}
+
+window#notificationspopup {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+}
+window#notificationspopup .notification {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+window#notificationslist {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+}
+window#notificationslist .main {
+  background: #161616;
+  border: 2px solid #363636;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.notification {
+  background: #282828;
+  padding: 10px;
+  border-radius: 8px;
+}
+.notification.critical {
+  color: #e62d42;
+}
+.notification .header .close {
+  outline: none;
+  color: #e62d42;
+}
+.notification .header .close:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+.notification .header .close:hover {
+  color: rgb(235.4255319149, 90.5744680851, 107.0170212766);
+}
+.notification .header button {
+  border-radius: 8px;
+  padding: 0;
+  background: #363636;
+}
+.notification .content .body {
+  font-style: normal;
+  font-weight: normal;
+}
+.notification .content .image {
+  border-radius: 8px;
+}
+.notification .actions button {
+  border-radius: 8px;
+  font-weight: normal;
+  background: #363636;
+}
+.notification .actions button:hover {
+  background-color: #484848;
+}
+
+.notifications-list tooltip {
+  background: #161616;
+  border: 2px solid #363636;
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+.notifications-list .notifs-header {
+  min-height: 40px;
+}
+.notifications-list .notifs-header button {
+  outline: none;
+  padding: 0;
+  min-width: 40px;
+  background: transparent;
+}
+.notifications-list .notifs-header button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+.notifications-list .list .header {
+  min-height: 0;
+}
+.notifications-list .notifs-clear {
+  color: #e62d42;
+}
+.notifications-list .notifs-clear:hover {
+  transition: all 0.2s;
+  color: rgb(235.4255319149, 90.5744680851, 107.0170212766);
+}
+
+window#powermenu {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+}
+window#powermenu .main {
+  background: #161616;
+  padding: 10px;
+  border: 2px solid #363636;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#powermenu .menubutton {
+  padding: 0;
+  background: transparent;
+  font-weight: normal;
+  outline: none;
+}
+window#powermenu .menubutton image {
+  border-radius: 8px;
+  background: #282828;
+  min-height: 120px;
+  min-width: 120px;
+}
+window#powermenu .menubutton:focus image {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#powermenu .menubutton:hover image {
+  transition: background 0.2s;
+  background: #363636;
+}
+
+window#verification {
+  all: unset;
+  color: #ffffff;
+}
+window#verification .main {
+  background: #161616;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #363636;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#verification .title {
+  font-size: 22px;
+}
+window#verification button {
+  border-radius: 8px;
+  font-weight: normal;
+  outline: none;
+  padding: 10px;
+  background: #282828;
+  min-width: 150px;
+}
+window#verification button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#verification button:hover {
+  transition: background 0.2s;
+  background: #363636;
+}
+
+window#workspaces {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+  background: transparent;
+}
+window#workspaces .panel {
+  margin: 0pt 10pt 0pt 10pt;
+  border-radius: 8px;
+  background: #161616;
+  min-width: 200pt;
+}
+window#workspaces .bar-item {
+  background: transparent;
+  font-weight: normal;
+  padding: 6px 0;
+}
+window#workspaces .bar-item .content {
+  min-width: 10pt;
+  border-radius: 8px;
+  background: #282828;
+  border: 0px solid #363636;
+  color: #ffffff;
+  padding: 0px 8px;
+}
+
+/*# sourceMappingURL=main.css.map */
