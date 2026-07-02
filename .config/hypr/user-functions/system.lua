@@ -6,7 +6,7 @@ local helpers = require("utils.helpers")
 local notify  = require("utils.notify")
 local proc    = require("utils.proc")
 local state   = require("utils.state")
-local devices = require("devices")
+-- local devices = require("devices")
 
 local HOME     = os.getenv("HOME")
 local TERMINAL = "kitty"
@@ -57,11 +57,11 @@ end
 -- TOUCHPAD
 -- ============================================
 
-local function set_touchpad(enabled)
-    state.set("touchpad", tostring(enabled))
-    hl.device({ name = devices.TOUCHPAD_DEVICE, enabled = enabled })
-    notify.info("Touchpad: " .. (enabled and "Enabled" or "Disabled"))
-end
+-- local function set_touchpad(enabled)
+--     state.set("touchpad", tostring(enabled))
+--     hl.device({ name = devices.TOUCHPAD_DEVICE, enabled = enabled })
+--     notify.info("Touchpad: " .. (enabled and "Enabled" or "Disabled"))
+-- end
 
 function system.touchpad_toggle()
     helpers.safe_call("Touchpad toggle failed", function()
