@@ -35,25 +35,20 @@ hl.bind(mod .. " + G",     function() user.window.game_mode() end,            { 
 
 
 -- ─────────────────────────────────────────────────────────────
--- WORKSPACES
+-- WORKSPACES AND WINDOWS
 -- ─────────────────────────────────────────────────────────────
-hl.bind(mod .. " + SHIFT + left",   hl.dsp.focus({ workspace = "-1" }))
-hl.bind(mod .. " + SHIFT + right",  hl.dsp.focus({ workspace = "+1" }))
 hl.bind(mod .. " + Tab",         hl.dsp.focus({ workspace = "m+1" }), { desc = "Next workspace" })
 hl.bind(mod .. " + SHIFT + Tab", hl.dsp.focus({ workspace = "m-1" }), { desc = "Previous workspace" })
 
-
-
--- ─────────────────────────────────────────────────────────────
--- WINDOWS
--- ─────────────────────────────────────────────────────────────
 -- Move windows
-hl.bind(mod .. " + CTRL + left",   hl.dsp.window.move({ workspace = "-1" }))
-hl.bind(mod .. " + CTRL + right",  hl.dsp.window.move({ workspace = "+1" }))
+hl.bind(mod .. " + CTRL + left",    hl.dsp.window.move({ workspace = "-1" }))
+hl.bind(mod .. " + CTRL + right",   hl.dsp.window.move({ workspace = "+1" }))
 
 -- Swap windows
-hl.bind(mod .. " + ALT + left",     hl.dsp.window.swap({ direction = "l" }))
-hl.bind(mod .. " + ALT + right",    hl.dsp.window.swap({ direction = "r" }))
+hl.bind(mod .. " + SHIFT + left",     hl.dsp.window.swap({ direction = "l" }))
+hl.bind(mod .. " + SHIFT + right",    hl.dsp.window.swap({ direction = "r" }))
+hl.bind(mod .. " + SHIFT + up",       hl.dsp.window.swap({ direction = "u" }))
+hl.bind(mod .. " + SHIFT + down",     hl.dsp.window.swap({ direction = "d" }))
 
 
 -- ─────────────────────────────────────────────────────────────

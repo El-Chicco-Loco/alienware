@@ -34,4 +34,4 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 
 -- Default editor from 01-UserDefaults.conf
-hl.env("EDITOR", "nvim")
+hl.env("EDITOR", "code")
