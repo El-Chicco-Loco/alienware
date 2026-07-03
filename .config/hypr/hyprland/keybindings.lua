@@ -11,27 +11,23 @@ local UserScripts = os.getenv("HOME") .. "/.config/hypr/UserScripts"
 -- STANDARD
 -- ─────────────────────────────────────────────────────────────
 
-hl.bind(mod .. " + Q",         hl.dsp.window.close(),                                   { desc = "Close active window" })
-hl.bind(mod .. " + SHIFT + Q", function() user.window.kill_active() end,                { desc = "Kill active window" })
-hl.bind(mod .. " + SPACE",  hl.dsp.exec_cmd(
-    "ags quit -i applauncher && cd $HOME/.config/ags/applauncher && ags run . " ..
-    "|| cd $HOME/.config/ags/applauncher && ags run ."),                                { desc = "Display app launcher" })
-hl.bind(mod .. " + B",      hl.dsp.exec_cmd("brave"),                                   { desc = "Open default browser" })
-hl.bind(mod .. " + T",      hl.dsp.exec_cmd("kitty"),                                   { desc = "Open terminal" })
-hl.bind(mod .. " + E",      hl.dsp.exec_cmd("thunar"),                                  { desc = "File manager" })
-hl.bind(mod .. " + W",      hl.dsp.window.float({ action = "toggle" }),                 { desc = "Toggle floating" })
-hl.bind(mod .. " + F",      hl.dsp.window.fullscreen(),                                 { desc = "Toggle floating" })
-hl.bind(mod .. " + C",      hl.dsp.exec_cmd("code"),                                    { desc = "Launch VSCode" })
-hl.bind(mod .. " + DELETE", hl.dsp.exec_cmd(                                              
-    "ags quit -i powermenu && cd $HOME/.config/ags/powermenu && ags run . " ..
-    "|| cd $HOME/.config/ags/powermenu && ags run ."),                                  { desc = "Display power menu" })
-hl.bind(mod .. " + P",      hl.dsp.exec_cmd(
-    "ags quit -i controlpanel && cd $HOME/.config/ags/controlpanel && ags run . " ..
-    "|| cd $HOME/.config/ags/controlpanel && ags run ."),                               { desc = "Display controlpanel" })
-hl.bind(mod .. " + O",      hl.dsp.exec_cmd(
-    "ags quit -i workspaces && cd $HOME/.config/ags/workspaces && ags run . " ..
-    "|| cd $HOME/.config/ags/workspaces && ags run ."),                                 { desc = "Display workspaces" })
-hl.bind(mod .. " + G",     function() user.window.game_mode() end,            { desc = "Toggle game mode" })
+hl.bind(mod .. " + Q",         hl.dsp.window.close(),                                           { desc = "Close active window" })
+hl.bind(mod .. " + SHIFT + Q", function() user.window.kill_active() end,                        { desc = "Kill active window" })
+hl.bind(mod .. " + B",      hl.dsp.exec_cmd("brave"),                                           { desc = "Open default browser" })
+hl.bind(mod .. " + T",      hl.dsp.exec_cmd("kitty"),                                           { desc = "Open terminal" })
+hl.bind(mod .. " + E",      hl.dsp.exec_cmd("thunar"),                                          { desc = "File manager" })
+hl.bind(mod .. " + W",      hl.dsp.window.float({ action = "toggle" }),                         { desc = "Toggle floating" })
+hl.bind(mod .. " + F",      hl.dsp.window.fullscreen(),                                         { desc = "Toggle floating" })
+hl.bind(mod .. " + C",      hl.dsp.exec_cmd("code"),                                            { desc = "Launch VSCode" })
+hl.bind(mod .. " + SPACE",  hl.dsp.exec_cmd("ags request toggle applauncher -i applauncher"),   { desc = "Display app launcher" })
+hl.bind(mod .. " + DELETE", hl.dsp.exec_cmd("ags request toggle powermenu -i powermenu"),       { desc = "Display power menu" })
+-- hl.bind(mod .. " + P",      hl.dsp.exec_cmd(
+--     "ags quit -i controlpanel && cd $HOME/.config/ags/controlpanel && ags run . " ..
+--     "|| cd $HOME/.config/ags/controlpanel && ags run ."),                               { desc = "Display controlpanel" })
+-- hl.bind(mod .. " + O",      hl.dsp.exec_cmd(
+--     "ags quit -i workspaces && cd $HOME/.config/ags/workspaces && ags run . " ..
+--     "|| cd $HOME/.config/ags/workspaces && ags run ."),                                 { desc = "Display workspaces" })
+-- hl.bind(mod .. " + G",     function() user.window.game_mode() end,            { desc = "Toggle game mode" })
 
 
 -- ─────────────────────────────────────────────────────────────
@@ -68,7 +64,6 @@ hl.bind("XF86AudioNext",  function() user.audio.media_next() end, { locked = tru
 hl.bind("XF86AudioPrev",  function() user.audio.media_prev() end, { locked = true, desc = "Previous track" })
 hl.bind("XF86AudioStop",  function() user.audio.media_stop() end, { locked = true, desc = "Stop media" })
 
-
 -- Screenshots
 hl.bind(mod .. " + Print",              function() user.session.screenshot("now") end,    { desc = "Screenshot" })
 hl.bind(mod .. " + SHIFT + Print",      function() user.session.screenshot("area") end,   { desc = "Screenshot region" })
@@ -76,7 +71,6 @@ hl.bind(mod .. " + CTRL + Print",       function() user.session.screenshot("5") 
 hl.bind(mod .. " + CTRL + SHIFT + Print", function() user.session.screenshot("10") end,   { desc = "Screenshot (10s timer)" })
 hl.bind("ALT + Print",                  function() user.session.screenshot("window") end, { desc = "Screenshot active window" })
 hl.bind(mod .. " + SHIFT + S",          function() user.session.screenshot("swappy") end, { desc = "Screenshot to swappy" })
-
 
 -- Brightness
 hl.bind("F10", function() user.display.brightness_down() end,      { locked = true, repeating = true, desc = "Screen brightness down" })

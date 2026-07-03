@@ -9,11 +9,7 @@ app.start({
   
   main() {
     app.apply_css(css, true);
-    console.log('---')
-    app.get_monitors().map(PowerMenuWindow)
-    console.log('---')
-    // app.get_window("powermenu")?.show();
-    console.log('---')
+    app.get_monitors().map(PowerMenuWindow);
   },
   requestHandler(argv, response) {
     request(argv, response);

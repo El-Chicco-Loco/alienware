@@ -2,54 +2,56 @@
 -- ON STARTUP
 -- ─────────────────────────────────────────────────────────────
 hl.on("hyprland.start", function()
-  -- Make sure any running tmux instances don't hold on to this old variable
-  hl.exec_cmd("tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE \"" .. os.getenv("HYPRLAND_INSTANCE_SIGNATURE") .. "\"")
-  
-  -- Fire up an ssh agent
-  local sock = os.getenv("SSH_AUTH_SOCK")
-      or ("/run/user/" .. (os.getenv("UID") or "1000") .. "/ssh-agent.sock")
-  hl.exec_cmd("ssh-agent -D -a " .. sock)
-  
-  -- Wallpaper stuff
-  hl.exec_cmd("awww-daemon --format xrgb")
-  
-  -- Cursor stuff
-  hl.exec_cmd("hyprctl setcursor Adwaita 24")
-  
-  -- DBus environment
-  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-  hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-  
-  -- XDG Desktop Portals (for screensharing, file opening, etc.)
-  user.system.start_portals()
+    -- Make sure any running tmux instances don't hold on to this old variable
+    hl.exec_cmd("tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE \"" .. os.getenv("HYPRLAND_INSTANCE_SIGNATURE") .. "\"")
+    
+    -- Fire up an ssh agent
+    local sock = os.getenv("SSH_AUTH_SOCK")
+        or ("/run/user/" .. (os.getenv("UID") or "1000") .. "/ssh-agent.sock")
+    hl.exec_cmd("ssh-agent -D -a " .. sock)
+    
+    -- Wallpaper stuff
+    hl.exec_cmd("awww-daemon --format xrgb")
+    
+    -- Cursor stuff
+    hl.exec_cmd("hyprctl setcursor Adwaita 24")
+    
+    -- DBus environment
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    
+    -- XDG Desktop Portals (for screensharing, file opening, etc.)
+    user.system.start_portals()
 
-  -- Polkit
-  user.system.start_polkit()
+    -- Polkit
+    user.system.start_polkit()
 
-  hl.exec_cmd("ags quit -i controlpanel && cd $HOME/.config/ags/controlpanel " ..
-  "&& ags run . || cd $HOME/.config/ags/controlpanel && ags run .")
-  -- hl.timer(function()
-  --     hl.exec_cmd("ags quit -i workspaces && cd $HOME/.config/ags/workspaces " .. 
-  --     "&& ags run . || cd $HOME/.config/ags/workspaces && ags run .")
-  -- end, { timeout = 1000, type = "oneshot" })
-  
-  -- Power mode
-  hl.timer(function()
-      hl.exec_cmd("awcc m")
-  end, { timeout = 5000, type = "oneshot" })
-  
-  -- Startup apps
-  hl.exec_cmd("nm-applet --indicator")
-  hl.exec_cmd("swaync")
-  hl.exec_cmd("blueman-applet")
-  
-  -- Clipboard manager
-  hl.exec_cmd("wl-paste --type text --watch cliphist store")
-  hl.exec_cmd("wl-paste --type image --watch cliphist store")
-  
-  -- Starting hypridle to start hyprlock
-  hl.exec_cmd("hypridle")
+    -- AGS
+    hl.exec_cmd("$HOME/.config/ags/powermenu/dist/app.js")
+    hl.timer(function()
+        hl.exec_cmd("$HOME/.config/ags/applauncher/dist/app.js") 
+    end, { timeout = 100, type = "oneshot" })
+    hl.timer(function()
+        hl.exec_cmd("$HOME/.config/ags/controlpanel/dist/app.js")
+    end, { timeout = 200, type = "oneshot" })
+    
+    -- Power mode
+    hl.timer(function()
+        hl.exec_cmd("awcc m")
+    end, { timeout = 1000, type = "oneshot" })
+    
+    -- Startup apps
+    hl.exec_cmd("nm-applet --indicator")
+    hl.exec_cmd("swaync")
+    hl.exec_cmd("blueman-applet")
+    
+    -- Clipboard manager
+    hl.exec_cmd("wl-paste --type text --watch cliphist store")
+    hl.exec_cmd("wl-paste --type image --watch cliphist store")
+    
+    -- Starting hypridle to start hyprlock
+    hl.exec_cmd("hypridle")
 
-  -- Special workspace for keepassxc
-  hl.exec_cmd("keepassxc", { workspace = "special:keepassxc" })
+    -- Special workspace for keepassxc
+    hl.exec_cmd("keepassxc", { workspace = "special:keepassxc" })
 end)

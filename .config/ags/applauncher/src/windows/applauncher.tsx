@@ -6,7 +6,7 @@ const { width, height } = config.launcher;
 
 export function AppLauncherWindow() {
    return (
-      <Popup name={windows_names.applauncher} width={width} height={height}>
+      <Popup visible={false} name={windows_names.applauncher} width={width} height={height}>
          <AppLauncherModule />
       </Popup>
    );

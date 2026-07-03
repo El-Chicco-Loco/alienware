@@ -6,14 +6,11 @@ import { Popup } from "@/src/widgets/popup";
 const powermenu = Powermenu.get_default();
 
 export function PowerMenuWindow() {
-   const popup = 
-      <Popup name={"powermenu"}>
+   return (
+      <Popup visible={false} name={"powermenu"}>
          <PowerMenuModule />
-      </Popup>;
-
-   popup.show();
-   
-   return popup;
+      </Popup>
+   );
 }
 
 export function VerificationWindow() {

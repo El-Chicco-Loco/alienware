@@ -10,7 +10,7 @@ app.start({
   main() {
     app.apply_css(css, true);
     app.get_monitors().map(AppLauncherWindow)
-    app.get_window(windows_names.applauncher)?.show();
+    // app.get_window(windows_names.applauncher)?.show();
   },
     requestHandler(argv, response) {
     request(argv, response);
