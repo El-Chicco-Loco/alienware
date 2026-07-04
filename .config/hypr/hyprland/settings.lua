@@ -30,7 +30,7 @@ hl.config({
         sensitivity = 0,
         numlock_by_default = false,
         left_handed = false,
-        follow_mouse = 0,
+        follow_mouse = 1,
         float_switch_override_focus = false,
         natural_scroll = true,
         touchpad = {
@@ -56,7 +56,7 @@ hl.config({
         mouse_move_enables_dpms = true,
         enable_swallow = false,
         swallow_regex = "^(kitty)$",
-        focus_on_activate = false,
+        focus_on_activate = true,
         initial_workspace_tracking = 0,
         middle_click_paste = false,
         enable_anr_dialog = true,

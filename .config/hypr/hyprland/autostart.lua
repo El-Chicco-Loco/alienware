@@ -12,6 +12,7 @@ hl.on("hyprland.start", function()
     
     -- Wallpaper stuff
     hl.exec_cmd("awww-daemon --format xrgb")
+    -- hl.exec_cmd("awww img ~/Pictures/wallpaper/wallpaper.GIF --transition-bezier .43,1.19,1,.4 --transition-fps 10 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2 --transition-step 5")
     
     -- Cursor stuff
     hl.exec_cmd("hyprctl setcursor Adwaita 24")
@@ -30,15 +31,15 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("$HOME/.config/ags/powermenu/dist/app.js")
     hl.timer(function()
         hl.exec_cmd("$HOME/.config/ags/applauncher/dist/app.js") 
-    end, { timeout = 100, type = "oneshot" })
+    end, { timeout = 500, type = "oneshot" })
     hl.timer(function()
         hl.exec_cmd("$HOME/.config/ags/controlpanel/dist/app.js")
-    end, { timeout = 200, type = "oneshot" })
+    end, { timeout = 700, type = "oneshot" })
     
     -- Power mode
     hl.timer(function()
         hl.exec_cmd("awcc m")
-    end, { timeout = 1000, type = "oneshot" })
+    end, { timeout = 5000, type = "oneshot" })
     
     -- Startup apps
     hl.exec_cmd("nm-applet --indicator")
@@ -54,4 +55,9 @@ hl.on("hyprland.start", function()
 
     -- Special workspace for keepassxc
     hl.exec_cmd("keepassxc", { workspace = "special:keepassxc" })
+end)
+
+hl.on("monitor.added", function()
+    -- Wallpaper stuff
+    hl.exec_cmd("awww img ~/Pictures/wallpaper/wallpaper.GIF --transition-bezier .43,1.19,1,.4 --transition-fps 10 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2 --transition-step 5")
 end)
