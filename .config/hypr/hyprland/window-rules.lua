@@ -327,6 +327,7 @@ local float_dialogs = {
     { title = "^(.*)(wants to save)$" },
     { title = "^(.*)(wants to open)$" },
     { title = "^(Choose wallpaper)(.*)$" },
+    { title = "^Authenticate$" },
 }
 
 for _, cfg in ipairs(float_dialogs) do

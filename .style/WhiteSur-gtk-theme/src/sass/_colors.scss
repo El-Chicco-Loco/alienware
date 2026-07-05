@@ -22,18 +22,21 @@
 // colors palette
 @import 'colors-palette';
 
+// custom style
+@import '../../../_style.scss';
+
 // Base colors
-$base_color:                        if($variant == 'light', #ffffff, if($darker == 'true', #1f1f1f, #242424));
+$base_color:                        if($variant == 'light', #ffffff, if($darker == 'true', $bg0, $bg0));
 $text_color:                        if($variant == 'light', #363636, #dadada);
-$bg_color:                          if($variant == 'light', #f5f5f5, if($darker == 'true', #282828, #333333));
+$bg_color:                          if($variant == 'light', #f5f5f5, if($darker == 'true', $bg0, $bg0));
 $fg_color:                          if($variant == 'light', #242424, #dedede);
 $alt_fg_color:                      if($variant == 'light', #424242, #afafaf);
 $hint_fg_color:                     if($variant == 'light', #565656, #999999);
 
 @if $scheme == 'nord' {
-  $base_color:                      if($variant == 'light', #fbfcfd, if($darker == 'true', #1d2025, #252932));
+  $base_color:                      if($variant == 'light', #fbfcfd, if($darker == 'true', $bg0, $bg0));
   $text_color:                      if($variant == 'light', #2b303b, #d3d7df);
-  $bg_color:                        if($variant == 'light', #f3f4f6, if($darker == 'true', #23272f, #2b303b));
+  $bg_color:                        if($variant == 'light', #f3f4f6, if($darker == 'true', $bg0, $bg0));
   $fg_color:                        if($variant == 'light', #1e222a, #d9dce3);
   $alt_fg_color:                    if($variant == 'light', #383f4d, #a2abbc);
   $hint_fg_color:                   if($variant == 'light', #495265, #8994a9);
@@ -135,12 +138,12 @@ $progress_color:                    $selected_bg_color;
 $drop_target_color:                 if($scheme == 'nord', $nord_color_orange, $theme_color_orange);
 
 // Headerbar colors
-$header_bg:                         if($variant == 'light', #ffffff, if($darker == 'true', #1e1e1e, #373737));
+$header_bg:                         if($variant == 'light', #ffffff, if($darker == 'true', $bg0, $bg0));
 $header_highlight:                  if($variant == 'dark', if($darker == 'true', #242424, #434343), #f5f5f5); // For metacity
 $header_fg:                         if($variant == 'light', #575757, #FDFDFD);
 
 @if $scheme == 'nord' {
-  $header_bg:                       if($variant == 'light', #fbfcfd, if($darker == 'true', #191c23, #2e3440));
+  $header_bg:                       if($variant == 'light', #fbfcfd, if($darker == 'true', $bg0, $bg0));
   $header_highlight:                if($variant == 'dark', if($darker == 'true', #1e222a, #383f4e), #f3f4f7); // For metacity
   $header_fg:                       if($variant == 'light', #57647f, #f8f9fc);
 }
@@ -169,9 +172,9 @@ $opacity: 0.96;
     $dark_sidebar_bg:                 if($scheme == 'nord', #eeeff2, #f0f0f0);
   } @else {
     @if $scheme == 'nord' {
-      $dark_sidebar_bg:               if($darker == 'true', #22262e, #2b303b);
+      $dark_sidebar_bg:               if($darker == 'true', $bg0, $bg0);
     } @else {
-      $dark_sidebar_bg:               if($darker == 'true', #282828, #333333);
+      $dark_sidebar_bg:               if($darker == 'true', $bg0, $bg0);
     }
   }
 }
@@ -189,10 +192,10 @@ $dialog_bg_color:                   if($variant == 'light', $bg_color, $base_col
 
 //OSD colors
 $osd_fg_color:                      if($scheme == 'nord', #dadada, #d3d7df);
-$solid_osd_bg_color:                if($darker == 'true', #1a1a1a, #2a2a2a);
+$solid_osd_bg_color:                if($darker == 'true', $bg0, $bg1);
 
 @if $scheme == 'nord' {
-  $solid_osd_bg_color:              if($darker == 'true', #16191e, #222730);
+  $solid_osd_bg_color:              if($darker == 'true', $bg0, $bg1);
 }
 
 $osd_bg_color:                      if($trans == 'true', rgba($solid_osd_bg_color, $opacity), $solid_osd_bg_color);
