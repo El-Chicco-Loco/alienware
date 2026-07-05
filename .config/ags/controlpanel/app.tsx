@@ -5,8 +5,6 @@ import { BarWindow } from "./src/windows/bar";
 import app from "ags/gtk4/app";
 import { createBinding, For, onCleanup, This } from "ags";
 import { QuickSettingsWindow } from "./src/windows/quicksettings";
-import { NotificationsListWindow } from "./src/windows/notificationslist";
-import { NotificationsWindow } from "./src/windows/notifications";
 
 app.start({
    icons: "/home/alienware/.icons/WhiteSur-nord-dark",

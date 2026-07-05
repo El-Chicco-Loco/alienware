@@ -23,8 +23,6 @@
 .steam
 .steampath
 .steampid
-.style
-.themes
 .var
 .vscode
 .wine
@@ -102,4 +100,5 @@ Videos
 .config/xfce4
 .config/xsettingsd
 .config/yay
+.config/zed
 .config/zen
