@@ -113,7 +113,7 @@ $highlight_color:                   if($variant == 'light', rgba(white, 0.15), r
 $dark_bg_color:                     rgba(black, 0.6);
 $alt_dark_bg_color:                 rgba(black, 0.3);
 
-// for gnome-shell keyboard
+// for -shell keyboard
 $solid_bg_color:                    if($variant == 'light', #eeeeee, #555555);
 $alt_solid_bg_color:                if($variant == 'light', #c0c0c0, #242424);
 

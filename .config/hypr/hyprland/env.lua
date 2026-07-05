@@ -35,3 +35,6 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 
 -- Default editor from 01-UserDefaults.conf
 hl.env("EDITOR", "code")
+
+-- GTK theme
+hl.env("GTK_THEME", "WhiteSur-Dark-grey")

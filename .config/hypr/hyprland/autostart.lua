@@ -1,3 +1,5 @@
+local notify  = require("utils.notify")
+
 -- ─────────────────────────────────────────────────────────────
 -- ON STARTUP
 -- ─────────────────────────────────────────────────────────────
@@ -57,7 +59,11 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("keepassxc", { workspace = "special:keepassxc" })
 end)
 
-hl.on("monitor.added", function()
+
+hl.on("monitor.added", function(monitor)
     -- Wallpaper stuff
-    hl.exec_cmd("awww img ~/Pictures/wallpaper/wallpaper.GIF --transition-bezier .43,1.19,1,.4 --transition-fps 10 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2 --transition-step 5")
+    notify.send({ text = "Monitor " .. monitor.name .. " added", timeout = 3000 })
+    if not monitor.name == "eDP-1" then
+        hl.exec_cmd("awww img ~/Pictures/wallpaper/wallpaper.GIF --transition-bezier .43,1.19,1,.4 --transition-fps 10 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2 --transition-step 5")
+    end
 end)

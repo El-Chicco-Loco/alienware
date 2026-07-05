@@ -8,8 +8,8 @@
     --fg0: #ffffff;
     --fg1: #c0c0c0;
     --fg2: #808080;
-    --accent: #a09f9f;
-    --accent-light: lighten(#a09f9f, 10%);
+    --accent: #8999a9;
+    --accent-light: lighten(#8999a9, 10%);
     --blue: #3584e4;
     --blue-light: lighten(#3584e4, 10%);
     --cyan: #2190a4;
