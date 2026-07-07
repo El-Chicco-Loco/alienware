@@ -9,6 +9,7 @@ import Gio from "gi://Gio"
 import GLib from "gi://GLib"
 import Vte from "gi://Vte?version=3.91"
 import { Astal, Gdk } from "ags/gtk4";
+import { Astal, Gdk } from "ags/gtk4";
 import { QuickSettings } from "../modules/bar/items/quicksettings";
 import { Popup } from "@/src/widgets/popup";
 import { PowerMenuModule } from "../../../powermenu/src/modules/powermenu/powermenu";
@@ -30,7 +31,7 @@ export function BtopWindow({
    terminal.spawn_async(
       Vte.PtyFlags.DEFAULT,      // pty_flags
       null,                      // working_directory
-      [shell],                   // argv
+      ["/bin/bash", "-c", "btop"],                   // argv
       null,                      // envv
       GLib.SpawnFlags.DEFAULT,   // spawn_flags
       null,                      // child_setup
@@ -48,6 +49,8 @@ export function BtopWindow({
          title="AGS Terminal"
          defaultWidth={800}
          defaultHeight={600}
+         layer={Astal.Layer.TOP}
+         anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT | Astal.WindowAnchor.BOTTOM}
          child={terminal}
       />
    );
