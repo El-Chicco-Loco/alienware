@@ -6,6 +6,7 @@
 local mod     = "SUPER"
 local scriptsDir  = os.getenv("HOME") .. "/.config/hypr/scripts"
 local UserScripts = os.getenv("HOME") .. "/.config/hypr/UserScripts"
+local notify  = require("utils.notify")
 
 -- ─────────────────────────────────────────────────────────────
 -- STANDARD
@@ -77,3 +78,26 @@ hl.bind(mod .. " + SHIFT + S",          function() user.session.screenshot("swap
 -- Brightness
 hl.bind("F10", function() user.display.brightness_down() end,      { locked = true, repeating = true, desc = "Screen brightness down" })
 hl.bind("F11",   function() user.display.brightness_up() end,        { locked = true, repeating = true, desc = "Screen brightness up" })
+
+-- Switch power modes
+hl.bind("F1 + F2", function() 
+    hl.exec_cmd("awcc b")
+    local handle = io.popen("awcc qm")
+    local result = handle:read("*a")
+    handle:close()
+    notify.send({ text = result:gsub("%s+$", ""), timeout = 3000 })
+end,                                                                                    { desc = "Switch to balanced mode" })
+hl.bind("F1 + F3", function() 
+    hl.exec_cmd("awcc p")
+    local handle = io.popen("awcc qm")
+    local result = handle:read("*a")
+    handle:close()
+    notify.send({ text = result:gsub("%s+$", ""), timeout = 3000 })
+end,                                                                                    { desc = "Switch to performance mode" })
+hl.bind("F1 + F4", function() 
+    hl.exec_cmd("awcc m")
+    local handle = io.popen("awcc qm")
+    local result = handle:read("*a")
+    handle:close()
+    notify.send({ text = result:gsub("%s+$", ""), timeout = 3000 })
+end,                                                                                    { desc = "Switch to manual mode" })
