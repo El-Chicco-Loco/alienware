@@ -1,12 +1,9 @@
-import { windows_names } from "@/windows";
-import { config } from "@/options";
 import { AppLauncherModule } from "../modules/applauncher/applauncher";
 import { Popup } from "@/src/widgets/popup";
-const { width, height } = config.launcher;
 
 export function AppLauncherWindow() {
    return (
-      <Popup visible={false} name={windows_names.applauncher} width={width} height={height}>
+      <Popup visible={false} name={"applauncher"} width={800} height={500}>
          <AppLauncherModule />
       </Popup>
    );

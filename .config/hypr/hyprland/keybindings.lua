@@ -21,6 +21,7 @@ hl.bind(mod .. " + F",      hl.dsp.window.fullscreen(),                         
 hl.bind(mod .. " + C",      hl.dsp.exec_cmd("code"),                                            { desc = "Launch VSCode" })
 hl.bind(mod .. " + SPACE",  hl.dsp.exec_cmd("ags request toggle applauncher -i applauncher"),   { desc = "Display app launcher" })
 hl.bind(mod .. " + DELETE", hl.dsp.exec_cmd("ags request toggle powermenu -i powermenu"),       { desc = "Display power menu" })
+hl.bind(mod .. " + P",      hl.dsp.exec_cmd("ags request toggle btop -i btop"),                 { desc = "Display btop window" })
 -- hl.bind(mod .. " + P",      hl.dsp.exec_cmd(
 --     "ags quit -i controlpanel && cd $HOME/.config/ags/controlpanel && ags run . " ..
 --     "|| cd $HOME/.config/ags/controlpanel && ags run ."),                               { desc = "Display controlpanel" })
@@ -39,13 +40,14 @@ hl.bind(mod .. " + SHIFT + Tab", hl.dsp.focus({ workspace = "m-1" }), { desc = "
 -- Move windows
 hl.bind(mod .. " + CTRL + left",    hl.dsp.window.move({ workspace = "-1" }))
 hl.bind(mod .. " + CTRL + right",   hl.dsp.window.move({ workspace = "+1" }))
+hl.bind(mod .. " + ALT + left",   hl.dsp.window.move({ monitor = "-1" }))
+hl.bind(mod .. " + ALT + right",   hl.dsp.window.move({ monitor = "+1" }))
 
 -- Swap windows
 hl.bind(mod .. " + SHIFT + left",     hl.dsp.window.swap({ direction = "l" }))
 hl.bind(mod .. " + SHIFT + right",    hl.dsp.window.swap({ direction = "r" }))
 hl.bind(mod .. " + SHIFT + up",       hl.dsp.window.swap({ direction = "u" }))
 hl.bind(mod .. " + SHIFT + down",     hl.dsp.window.swap({ direction = "d" }))
-
 
 -- ─────────────────────────────────────────────────────────────
 -- MEDIA CONTROLS

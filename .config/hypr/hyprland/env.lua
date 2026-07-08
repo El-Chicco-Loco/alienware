@@ -3,8 +3,8 @@
 
 -- Toolkit Backend Variables
 hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("CLUTTER_BACKEND", "wayland")
+hl.env("SDL_VIDEODRIVER", "wayland")
 
 -- XDG Specifications
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
@@ -15,6 +15,7 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 
 -- hyprland-qt-support
 hl.env("QT_QUICK_CONTROLS_STYLE", "org.hyprland.style")
@@ -38,3 +39,8 @@ hl.env("EDITOR", "code")
 
 -- GTK theme
 hl.env("GTK_THEME", "WhiteSur-Dark-grey")
+
+-- Nvidia
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("LIBVA_DRIVER_NAME", "nvidia")

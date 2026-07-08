@@ -14,8 +14,7 @@ hl.on("hyprland.start", function()
     
     -- Wallpaper stuff
     hl.exec_cmd("awww-daemon --format xrgb")
-    -- hl.exec_cmd("awww img ~/Pictures/wallpaper/wallpaper.GIF --transition-bezier .43,1.19,1,.4 --transition-fps 10 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2 --transition-step 5")
-    
+
     -- Cursor stuff
     hl.exec_cmd("hyprctl setcursor Adwaita 24")
     
@@ -35,8 +34,11 @@ hl.on("hyprland.start", function()
         hl.exec_cmd("$HOME/.config/ags/applauncher/dist/app.js") 
     end, { timeout = 500, type = "oneshot" })
     hl.timer(function()
+        hl.exec_cmd("$HOME/.config/ags/btop/dist/app.js")
+    end, { timeout = 1000, type = "oneshot" })
+    hl.timer(function()
         hl.exec_cmd("$HOME/.config/ags/controlpanel/dist/app.js")
-    end, { timeout = 700, type = "oneshot" })
+    end, { timeout = 1500, type = "oneshot" })
     
     -- Power mode
     hl.timer(function()
@@ -62,8 +64,8 @@ end)
 
 hl.on("monitor.added", function(monitor)
     -- Wallpaper stuff
-    notify.send({ text = "Monitor " .. monitor.name .. " added", timeout = 3000 })
     if not monitor.name == "eDP-1" then
+        notify.send({ text = "Monitor " .. monitor.name .. " added", timeout = 3000 })
         hl.exec_cmd("awww img ~/Pictures/wallpaper/wallpaper.GIF --transition-bezier .43,1.19,1,.4 --transition-fps 10 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2 --transition-step 5")
     end
 end)

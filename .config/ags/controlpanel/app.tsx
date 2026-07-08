@@ -1,15 +1,18 @@
 import app from "ags/gtk4/app";
-import "/home/alienware/.config/ags/common/src/services/styles";
+// import "/home/alienware/.config/ags/common/src/services/styles";
 import request from "@/request";
 import { BarWindow } from "./src/windows/bar";
 import app from "ags/gtk4/app";
 import { createBinding, For, onCleanup, This } from "ags";
 import { QuickSettingsWindow } from "./src/windows/quicksettings";
+const css = "/home/alienware/.config/ags/style/main.css";
+
 
 app.start({
    icons: "/home/alienware/.icons/WhiteSur-nord-dark",
    instanceName: "controlpanel",
    main() {
+      app.apply_css(css, true);
       QuickSettingsWindow()
    
       const monitors = createBinding(app, "monitors");

@@ -23,7 +23,6 @@ function BrightnessBox() {
          level={level}
          min={0.05}
          icon={icons.brightness}
-         onChangeValue={(value) => (brightness.screen = value)}
       />
    );
 }
@@ -37,18 +36,7 @@ function VolumeBox() {
          <QSSlider
             level={level}
             icon={VolumeIcon}
-            onChangeValue={(value) => speaker.set_volume(value)}
          />
-         <button
-            onClicked={() => qs_page_set("volume")}
-            class={"slider-button"}
-            focusOnClick={false}
-         >
-            <image
-               iconName={icons.arrow.right}
-               pixelSize={theme["icon-size"].normal}
-            />
-         </button>
       </box>
    );
 }
@@ -62,18 +50,7 @@ function MicrophoneBox() {
          <QSSlider
             level={level}
             icon={icons.microphone.default}
-            onChangeValue={(value) => microphone.set_volume(value)}
          />
-         <button
-            onClicked={() => qs_page_set("volume")}
-            class={"slider-button"}
-            focusOnClick={false}
-         >
-            <image
-               iconName={icons.arrow.right}
-               pixelSize={theme["icon-size"].normal}
-            />
-         </button>
       </box>
    );
 }

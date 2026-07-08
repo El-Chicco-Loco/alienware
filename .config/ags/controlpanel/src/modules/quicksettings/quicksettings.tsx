@@ -37,7 +37,6 @@ export function QuickSettingsModule() {
          {network.wifi !== null && <NetworkPage />}
          {bluetooth.adapter !== null && <BluetoothPage />}
          <PowerPage />
-         <VolumePage />
          {config.notifications.enabled && <NotificationsListPage />}
       </stack>
    );

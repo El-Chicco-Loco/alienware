@@ -27,10 +27,9 @@ const Buttons = {
    bluetooth: () => (bluetooth.adapter !== null ? <BluetoothButton /> : null),
    power: () =>
       powerprofile.get_profiles().length !== 0 ? <PowerProfilesButton /> : null,
-   screenrecord: () =>
-      dependencies("gpu-screen-recorder") ? <ScreenRecordButton /> : null,
-   weather: () => config.weather.enabled && <WeatherButton />,
-   notifications: () => config.notifications.enabled && <NotificationsButton />,
+   // screenrecord: () =>
+   //    dependencies("gpu-screen-recorder") ? <ScreenRecordButton /> : null,
+   // notifications: () => config.notifications.enabled && <NotificationsButton />,
    volume: () => <VolumeButton />,
    microphone: () => <MicrophoneButton />,
 } as Record<string, any>;
@@ -259,36 +258,6 @@ function BluetoothButton() {
             p && classes.push("active");
             return classes;
          })}
-      />
-   );
-}
-
-function WeatherButton() {
-   const weather = Weather.get_default();
-   const data = createBinding(weather, "data");
-
-   const temp = createComputed(() => {
-      const hourly = data().hourly;
-      if (!hourly) return "";
-      const current = hourly[0];
-      return `${current.temperature}${current.units.temperature}`;
-   });
-
-   const icon = data((data) => {
-      if (!data.hourly) return icons.weather.clear.day;
-
-      const current = data.hourly[0];
-      return current.icon;
-   });
-
-   return (
-      <QSButton
-         icon={icon}
-         label={"Weather"}
-         subtitle={temp((temp) => (temp !== "" ? temp : "None"))}
-         arrow={"inside"}
-         onClicked={() => qs_page_set("weather")}
-         ButtonClasses={["qs-button-box-arrow-inside"]}
       />
    );
 }

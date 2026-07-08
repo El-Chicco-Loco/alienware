@@ -10,8 +10,8 @@ local refresh   = require("utils.refresh")
 local HOME = os.getenv("HOME")
 
 local PATHS = {
-    wallpapers        = HOME .. "/Pictures/wallpapers",
-    swww_cache        = HOME .. "/.cache/swww",
+    wallpapers        = HOME .. "/Pictures/wallpaper",
+    awww_cache        = HOME .. "/.cache/awww",
     rofi_current      = HOME .. "/.config/rofi/.current_wallpaper",
     wallpaper_current = HOME .. "/.config/hypr/wallpaper_effects/.wallpaper_current",
     wallpaper_modified= HOME .. "/.config/hypr/wallpaper_effects/.wallpaper_modified",
@@ -26,7 +26,7 @@ local PATHS = {
     },
 }
 
-local SWWW = { fps = 60, type = "any", duration = 2, bezier = ".43,1.19,1,.4" }
+local AWWW = { fps = 60, type = "any", duration = 2, bezier = ".43,1.19,1,.4" }
 local AUTO_CHANGE_INTERVAL = 1800
 
 local IMAGE_EXTS = { "jpg","jpeg","png","gif","bmp","tiff","webp","pnm","tga","farbfeld" }
@@ -51,8 +51,8 @@ end
 
 local function is_gif(path) return path:lower():match("%.gif$") ~= nil end
 
-local function kill_wallpaper_daemons(keep_swww)
-    if not keep_swww then hl.exec_cmd("swww kill 2>/dev/null || true") end
+local function kill_wallpaper_daemons(keep_awww)
+    if not keep_awww then hl.exec_cmd("awww kill 2>/dev/null || true") end
     hl.exec_cmd("pkill mpvpaper 2>/dev/null || true")
     hl.exec_cmd("pkill swaybg   2>/dev/null || true")
     hl.exec_cmd("pkill hyprpaper 2>/dev/null || true")
@@ -133,11 +133,11 @@ local function offer_sddm(is_effect)
     )
 end
 
-local function swww_apply(image_path, monitor, on_done)
+local function awww_apply(image_path, monitor, on_done)
     local cmd = string.format(
-        "swww img -o %s %s --transition-fps %d --transition-type %s --transition-duration %d --transition-bezier %s",
+        "awww img -o %s %s --transition-fps %d --transition-type %s --transition-duration %d --transition-bezier %s",
         monitor, helpers.shquote(image_path),
-        SWWW.fps, SWWW.type, SWWW.duration, SWWW.bezier
+        AWWW.fps, AWWW.type, AWWW.duration, AWWW.bezier
     )
     helpers.exec_async(cmd, function(exit_code, _)
         pcall(function()
@@ -152,11 +152,11 @@ local function apply_image(image_path, monitor, on_done)
     if not target then notify.error("Could not detect monitor"); return end
     kill_wallpaper_daemons(true)
 
-    if proc.running("swww-daemon") then
-        swww_apply(image_path, target, on_done)
+    if proc.running("awww-daemon") then
+        awww_apply(image_path, target, on_done)
     else
-        hl.exec_cmd("swww-daemon --format xrgb &")
-        helpers.delay(0.5, function() swww_apply(image_path, target, on_done) end)
+        hl.exec_cmd("awww-daemon --format xrgb &")
+        helpers.delay(0.5, function() awww_apply(image_path, target, on_done) end)
     end
 end
 
@@ -177,10 +177,10 @@ local function get_rofi_icon_size()
     return string.format("element-icon{size:%d%%;}", sz)
 end
 
-local function current_wallpaper_from_swww()
+local function current_wallpaper_from_awww()
     local mon = focused_monitor()
     if not mon then return nil end
-    local r = helpers.exec(string.format("swww query | grep %s | awk '{print $9}'",
+    local r = helpers.exec(string.format("awww query | grep %s | awk '{print $9}'",
         helpers.shquote(mon)))
     return r.success and helpers.trim(r.stdout) ~= "" and helpers.trim(r.stdout) or nil
 end
@@ -190,10 +190,10 @@ end
 -- ============================================
 
 ---Extract colours from the current wallpaper and regenerate wallust templates.
--- @param image_path string|nil  Explicit path; falls back to swww cache.
+-- @param image_path string|nil  Explicit path; falls back to awww cache.
 function wallpaper.apply_wallust(image_path)
     helpers.safe_call("Wallust application failed", function()
-        local path = image_path or current_wallpaper_from_swww()
+        local path = image_path or current_wallpaper_from_awww()
         if not path or path == "" or not helpers.file_exists(path) then return end
 
         hl.exec_cmd(string.format("ln -sf %s %s", helpers.shquote(path), helpers.shquote(PATHS.rofi_current)))
@@ -291,7 +291,7 @@ function wallpaper.random()
         kill_wallpaper_daemons(true)
 
         local cmd = string.format(
-            "swww img -o %s %s --transition-fps 30 --transition-type random --transition-duration 1 --transition-bezier .43,1.19,1,.4",
+            "awww img -o %s %s --transition-fps 30 --transition-type random --transition-duration 1 --transition-bezier .43,1.19,1,.4",
             mon, helpers.shquote(selected)
         )
 
@@ -300,10 +300,10 @@ function wallpaper.random()
             refresh.refresh_ui(function() notify.success("Random wallpaper applied") end)
         end
 
-        if proc.running("swww-daemon") then
+        if proc.running("awww-daemon") then
             helpers.exec_async(cmd, function(_, _) pcall(apply_and_refresh) end)
         else
-            hl.exec_cmd("swww-daemon --format xrgb &")
+            hl.exec_cmd("awww-daemon --format xrgb &")
             helpers.delay(0.5, function()
                 helpers.exec_async(cmd, function(_, _) pcall(apply_and_refresh) end)
             end)
@@ -358,7 +358,7 @@ function wallpaper.effects()
                     helpers.shquote(PATHS.wallpaper_current), helpers.shquote(PATHS.wallpaper_modified)))
                 if mon then
                     hl.exec_cmd(string.format(
-                        "swww img -o %s %s --transition-fps 60 --transition-type wipe --transition-duration 2 --transition-bezier .43,1.19,1,.4",
+                        "awww img -o %s %s --transition-fps 60 --transition-type wipe --transition-duration 2 --transition-bezier .43,1.19,1,.4",
                         mon, helpers.shquote(PATHS.wallpaper_current)))
                 end
                 wallpaper.apply_wallust(PATHS.wallpaper_current)
@@ -383,7 +383,7 @@ function wallpaper.effects()
             helpers.delay(1, function()
                 if mon then
                     hl.exec_cmd(string.format(
-                        "swww img -o %s %s --transition-fps 60 --transition-type wipe --transition-duration 2 --transition-bezier .43,1.19,1,.4",
+                        "awww img -o %s %s --transition-fps 60 --transition-type wipe --transition-duration 2 --transition-bezier .43,1.19,1,.4",
                         mon, helpers.shquote(PATHS.wallpaper_modified)))
                 end
                 helpers.delay(2, function()
@@ -412,8 +412,8 @@ function wallpaper.auto_change()
         local ext_glob = "-name '*.jpg' -o -name '*.jpeg' -o -name '*.png' -o -name '*.gif' -o -name '*.webp'"
         local script = string.format([[
 #!/bin/bash
-export SWWW_TRANSITION_FPS=60
-export SWWW_TRANSITION_TYPE=simple
+export AWWW_TRANSITION_FPS=60
+export AWWW_TRANSITION_TYPE=simple
 INTERVAL=%d
 USERSCRIPTS="%s"
 ROFI_LINK="%s"
@@ -440,7 +440,7 @@ while true; do
         echo "$((RANDOM %% 1000)):$img"
     done | sort -n | cut -d':' -f2- | while read -r img; do
         MONITOR=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
-        swww img -o "$MONITOR" "$img"
+        awww img -o "$MONITOR" "$img"
         apply_wallust "$img"
         refresh_no_waybar
         sleep $INTERVAL
