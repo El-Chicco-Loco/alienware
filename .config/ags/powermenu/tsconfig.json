@@ -12,7 +12,7 @@
     "jsxImportSource": "ags/gtk4",
     "paths": {
       "powermenu/*": ["/home/alienware/.config/ags/powermenu/*"],
-      "@/*": ["/home/alienware/.config/ags/common/*"]
+      "@/*": ["/home/alienware/.config/ags/shared/*"]
     }
   }
 }

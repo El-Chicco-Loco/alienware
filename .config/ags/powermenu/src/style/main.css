@@ -1,0 +1,67 @@
+window#powermenu {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+}
+window#powermenu .main {
+  background: #161616;
+  padding: 10px;
+  border: 2px solid #363636;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#powermenu .menubutton {
+  padding: 0;
+  background: transparent;
+  font-weight: normal;
+  outline: none;
+}
+window#powermenu .menubutton image {
+  border-radius: 8px;
+  background: #282828;
+  min-height: 120px;
+  min-width: 120px;
+}
+window#powermenu .menubutton:focus image {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#powermenu .menubutton:hover image {
+  transition: background 0.2s;
+  background: #363636;
+}
+
+window#verification {
+  all: unset;
+  color: #ffffff;
+}
+window#verification .main {
+  background: #161616;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #363636;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#verification .title {
+  font-size: 22px;
+}
+window#verification button {
+  border-radius: 8px;
+  font-weight: normal;
+  outline: none;
+  padding: 10px;
+  background: #282828;
+  min-width: 150px;
+}
+window#verification button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#verification button:hover {
+  transition: background 0.2s;
+  background: #363636;
+}
+
+/*# sourceMappingURL=main.css.map */

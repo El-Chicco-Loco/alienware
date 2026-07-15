@@ -24,8 +24,8 @@ hl.env("QT_QUICK_CONTROLS_STYLE", "org.hyprland.style")
 hl.env("GDK_SCALE", "1")
 hl.env("QT_SCALE_FACTOR", "1")
 
--- Bibata-Modern-Ice-Cursor
-hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
+-- Cursor theme
+hl.env("HYPRCURSOR_THEME", "Adwaita")
 hl.env("HYPRCURSOR_SIZE", "24")
 
 -- Firefox
@@ -38,7 +38,8 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("EDITOR", "code")
 
 -- GTK theme
-hl.env("GTK_THEME", "WhiteSur-Dark-grey")
+hl.env("GTK_THEME", "WhiteSur-Dark-solid-grey-nord")
+hl.env("ICON_THEME", "WhiteSur-nord-dark")
 
 -- Nvidia
 hl.env("GBM_BACKEND", "nvidia-drm")

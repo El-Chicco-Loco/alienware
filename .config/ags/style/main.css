@@ -64,10 +64,10 @@ window#bar .bar-item.active .content {
   }
 }
 window#bar .workspaces .workspaces.minimal .content, window#bar .workspaces .workspaces.empty .content {
-  background: #a09f9f;
+  background: #8999a9;
 }
 window#bar .workspaces .workspaces.active .content {
-  background: #a09f9f;
+  background: #8999a9;
 }
 window#bar .record-indicator {
   animation-name: blink;
@@ -125,7 +125,7 @@ window#bar .taskbar-button {
 }
 window#bar .taskbar-button.focused .indicator {
   transition: background 0.2s;
-  background: #a09f9f;
+  background: #8999a9;
 }
 window#bar .taskbar-button .indicator {
   border-radius: 8px;
@@ -233,8 +233,8 @@ window#quicksettings .qs-main-page .qs-button .qs-button-box:hover.active,
 window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow:hover.active,
 window#quicksettings .qs-main-page .qs-button .arrow:hover.active,
 window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside:hover.active {
-  color: get-contrast-color(rgb(185.3664921466, 184.6335078534, 184.6335078534), #ffffff, #161616);
-  background: rgb(185.3664921466, 184.6335078534, 184.6335078534);
+  color: get-contrast-color(rgb(166.5, 178.5, 190.5), #ffffff, #161616);
+  background: rgb(166.5, 178.5, 190.5);
 }
 window#quicksettings .qs-main-page .qs-button .qs-button-box:focus,
 window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow:focus,
@@ -248,8 +248,8 @@ window#quicksettings .qs-main-page .qs-button .qs-button-box.active,
 window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow.active,
 window#quicksettings .qs-main-page .qs-button .arrow.active,
 window#quicksettings .qs-main-page .qs-button .qs-button-box-arrow-inside.active {
-  background: #a09f9f;
-  color: get-contrast-color(#a09f9f, #ffffff, #161616);
+  background: #8999a9;
+  color: get-contrast-color(#8999a9, #ffffff, #161616);
 }
 window#quicksettings .qs-main-page .qs-button-box,
 window#quicksettings .qs-main-page .qs-button-box-arrow-inside {
@@ -281,7 +281,7 @@ window#quicksettings .qs-main-page .slider-box.low image {
   color: #ffffff;
 }
 window#quicksettings .qs-main-page .slider-box image {
-  color: get-contrast-color(#a09f9f, #ffffff, #161616);
+  color: get-contrast-color(#8999a9, #ffffff, #161616);
   padding-left: 10px;
   border-radius: 8px;
 }
@@ -298,7 +298,7 @@ window#quicksettings .qs-main-page .slider-box scale highlight {
   all: unset;
   min-height: 36px;
   border-radius: 8px;
-  background: #a09f9f;
+  background: #8999a9;
 }
 window#quicksettings .qs-main-page .slider-box scale slider {
   all: unset;
@@ -437,7 +437,7 @@ window#quicksettings .qs-main-page .indicator .inactive-dot {
 .notifications-list .notifs-header .toggle:checked,
 .qs-menu-page .header .toggle:checked,
 .qs-menu-page .notifs-header .toggle:checked {
-  background: #a09f9f;
+  background: #8999a9;
 }
 .network .header .toggle slider,
 .network .notifs-header .toggle slider,
@@ -451,7 +451,7 @@ window#quicksettings .qs-main-page .indicator .inactive-dot {
 .notifications-list .notifs-header .toggle slider,
 .qs-menu-page .header .toggle slider,
 .qs-menu-page .notifs-header .toggle slider {
-  background: get-contrast-color(#a09f9f, white, #161616);
+  background: get-contrast-color(#8999a9, white, #161616);
   border-radius: 8px;
   margin: 4px;
   box-shadow: none;

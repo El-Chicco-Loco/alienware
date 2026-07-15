@@ -1,0 +1,13 @@
+# See: man pkg-config
+prefix=/home/alienware/.pyenv/versions/3.12.8
+exec_prefix=${prefix}
+libdir=/home/alienware/.pyenv/versions/3.12.8/lib
+includedir=${prefix}/include
+
+Name: Python
+Description: Build a C extension for Python
+Requires:
+Version: 3.12
+Libs.private: -ldl -L/home/alienware/.pyenv/versions/3.12.8/lib -Wl,-rpath,/home/alienware/.pyenv/versions/3.12.8/lib
+Libs: -L${libdir} 
+Cflags: -I${includedir}/python3.12

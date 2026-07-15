@@ -23,6 +23,7 @@ hl.bind(mod .. " + C",      hl.dsp.exec_cmd("code"),                            
 hl.bind(mod .. " + SPACE",  hl.dsp.exec_cmd("ags request toggle applauncher -i applauncher"),   { desc = "Display app launcher" })
 hl.bind(mod .. " + DELETE", hl.dsp.exec_cmd("ags request toggle powermenu -i powermenu"),       { desc = "Display power menu" })
 hl.bind(mod .. " + P",      hl.dsp.exec_cmd("ags request toggle btop -i btop"),                 { desc = "Display btop window" })
+hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("ags request toggle panel -i panel"), { desc = "Display control panel" })
 -- hl.bind(mod .. " + P",      hl.dsp.exec_cmd(
 --     "ags quit -i controlpanel && cd $HOME/.config/ags/controlpanel && ags run . " ..
 --     "|| cd $HOME/.config/ags/controlpanel && ags run ."),                               { desc = "Display controlpanel" })
@@ -101,3 +102,10 @@ hl.bind("F1 + F4", function()
     handle:close()
     notify.send({ text = result:gsub("%s+$", ""), timeout = 3000 })
 end,                                                                                    { desc = "Switch to manual mode" })
+hl.bind("F1 + F5", function() 
+    hl.exec_cmd("awcc g")
+    local handle = io.popen("awcc qm")
+    local result = handle:read("*a")
+    handle:close()
+    notify.send({ text = result:gsub("%s+$", ""), timeout = 3000 })
+end,                                                                                    { desc = "Switch to game mode" })

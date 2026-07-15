@@ -24,26 +24,12 @@ hl.on("hyprland.start", function()
     
     -- XDG Desktop Portals (for screensharing, file opening, etc.)
     user.system.start_portals()
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme " .. os.getenv("GTK_THEME"))
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface icon-theme " .. os.getenv("ICON_THEME"))
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 
     -- Polkit
     user.system.start_polkit()
-
-    -- AGS
-    hl.exec_cmd("$HOME/.config/ags/powermenu/dist/app.js")
-    hl.timer(function()
-        hl.exec_cmd("$HOME/.config/ags/applauncher/dist/app.js") 
-    end, { timeout = 500, type = "oneshot" })
-    hl.timer(function()
-        hl.exec_cmd("$HOME/.config/ags/btop/dist/app.js")
-    end, { timeout = 1000, type = "oneshot" })
-    hl.timer(function()
-        hl.exec_cmd("$HOME/.config/ags/controlpanel/dist/app.js")
-    end, { timeout = 1500, type = "oneshot" })
-    
-    -- Power mode
-    hl.timer(function()
-        hl.exec_cmd("awcc m")
-    end, { timeout = 5000, type = "oneshot" })
     
     -- Startup apps
     hl.exec_cmd("nm-applet --indicator")
@@ -59,6 +45,23 @@ hl.on("hyprland.start", function()
 
     -- Special workspace for keepassxc
     hl.exec_cmd("keepassxc", { workspace = "special:keepassxc" })
+
+    -- AGS
+    hl.exec_cmd("$HOME/.config/ags/powermenu/dist/app.js")
+    hl.timer(function()
+        hl.exec_cmd("$HOME/.config/ags/applauncher/dist/app.js") 
+    end, { timeout = 500, type = "oneshot" })
+    hl.timer(function()
+        hl.exec_cmd("$HOME/.config/ags/btop/dist/app.js")
+    end, { timeout = 1000, type = "oneshot" })
+    hl.timer(function()
+        hl.exec_cmd("$HOME/.config/ags/panel/dist/app.js")
+    end, { timeout = 1500, type = "oneshot" })
+    
+    -- Power mode
+    hl.timer(function()
+        hl.exec_cmd("awcc m")
+    end, { timeout = 2000, type = "oneshot" })
 end)
 
 

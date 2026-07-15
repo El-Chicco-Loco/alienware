@@ -3,11 +3,17 @@ import app from "ags/gtk4/app";
 import Powermenu from "../services/powermenu";
 import { VerificationModule } from "../modules/powermenu/verification";
 import { Popup } from "@/src/widgets/popup";
+import { Gtk } from "ags/gtk4";
 const powermenu = Powermenu.get_default();
 
 export function PowerMenuWindow() {
    return (
-      <Popup visible={false} name={"powermenu"}>
+      <Popup 
+         visible={false} 
+         name={"powermenu"} 
+         halign={Gtk.Align.CENTER} 
+         valign={Gtk.Align.CENTER}
+      >
          <PowerMenuModule />
       </Popup>
    );
@@ -24,7 +30,11 @@ export function VerificationWindow() {
    });
 
    return (
-      <Popup name={"verification"}>
+      <Popup
+         name={"verification"} 
+         halign={Gtk.Align.CENTER} 
+         valign={Gtk.Align.CENTER}
+      >
          <VerificationModule />
       </Popup>
    );

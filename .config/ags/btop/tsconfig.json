@@ -12,7 +12,7 @@
     "jsxImportSource": "ags/gtk4",
     "paths": {
       "btop/*": ["/home/alienware/.config/ags/btop/*"],
-      "@/*": ["/home/alienware/.config/ags/common/*"]
+      "@/*": ["/home/alienware/.config/ags/shared/*"]
     }
   }
 }

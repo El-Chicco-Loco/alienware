@@ -12,7 +12,7 @@
     "jsxImportSource": "ags/gtk4",
     "paths": {
       "applauncher/*": ["/home/alienware/.config/ags/applauncher/*"],
-      "@/*": ["/home/alienware/.config/ags/common/*"]
+      "@/*": ["/home/alienware/.config/ags/shared/*"]
     }
   }
 }
