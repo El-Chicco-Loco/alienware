@@ -1,7 +1,7 @@
 import app from "ags/gtk4/app";
 import request from "@/request";
 import { BtopWindow } from "./src/windows/btop";
-const css = "/home/alienware/.config/ags/style/main.css";
+const css = "/home/alienware/.config/ags/btop/src/style/main.css";
 
 app.start({
    icons: "/home/alienware/.icons/WhiteSur-nord-dark",

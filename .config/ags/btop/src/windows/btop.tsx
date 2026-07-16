@@ -2,6 +2,7 @@ import GLib from "gi://GLib"
 import app from "ags/gtk4/app";
 import Vte from "gi://Vte?version=3.91"
 import { Astal } from "ags/gtk4";
+import { Gdk } from "ags/gtk4";
 
 
 export function BtopWindow() {
@@ -23,6 +24,12 @@ export function BtopWindow() {
       null,                         // cancellable
       null                          // callback (must be function or null)
    )
+
+   const fg = new Gdk.RGBA();
+   fg.parse('#ffffff');
+   const bg = new Gdk.RGBA();
+   bg.parse('#161616');
+   terminal.set_colors(fg, bg, []);
 
    return (
       <window
