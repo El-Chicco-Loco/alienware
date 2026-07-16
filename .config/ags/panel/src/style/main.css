@@ -16,8 +16,8 @@ window#panel .stack {
 }
 window#panel tooltip {
   background: #161616;
-  border: 2px solid #363636;
-  border-radius: 8px;
+  border: 2px solid transparent;
+  border-radius: 20px;
   margin: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
@@ -27,7 +27,7 @@ window#panel .qs-main-page .header {
 window#panel .qs-main-page .header .qs-header-button {
   background: #282828;
   outline: none;
-  border-radius: 8px;
+  border-radius: 20px;
   color: #ffffff;
   font-weight: normal;
   padding: 0;
@@ -104,16 +104,16 @@ window#panel .qs-main-page .qs-button .qs-button-box-arrow-inside.active {
 }
 window#panel .qs-main-page .qs-button-box,
 window#panel .qs-main-page .qs-button-box-arrow-inside {
-  border-radius: 8px;
+  border-radius: 20px;
 }
 window#panel .qs-main-page .qs-button-box-arrow {
-  border-radius: 8px 0 0 8px;
+  border-radius: 20px 0 0 20px;
 }
 window#panel .qs-main-page .arrow {
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 20px 20px 0;
 }
 window#panel .qs-main-page .slider-button {
-  border-radius: 8px;
+  border-radius: 20px;
   background: #282828;
   outline: none;
 }
@@ -126,7 +126,7 @@ window#panel .qs-main-page .slider-button:focus {
   outline: 2px solid #c0c0c0;
 }
 window#panel .qs-main-page .slider-box {
-  border-radius: 8px;
+  border-radius: 20px;
 }
 window#panel .qs-main-page .slider-box.low image {
   color: #ffffff;
@@ -134,7 +134,7 @@ window#panel .qs-main-page .slider-box.low image {
 window#panel .qs-main-page .slider-box image {
   color: get-contrast-color(#8999a9, #ffffff, #161616);
   padding-left: 10px;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 window#panel .qs-main-page .slider-box scale {
   padding: 0;
@@ -143,17 +143,17 @@ window#panel .qs-main-page .slider-box scale trough {
   all: unset;
   background: #282828;
   min-height: 36px;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 window#panel .qs-main-page .slider-box scale highlight {
   all: unset;
   min-height: 36px;
-  border-radius: 8px;
+  border-radius: 20px;
   background: #8999a9;
 }
 window#panel .qs-main-page .slider-box scale slider {
   all: unset;
-  border-radius: 8px;
+  border-radius: 20px;
   margin: 0;
 }
 window#panel .qs-main-page .slider-box scale:focus trough {
@@ -168,11 +168,11 @@ window#panel .qs-main-page .mediaplayer {
   font-style: normal;
   color: #ffffff;
   background: #161616;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 window#panel .qs-main-page .mediaplayer .buttons button {
   min-height: 40px;
-  border-radius: 8px;
+  border-radius: 20px;
   min-width: 40px;
   outline: none;
   padding: 0;
@@ -189,21 +189,21 @@ window#panel .qs-main-page .mediaplayer .buttons button:focus {
   outline: 2px solid #c0c0c0;
 }
 window#panel .qs-main-page .mediaplayer .art {
-  border-radius: 8px;
+  border-radius: 20px;
   opacity: 1;
 }
 window#panel .qs-main-page .indicator {
   padding: 15px 10px;
 }
 window#panel .qs-main-page .indicator .active-dot {
-  border-radius: 8px;
+  border-radius: 20px;
   background: white;
   min-height: 6px;
   min-width: 6px;
   transition: background 0.2s;
 }
 window#panel .qs-main-page .indicator .inactive-dot {
-  border-radius: 8px;
+  border-radius: 20px;
   background: gray;
   min-height: 6px;
   min-width: 6px;
@@ -253,7 +253,7 @@ window#panel .qs-main-page .indicator .inactive-dot {
 .qs-menu-page .header,
 .qs-menu-page .notifs-header {
   min-height: 40px;
-  border-radius: 8px;
+  border-radius: 20px;
   background: transparent;
 }
 .network .header .toggle,
@@ -274,7 +274,7 @@ window#panel .qs-main-page .indicator .inactive-dot {
   min-height: 20px;
   min-width: 45px;
   background: #363636;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 .network .header .toggle:checked,
 .network .notifs-header .toggle:checked,
@@ -303,7 +303,7 @@ window#panel .qs-main-page .indicator .inactive-dot {
 .qs-menu-page .header .toggle slider,
 .qs-menu-page .notifs-header .toggle slider {
   background: get-contrast-color(#8999a9, white, #161616);
-  border-radius: 8px;
+  border-radius: 20px;
   margin: 4px;
   box-shadow: none;
 }
@@ -336,7 +336,7 @@ window#panel .qs-main-page .indicator .inactive-dot {
 .qs-menu-page .header .qs-header-button,
 .qs-menu-page .notifs-header .qs-header-button {
   background: transparent;
-  border-radius: 8px;
+  border-radius: 20px;
   min-width: 40px;
   padding: 0;
 }
@@ -365,7 +365,7 @@ window#panel .qs-main-page .indicator .inactive-dot {
   background: transparent;
   min-height: 50px;
   padding: 0 10px;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 .network .page-button:hover,
 .bluetooth .page-button:hover,
@@ -393,7 +393,7 @@ window#network {
 }
 window#network .main {
   background: #161616;
-  border: 2px solid #363636;
+  border: 2px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -406,7 +406,7 @@ window#bluetooth {
 }
 window#bluetooth .main {
   background: #161616;
-  border: 2px solid #363636;
+  border: 2px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -419,7 +419,7 @@ window#volume {
 }
 window#volume .main {
   background: #161616;
-  border: 2px solid #363636;
+  border: 2px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -429,7 +429,7 @@ window#volume .main {
   font-weight: normal;
   outline: none;
   background: #282828;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 .volume .dropdown:hover {
   background: #363636;
@@ -442,7 +442,7 @@ window#volume .main {
 }
 .volume popover contents {
   background: #161616;
-  border: 2px solid #363636;
+  border: 2px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -450,7 +450,7 @@ window#volume .main {
 .volume popover button {
   background: transparent;
   color: #ffffff;
-  border-radius: 8px;
+  border-radius: 20px;
   outline: none;
   font-weight: normal;
 }
@@ -469,17 +469,17 @@ window#volume .main {
   all: unset;
   background: #282828;
   min-height: 18px;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 .volume .slider-box scale highlight {
   all: unset;
   min-height: 18px;
-  border-radius: 8px;
+  border-radius: 20px;
   background: #8999a9;
 }
 .volume .slider-box scale slider {
   all: unset;
-  border-radius: 8px;
+  border-radius: 20px;
   margin: 0;
 }
 .volume .slider-box scale:focus trough {
