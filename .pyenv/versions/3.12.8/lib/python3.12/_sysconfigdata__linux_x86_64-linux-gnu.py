@@ -59,9 +59,9 @@ build_time_vars = {'ABIFLAGS': '',
  'CONFINCLUDEDIR': '/home/alienware/.pyenv/versions/3.12.8/include',
  'CONFINCLUDEPY': '/home/alienware/.pyenv/versions/3.12.8/include/python3.12',
  'COREPYTHONPATH': '',
- 'COVERAGE_INFO': '/tmp/python-build.20260715213603.68250/Python-3.12.8/coverage.info',
+ 'COVERAGE_INFO': '/tmp/python-build.20260717230531.61476/Python-3.12.8/coverage.info',
  'COVERAGE_LCOV_OPTIONS': '--rc lcov_branch_coverage=1',
- 'COVERAGE_REPORT': '/tmp/python-build.20260715213603.68250/Python-3.12.8/lcov-report',
+ 'COVERAGE_REPORT': '/tmp/python-build.20260717230531.61476/Python-3.12.8/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--rc lcov_branch_coverage=1 --branch-coverage '
                             '--title "CPython 3.12 LCOV report [commit $(shell '
                             ')]"',
@@ -723,14 +723,14 @@ build_time_vars = {'ABIFLAGS': '',
                    '_crypt  fcntl  grp  mmap  nis  ossaudiodev  '
                    '_posixsubprocess  resource  select  _socket  spwd  syslog  '
                    'termios  _posixshmem  _multiprocessing  _ctypes  _curses  '
-                   '_curses_panel  _sqlite3  _ssl  _hashlib  _uuid  xxsubtype  '
-                   '_xxtestfuzz  _testbuffer  _testinternalcapi  _testcapi  '
-                   '_testclinic  _testimportmultiple  _testmultiphase  '
-                   '_testsinglephase  _ctypes_test  xxlimited  xxlimited_35  '
-                   'atexit  faulthandler  posix  _signal  _tracemalloc  '
-                   '_codecs  _collections  errno  _io  itertools  _sre  '
-                   '_thread  time  _typing  _weakref  _abc  _functools  '
-                   '_locale  _operator  _stat  _symtable  pwd',
+                   '_curses_panel  _sqlite3  _ssl  _hashlib  _uuid  _tkinter  '
+                   'xxsubtype  _xxtestfuzz  _testbuffer  _testinternalcapi  '
+                   '_testcapi  _testclinic  _testimportmultiple  '
+                   '_testmultiphase  _testsinglephase  _ctypes_test  '
+                   'xxlimited  xxlimited_35  atexit  faulthandler  posix  '
+                   '_signal  _tracemalloc  _codecs  _collections  errno  _io  '
+                   'itertools  _sre  _thread  time  _typing  _weakref  _abc  '
+                   '_functools  _locale  _operator  _stat  _symtable  pwd',
  'MODDISABLED_NAMES': '',
  'MODLIBS': '',
  'MODOBJS': 'Modules/atexitmodule.o  Modules/faulthandler.o  '
@@ -757,9 +757,10 @@ build_time_vars = {'ABIFLAGS': '',
                     'ossaudiodev _posixsubprocess resource select _socket spwd '
                     'syslog termios _posixshmem _multiprocessing _ctypes '
                     '_curses _curses_panel _sqlite3 _ssl _hashlib _uuid '
-                    'xxsubtype _xxtestfuzz _testbuffer _testinternalcapi '
-                    '_testcapi _testclinic _testimportmultiple _testmultiphase '
-                    '_testsinglephase _ctypes_test xxlimited xxlimited_35',
+                    '_tkinter xxsubtype _xxtestfuzz _testbuffer '
+                    '_testinternalcapi _testcapi _testclinic '
+                    '_testimportmultiple _testmultiphase _testsinglephase '
+                    '_ctypes_test xxlimited xxlimited_35',
  'MODULE_ARRAY_STATE': 'yes',
  'MODULE_ATEXIT_LDFLAGS': '',
  'MODULE_AUDIOOP_LDFLAGS': '-lm',
@@ -988,7 +989,10 @@ build_time_vars = {'ABIFLAGS': '',
  'MODULE__TESTINTERNALCAPI_STATE': 'yes',
  'MODULE__TESTMULTIPHASE_STATE': 'yes',
  'MODULE__THREAD_LDFLAGS': '',
- 'MODULE__TKINTER_STATE': 'missing',
+ 'MODULE__TKINTER_CFLAGS': '-DWITH_GZFILEOP -Wno-strict-prototypes '
+                           '-DWITH_APPINIT=1',
+ 'MODULE__TKINTER_LDFLAGS': '-ltk8.6 -ltkstub8.6 -ltcl8.6 -ltclstub8.6',
+ 'MODULE__TKINTER_STATE': 'yes',
  'MODULE__TRACEMALLOC_LDFLAGS': '',
  'MODULE__TYPING_LDFLAGS': '',
  'MODULE__TYPING_STATE': 'yes',
@@ -1106,7 +1110,7 @@ build_time_vars = {'ABIFLAGS': '',
  'READELF': '@READELF@',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
- 'RUNSHARED': 'LD_LIBRARY_PATH=/tmp/python-build.20260715213603.68250/Python-3.12.8',
+ 'RUNSHARED': 'LD_LIBRARY_PATH=/tmp/python-build.20260717230531.61476/Python-3.12.8',
  'SCRIPTDIR': '/home/alienware/.pyenv/versions/3.12.8/lib',
  'SCRIPT_2TO3': 'build/scripts-3.12/2to3-3.12',
  'SCRIPT_IDLE': 'build/scripts-3.12/idle3.12',
@@ -1178,6 +1182,7 @@ build_time_vars = {'ABIFLAGS': '',
                'Modules/_ssl.cpython-312-x86_64-linux-gnu.so '
                'Modules/_hashlib.cpython-312-x86_64-linux-gnu.so '
                'Modules/_uuid.cpython-312-x86_64-linux-gnu.so '
+               'Modules/_tkinter.cpython-312-x86_64-linux-gnu.so '
                'Modules/xxsubtype.cpython-312-x86_64-linux-gnu.so '
                'Modules/_xxtestfuzz.cpython-312-x86_64-linux-gnu.so '
                'Modules/_testbuffer.cpython-312-x86_64-linux-gnu.so '
@@ -1232,10 +1237,10 @@ build_time_vars = {'ABIFLAGS': '',
  'SYS_SELECT_WITH_SYS_TIME': 1,
  'TESTOPTS': '',
  'TESTPATH': '',
- 'TESTPYTHON': 'LD_LIBRARY_PATH=/tmp/python-build.20260715213603.68250/Python-3.12.8 '
+ 'TESTPYTHON': 'LD_LIBRARY_PATH=/tmp/python-build.20260717230531.61476/Python-3.12.8 '
                './python -E',
  'TESTPYTHONOPTS': '',
- 'TESTRUNNER': 'LD_LIBRARY_PATH=/tmp/python-build.20260715213603.68250/Python-3.12.8 '
+ 'TESTRUNNER': 'LD_LIBRARY_PATH=/tmp/python-build.20260717230531.61476/Python-3.12.8 '
                './python -E ./Tools/scripts/run_tests.py',
  'TESTSUBDIRS': 'idlelib/idle_test \\',
  'TESTTIMEOUT': 1200,
@@ -1265,8 +1270,8 @@ build_time_vars = {'ABIFLAGS': '',
  'WITH_VALGRIND': 0,
  'X87_DOUBLE_ROUNDING': 0,
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
- 'abs_builddir': '/tmp/python-build.20260715213603.68250/Python-3.12.8',
- 'abs_srcdir': '/tmp/python-build.20260715213603.68250/Python-3.12.8',
+ 'abs_builddir': '/tmp/python-build.20260717230531.61476/Python-3.12.8',
+ 'abs_srcdir': '/tmp/python-build.20260717230531.61476/Python-3.12.8',
  'datarootdir': '/home/alienware/.pyenv/versions/3.12.8/share',
  'exec_prefix': '/home/alienware/.pyenv/versions/3.12.8',
  'prefix': '/home/alienware/.pyenv/versions/3.12.8',

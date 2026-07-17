@@ -82,9 +82,11 @@ hl.bind("F11",   function() user.display.brightness_up() end,        { locked = 
 
 -- Switch power modes
 hl.bind("F1", function() 
-    hl.exec_cmd("awcc b")
-    notify.send({ text = "Switched to power mode: Balanced", timeout = 3000 })
-end,                                                                                    { desc = "Switch to balanced mode" })
+    local handle = io.popen("awcc qm")
+    local result = handle:read("*a")
+    handle:close()
+    notify.send({ text = result:gsub("%s+$", ""), timeout = 3000 })
+end,                                                                    { release = true, desc = "Get current mode" })
 hl.bind("F1 + F2", function() 
     hl.exec_cmd("awcc b")
     notify.send({ text = "Switched to power mode: Balanced", timeout = 3000 })
