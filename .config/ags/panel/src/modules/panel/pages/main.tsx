@@ -42,7 +42,7 @@ export function MainPage() {
          $type={"named"}
          name={"main"}
          class={"qs-main-page"}
-         orientation={Gtk.Orientation.VERTICAL}
+         orientation={Gtk.Orientation.HORIZONTAL}
          spacing={spacing}
       >
          <Header />

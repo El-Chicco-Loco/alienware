@@ -3,15 +3,9 @@ window#panel {
   color: $fg0;
   font-size: $font-size;
 
-  .hoverarea {
-    background: transparent;
-    padding-top: 15px;
-    padding-right: 15px;
-  }
-
   .stack {
     background: rgba($bg0, $window-opacity);
-    // border: $window-border-width solid $window-border-color;
+    border: $window-border-width solid $window-border-color;
     padding: $window-padding;
     border-radius: $window-radius;
     @if $shadow {

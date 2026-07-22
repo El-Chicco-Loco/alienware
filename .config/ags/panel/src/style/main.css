@@ -3,13 +3,9 @@ window#panel {
   color: #ffffff;
   font-size: 14pt;
 }
-window#panel .hoverarea {
-  background: transparent;
-  padding-top: 15px;
-  padding-right: 15px;
-}
 window#panel .stack {
   background: #161616;
+  border: 2px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
