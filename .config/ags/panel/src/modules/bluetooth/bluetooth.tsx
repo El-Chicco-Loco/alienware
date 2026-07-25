@@ -61,7 +61,7 @@ function Header({ showArrow = false }: { showArrow?: boolean }) {
             onNotifyActive={({ state }) => {
                if (
                   qs_page.peek() === "bluetooth" ||
-                  app.get_window(windows_names.bluetooth)?.visible
+                  app.get_window("bluetooth")?.visible
                )
                   bluetooth.adapter.set_powered(state);
             }}

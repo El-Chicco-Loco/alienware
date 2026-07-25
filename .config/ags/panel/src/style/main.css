@@ -17,10 +17,13 @@ window#panel tooltip {
   margin: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
-window#panel .qs-main-page .header {
+window#panel .panel-main-page {
+  display: flex;
+}
+window#panel .panel-main-page .header .footer {
   min-height: 50px;
 }
-window#panel .qs-main-page .header .qs-header-button {
+window#panel .panel-main-page .header .footer .value-indicator {
   background: #282828;
   outline: none;
   border-radius: 20px;
@@ -29,144 +32,144 @@ window#panel .qs-main-page .header .qs-header-button {
   padding: 0;
   min-width: 50px;
 }
-window#panel .qs-main-page .header .qs-header-button:focus {
+window#panel .panel-main-page .header .footer .value-indicator:focus {
   transition: 0s;
   outline-offset: -2px;
   outline: 2px solid #c0c0c0;
 }
-window#panel .qs-main-page .header .qs-header-button:hover {
+window#panel .panel-main-page .header .footer .value-indicator:hover {
   background: #363636;
 }
-window#panel .qs-main-page .header .battery-button {
+window#panel .panel-main-page .header .footer .battery-button {
   padding: 0 10px;
 }
-window#panel .qs-main-page .qs-button {
+window#panel .panel-main-page .qs-button {
   font-weight: normal;
   padding: 0;
   color: #ffffff;
   outline: none;
   min-height: 60px;
 }
-window#panel .qs-main-page .qs-button .qs-button-box,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow-inside {
+window#panel .panel-main-page .qs-button .qs-button-box,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow-inside {
   font-weight: normal;
   padding: 0;
   padding-left: 10px;
 }
-window#panel .qs-main-page .qs-button .arrow,
-window#panel .qs-main-page .qs-button .arrow-label {
+window#panel .panel-main-page .qs-button .arrow,
+window#panel .panel-main-page .qs-button .arrow-label {
   padding: 0px;
   min-width: 36px;
 }
-window#panel .qs-main-page .qs-button .qs-button-subtitle {
+window#panel .panel-main-page .qs-button .qs-button-subtitle {
   font-size: 13pt;
 }
-window#panel .qs-main-page .qs-button .qs-button-box,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow,
-window#panel .qs-main-page .qs-button .arrow,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow-inside {
+window#panel .panel-main-page .qs-button .qs-button-box,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow,
+window#panel .panel-main-page .qs-button .arrow,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow-inside {
   outline: none;
   background: #282828;
 }
-window#panel .qs-main-page .qs-button .qs-button-box:hover,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow:hover,
-window#panel .qs-main-page .qs-button .arrow:hover,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow-inside:hover {
+window#panel .panel-main-page .qs-button .qs-button-box:hover,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow:hover,
+window#panel .panel-main-page .qs-button .arrow:hover,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow-inside:hover {
   background: #363636;
   transition: all 0.2s;
 }
-window#panel .qs-main-page .qs-button .qs-button-box:hover.active,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow:hover.active,
-window#panel .qs-main-page .qs-button .arrow:hover.active,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow-inside:hover.active {
+window#panel .panel-main-page .qs-button .qs-button-box:hover.active,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow:hover.active,
+window#panel .panel-main-page .qs-button .arrow:hover.active,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow-inside:hover.active {
   color: get-contrast-color(rgb(166.5, 178.5, 190.5), #ffffff, #161616);
   background: rgb(166.5, 178.5, 190.5);
 }
-window#panel .qs-main-page .qs-button .qs-button-box:focus,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow:focus,
-window#panel .qs-main-page .qs-button .arrow:focus,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow-inside:focus {
+window#panel .panel-main-page .qs-button .qs-button-box:focus,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow:focus,
+window#panel .panel-main-page .qs-button .arrow:focus,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow-inside:focus {
   transition: 0s;
   outline-offset: -2px;
   outline: 2px solid #c0c0c0;
 }
-window#panel .qs-main-page .qs-button .qs-button-box.active,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow.active,
-window#panel .qs-main-page .qs-button .arrow.active,
-window#panel .qs-main-page .qs-button .qs-button-box-arrow-inside.active {
+window#panel .panel-main-page .qs-button .qs-button-box.active,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow.active,
+window#panel .panel-main-page .qs-button .arrow.active,
+window#panel .panel-main-page .qs-button .qs-button-box-arrow-inside.active {
   background: #8999a9;
   color: get-contrast-color(#8999a9, #ffffff, #161616);
 }
-window#panel .qs-main-page .qs-button-box,
-window#panel .qs-main-page .qs-button-box-arrow-inside {
+window#panel .panel-main-page .qs-button-box,
+window#panel .panel-main-page .qs-button-box-arrow-inside {
   border-radius: 20px;
 }
-window#panel .qs-main-page .qs-button-box-arrow {
+window#panel .panel-main-page .qs-button-box-arrow {
   border-radius: 20px 0 0 20px;
 }
-window#panel .qs-main-page .arrow {
+window#panel .panel-main-page .arrow {
   border-radius: 0 20px 20px 0;
 }
-window#panel .qs-main-page .slider-button {
+window#panel .panel-main-page .slider-button {
   border-radius: 20px;
   background: #282828;
   outline: none;
 }
-window#panel .qs-main-page .slider-button:hover {
+window#panel .panel-main-page .slider-button:hover {
   background: #363636;
 }
-window#panel .qs-main-page .slider-button:focus {
+window#panel .panel-main-page .slider-button:focus {
   transition: 0s;
   outline-offset: -2px;
   outline: 2px solid #c0c0c0;
 }
-window#panel .qs-main-page .slider-box {
+window#panel .panel-main-page .slider-box {
   border-radius: 20px;
 }
-window#panel .qs-main-page .slider-box.low image {
+window#panel .panel-main-page .slider-box.low image {
   color: #ffffff;
 }
-window#panel .qs-main-page .slider-box image {
+window#panel .panel-main-page .slider-box image {
   color: get-contrast-color(#8999a9, #ffffff, #161616);
   padding-left: 10px;
   border-radius: 20px;
 }
-window#panel .qs-main-page .slider-box scale {
+window#panel .panel-main-page .slider-box scale {
   padding: 0;
 }
-window#panel .qs-main-page .slider-box scale trough {
+window#panel .panel-main-page .slider-box scale trough {
   all: unset;
   background: #282828;
   min-height: 36px;
   border-radius: 20px;
 }
-window#panel .qs-main-page .slider-box scale highlight {
+window#panel .panel-main-page .slider-box scale highlight {
   all: unset;
   min-height: 36px;
   border-radius: 20px;
   background: #8999a9;
 }
-window#panel .qs-main-page .slider-box scale slider {
+window#panel .panel-main-page .slider-box scale slider {
   all: unset;
   border-radius: 20px;
   margin: 0;
 }
-window#panel .qs-main-page .slider-box scale:focus trough {
+window#panel .panel-main-page .slider-box scale:focus trough {
   transition: 0s;
   outline-offset: -2px;
   outline: 2px solid #c0c0c0;
 }
-window#panel .qs-main-page .mediaplayer .content {
+window#panel .panel-main-page .mediaplayer .content {
   padding: 10px;
 }
-window#panel .qs-main-page .mediaplayer {
+window#panel .panel-main-page .mediaplayer {
   font-style: normal;
   color: #ffffff;
   background: #161616;
   border-radius: 20px;
 }
-window#panel .qs-main-page .mediaplayer .buttons button {
+window#panel .panel-main-page .mediaplayer .buttons button {
   min-height: 40px;
   border-radius: 20px;
   min-width: 40px;
@@ -175,30 +178,30 @@ window#panel .qs-main-page .mediaplayer .buttons button {
   background: #282828;
   color: #ffffff;
 }
-window#panel .qs-main-page .mediaplayer .buttons button:hover, window#panel .qs-main-page .mediaplayer .buttons button:active {
+window#panel .panel-main-page .mediaplayer .buttons button:hover, window#panel .panel-main-page .mediaplayer .buttons button:active {
   transition: background 0.2s;
   background: #363636;
 }
-window#panel .qs-main-page .mediaplayer .buttons button:focus {
+window#panel .panel-main-page .mediaplayer .buttons button:focus {
   transition: 0s;
   outline-offset: -2px;
   outline: 2px solid #c0c0c0;
 }
-window#panel .qs-main-page .mediaplayer .art {
+window#panel .panel-main-page .mediaplayer .art {
   border-radius: 20px;
   opacity: 1;
 }
-window#panel .qs-main-page .indicator {
+window#panel .panel-main-page .indicator {
   padding: 15px 10px;
 }
-window#panel .qs-main-page .indicator .active-dot {
+window#panel .panel-main-page .indicator .active-dot {
   border-radius: 20px;
   background: white;
   min-height: 6px;
   min-width: 6px;
   transition: background 0.2s;
 }
-window#panel .qs-main-page .indicator .inactive-dot {
+window#panel .panel-main-page .indicator .inactive-dot {
   border-radius: 20px;
   background: gray;
   min-height: 6px;

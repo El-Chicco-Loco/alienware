@@ -1,12 +1,4 @@
-import GLib from "gi://GLib?version=2.0";
-import { createState } from "ags";
-import { mkOptions } from "./src/lib/option";
-import { NotificationsList } from "./src/modules/bar/items/notificationslist";
-const configDir = GLib.get_user_config_dir();
-const configFile = "/home/alienware/.config/ags/style/config.json";
-const themeFile = "/home/alienware/.config/ags/style/theme.json";
-
-export const config = mkOptions(configFile, {
+export const config = {
    transition: 0.2,
    bar: {
       size: 20,
@@ -131,8 +123,8 @@ export const config = mkOptions(configFile, {
       },
    },
    quicksettings: {
-      buttons: ["network", "bluetooth", "notifications", "screenrecord"],
-      sliders: ["volume", "brightness"],
+      buttons: ["network", "bluetooth"],
+      sliders: [],
    },
    launcher: {
       width: 800,
@@ -188,9 +180,9 @@ export const config = mkOptions(configFile, {
          city: "Minsk" as string | null,
       },
    },
-});
+};
 
-export const theme = mkOptions(themeFile, {
+export const theme = {
    font: {
       size: 14,
       name: "Rubik",
@@ -280,4 +272,4 @@ export const theme = mkOptions(themeFile, {
          },
       },
    },
-});
+};

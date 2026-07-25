@@ -18,6 +18,7 @@ type PopupProps = JSX.IntrinsicElements["window"] & {
    gdkmonitor?: Gdk.Monitor;
    transitionType?: Gtk.RevealerTransitionType;
    transitionDuration?: number;
+   anchor?: any;
 };
 
 export function hideWindows() {
@@ -46,7 +47,7 @@ export function Popup({
    valign,
    ...props
 }: PopupProps) {
-   const { TOP, BOTTOM, RIGHT, LEFT } = Astal.WindowAnchor;
+   
    let contentbox: Adw.Clamp;
    const [visible, setVisible] = createState(false);
    const [revealed, setRevealed] = createState(false);
@@ -74,7 +75,7 @@ export function Popup({
          keymode={Astal.Keymode.ON_DEMAND}
          layer={Astal.Layer.OVERLAY}
          gdkmonitor={gdkmonitor}
-         anchor={TOP | BOTTOM | RIGHT | LEFT}
+         // anchor={TOP | BOTTOM | RIGHT | LEFT}
          application={app}
          $={init}
          onNotifyVisible={({ visible }) => {

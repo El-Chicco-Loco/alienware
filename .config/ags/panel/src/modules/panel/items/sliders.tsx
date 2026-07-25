@@ -80,7 +80,7 @@ export function QSSliders() {
    return (
       <box
          spacing={theme.spacing}
-         orientation={Gtk.Orientation.VERTICAL}
+         orientation={Gtk.Orientation.HORIZONTAL}
          class={"sliders"}
       >
          {sliders}

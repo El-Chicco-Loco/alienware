@@ -60,7 +60,7 @@ function Header({ showArrow = false }: { showArrow?: boolean }) {
             onNotifyActive={({ state }) => {
                if (
                   qs_page.peek() === "network" ||
-                  app.get_window(windows_names.network)?.visible
+                  app.get_window("network")?.visible
                )
                   network.wifi.set_enabled(state);
             }}

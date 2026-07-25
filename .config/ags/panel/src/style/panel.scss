@@ -29,11 +29,13 @@ window#panel {
     }
   }
 
-  .qs-main-page {
-    .header {
+  .panel-main-page {
+    display: flex;
+    .header
+    .footer {
       min-height: 50px;
 
-      .qs-header-button {
+      .value-indicator {
         background: rgba($bg1, $window-opacity);
         outline: none;
         border-radius: $widget-radius;

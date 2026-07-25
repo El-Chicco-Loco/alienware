@@ -317,6 +317,7 @@ rule({ initial_title = "^(Writing.*)$" }, { fullscreen = true })
 
 
 local float_dialogs = {
+    { title = "^Open$" },
     { title = "^Open File(.*)$" },
     { title = "^Select a File(.*)$" },
     { title = "^Open Folder(.*)$" },

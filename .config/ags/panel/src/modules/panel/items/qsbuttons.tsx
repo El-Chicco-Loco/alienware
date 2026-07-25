@@ -7,7 +7,6 @@ import { createBinding, createComputed, For } from "ags";
 import { resetCss } from "@/src/services/styles";
 import { QSButton } from "@/src/widgets/qsbutton";
 import { config, theme } from "@/options";
-import ScreenRecorder from "@/src/services/screenrecorder";
 import { timeout } from "ags/time";
 import Adw from "gi://Adw?version=1";
 import { dependencies } from "@/src/lib/utils";
@@ -27,9 +26,6 @@ const Buttons = {
    bluetooth: () => (bluetooth.adapter !== null ? <BluetoothButton /> : null),
    power: () =>
       powerprofile.get_profiles().length !== 0 ? <PowerProfilesButton /> : null,
-   // screenrecord: () =>
-   //    dependencies("gpu-screen-recorder") ? <ScreenRecordButton /> : null,
-   // notifications: () => config.notifications.enabled && <NotificationsButton />,
    volume: () => <VolumeButton />,
    microphone: () => <MicrophoneButton />,
 } as Record<string, any>;
@@ -50,8 +46,6 @@ function VolumeButton() {
          subtitle={level((level) => (level !== "" ? level : "None"))}
          onClicked={() => speaker.set_mute(!speaker.get_mute())}
          onArrowClicked={() => qs_page_set("volume")}
-         onScrollUp={() => FunctionsList["volume-up"]()}
-         onScrollDown={() => FunctionsList["volume-down"]()}
          arrow={"separate"}
          ArrowClasses={mute((p) => {
             const classes = ["arrow"];
@@ -83,8 +77,6 @@ function MicrophoneButton() {
          subtitle={level((level) => (level !== "" ? level : "None"))}
          onClicked={() => microphone.set_mute(!microphone.get_mute())}
          onArrowClicked={() => qs_page_set("volume")}
-         onScrollUp={() => FunctionsList["microphone-up"]()}
-         onScrollDown={() => FunctionsList["microphone-down"]()}
          arrow={"separate"}
          ArrowClasses={mute((p) => {
             const classes = ["arrow"];
@@ -191,40 +183,6 @@ function InternetButton() {
          })}
          ButtonClasses={active((p) => {
             const classes = ["qs-button-box-arrow"];
-            p && classes.push("active");
-            return classes;
-         })}
-      />
-   );
-}
-
-function ScreenRecordButton() {
-   const screenRecord = ScreenRecorder.get_default();
-   const recording = createBinding(screenRecord, "recording");
-   const timer = createBinding(screenRecord, "timer");
-
-   const progress = createComputed(() => {
-      if (recording()) {
-         const time = timer();
-         const sec = time % 60;
-         const min = Math.floor(time / 60);
-         return `${min}:${sec < 10 ? "0" + sec : sec}`;
-      } else return "";
-   });
-
-   return (
-      <QSButton
-         icon={icons.video}
-         label={"Screen Record"}
-         subtitle={progress.as((progress) =>
-            progress !== "" ? progress : "None",
-         )}
-         onClicked={() => {
-            if (screenRecord.recording) screenRecord.stop();
-            else screenRecord.start();
-         }}
-         ButtonClasses={recording((p) => {
-            const classes = ["qs-button-box"];
             p && classes.push("active");
             return classes;
          })}

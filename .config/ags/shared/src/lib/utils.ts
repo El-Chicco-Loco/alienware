@@ -136,7 +136,6 @@ export function toggleWindow(name: string): void {
    if (win.visible) {
       win.hide();
    } else {
-      hideWindows();
       win.show();
    }
 }
@@ -215,19 +214,19 @@ export function hasBarItem(module: string): boolean {
    );
 }
 
-export function toggleQsModule(name: string, module?: string): void {
-   const targetModule = module ?? name;
-
-   if (hasBarItem(targetModule)) {
-      const windowName = windows_names[name as keyof typeof windows_names];
-      if (windowName) {
-         toggleWindow(windowName);
-      }
-   } else {
-      toggleWindow(windows_names.quicksettings);
-      qs_page_set(name);
-   }
-}
+// export function toggleQsModule(name: string, module?: string): void {
+//    const targetModule = module ?? name;
+// 
+//    if (hasBarItem(targetModule)) {
+//       const windowName = windows_names[name as keyof typeof windows_names];
+//       if (windowName) {
+//          toggleWindow(windowName);
+//       }
+//    } else {
+//       toggleWindow(windows_names.quicksettings);
+//       qs_page_set(name);
+//    }
+// }
 
 const appInfoCache = new Map<string, AstalApps.Application | null>();
 const MAX_CACHE_SIZE = 50;

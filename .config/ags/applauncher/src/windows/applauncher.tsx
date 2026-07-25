@@ -1,6 +1,7 @@
 import { AppLauncherModule } from "../modules/applauncher/applauncher";
 import { Popup } from "@/src/widgets/popup";
-import { Gtk } from "ags/gtk4";
+import { Astal, Gtk } from "ags/gtk4";
+const { TOP, BOTTOM, RIGHT, LEFT } = Astal.WindowAnchor;
 
 export function AppLauncherWindow() {
    return (
@@ -9,6 +10,7 @@ export function AppLauncherWindow() {
          name={"applauncher"} 
          halign={Gtk.Align.CENTER} 
          valign={Gtk.Align.TOP}
+         height={800}
       >
          <AppLauncherModule />
       </Popup>

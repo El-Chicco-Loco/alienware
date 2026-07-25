@@ -8,9 +8,7 @@ import { windows_names } from "@/windows";
 import AstalHyprland from "gi://AstalHyprland?version=0.1";
 import AstalNiri from "gi://AstalNiri?version=0.1";
 import AstalWp from "gi://AstalWp?version=0.1";
-import ScreenRecorder from "@/src/services/screenrecorder";
 import { compositor } from "../lib/compositor";
-import Brightness from "../services/brightness";
 
 const isVertical = false;
 const orientation = Gtk.Orientation.HORIZONTAL;
@@ -95,15 +93,6 @@ export const FunctionsList = {
       if (mcph) mcph.set_mute(!mcph.get_mute());
    },
    "switch-language": () => compositor.keyboard.switchLayout(),
-   "screenrecord-toggle": () => {
-      const sr = ScreenRecorder.get_default();
-      if (sr) {
-         if (sr.recording) sr.stop();
-         else sr.start();
-      }
-   },
-   "brightness-up": () => (Brightness.get_default().screen += 0.01),
-   "brightness-down": () => (Brightness.get_default().screen -= 0.01),
 } as Record<string, any>;
  
 

@@ -171,7 +171,7 @@ export function MprisPlayers() {
 
    return (
       <overlay
-         heightRequest={160}
+         heightRequest={300}
          visible={list((players) => players.length !== 0)}
       >
          <Adw.Carousel
