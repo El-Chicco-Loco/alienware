@@ -7,11 +7,11 @@ local mod     = "SUPER"
 local scriptsDir  = os.getenv("HOME") .. "/.config/hypr/scripts"
 local UserScripts = os.getenv("HOME") .. "/.config/hypr/UserScripts"
 local notify  = require("utils.notify")
+local ags_window = "NONE"
 
 -- ─────────────────────────────────────────────────────────────
 -- STANDARD
 -- ─────────────────────────────────────────────────────────────
-
 hl.bind(mod .. " + Q",         hl.dsp.window.close(),                                           { desc = "Close active window" })
 hl.bind(mod .. " + SHIFT + Q", function() user.window.kill_active() end,                        { desc = "Kill active window" })
 hl.bind(mod .. " + B",      hl.dsp.exec_cmd("brave"),                                           { desc = "Open default browser" })
@@ -20,36 +20,75 @@ hl.bind(mod .. " + E",      hl.dsp.exec_cmd("thunar"),                          
 hl.bind(mod .. " + W",      hl.dsp.window.float({ action = "toggle" }),                         { desc = "Toggle floating" })
 hl.bind(mod .. " + F",      hl.dsp.window.fullscreen(),                                         { desc = "Toggle floating" })
 hl.bind(mod .. " + C",      hl.dsp.exec_cmd("code"),                                            { desc = "Launch VSCode" })
-hl.bind(mod .. " + SPACE",  hl.dsp.exec_cmd("ags request toggle applauncher -i applauncher"),   { desc = "Display app launcher" })
-hl.bind(mod .. " + DELETE", hl.dsp.exec_cmd("ags request toggle powermenu -i powermenu"),       { desc = "Display power menu" })
-hl.bind(mod .. " + P",      hl.dsp.exec_cmd("ags request toggle btop -i btop"),                 { desc = "Display btop window" })
-hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("ags request toggle panel -i panel"), { desc = "Display control panel" })
--- hl.bind(mod .. " + P",      hl.dsp.exec_cmd(
---     "ags quit -i controlpanel && cd $HOME/.config/ags/controlpanel && ags run . " ..
---     "|| cd $HOME/.config/ags/controlpanel && ags run ."),                               { desc = "Display controlpanel" })
--- hl.bind(mod .. " + O",      hl.dsp.exec_cmd(
---     "ags quit -i workspaces && cd $HOME/.config/ags/workspaces && ags run . " ..
---     "|| cd $HOME/.config/ags/workspaces && ags run ."),                                 { desc = "Display workspaces" })
--- hl.bind(mod .. " + G",     function() user.window.game_mode() end,            { desc = "Toggle game mode" })
+
+
+-- ─────────────────────────────────────────────────────────────
+-- AGS WINDOWS
+-- ─────────────────────────────────────────────────────────────
+-- Panel
+hl.gesture({ fingers = 3, direction = "down", action = function() 
+    if ags_window == "NONE" then
+        ags_window = "PANEL"
+        hl.exec_cmd("ags request toggle panel -i panel") 
+    end
+end})
+hl.gesture({ fingers = 3, direction = "up", action = function() 
+    if ags_window == "PANEL" then
+        ags_window = "NONE"
+        hl.exec_cmd("ags request toggle panel -i panel") 
+    end
+end})
+
+-- Applauncher and powermenu
+hl.gesture({ fingers = 4, direction = "down", action = function() 
+    if ags_window == "LAUNCHER" then
+        ags_window = "NONE"
+        hl.exec_cmd("ags request toggle applauncher -i applauncher") 
+    elseif ags_window == "NONE" then
+        ags_window = "POWER"
+        hl.exec_cmd("ags request toggle powermenu -i powermenu") 
+    end
+end})
+hl.gesture({ fingers = 4, direction = "up", action = function() 
+    if ags_window == "NONE" then
+        ags_window = "LAUNCHER"
+        hl.exec_cmd("ags request toggle applauncher -i applauncher") 
+    elseif ags_window == "POWER" then
+        ags_window = "NONE"
+        hl.exec_cmd("ags request toggle powermenu -i powermenu") 
+    end
+end})
+
+-- Btop
+hl.gesture({ fingers = 4, direction = "left", action = function() 
+    if ags_window == "NONE" then
+        ags_window = "BTOP"
+        hl.exec_cmd("ags request toggle btop -i btop") 
+    end
+end})
+hl.gesture({ fingers = 4, direction = "right", action = function() 
+    if ags_window == "BTOP" then
+        ags_window = "NONE"
+        hl.exec_cmd("ags request toggle btop -i btop") 
+    end
+end})
 
 
 -- ─────────────────────────────────────────────────────────────
 -- WORKSPACES AND WINDOWS
 -- ─────────────────────────────────────────────────────────────
-hl.bind(mod .. " + Tab",         hl.dsp.focus({ workspace = "m+1" }), { desc = "Next workspace" })
-hl.bind(mod .. " + SHIFT + Tab", hl.dsp.focus({ workspace = "m-1" }), { desc = "Previous workspace" })
+-- Swap monitor
+hl.bind(mod .. " + Tab",         hl.dsp.window.move({ monitor = "+1" }))
 
 -- Move windows
-hl.bind(mod .. " + CTRL + left",    hl.dsp.window.move({ workspace = "-1" }))
-hl.bind(mod .. " + CTRL + right",   hl.dsp.window.move({ workspace = "+1" }))
-hl.bind(mod .. " + ALT + left",   hl.dsp.window.move({ monitor = "-1" }))
-hl.bind(mod .. " + ALT + right",   hl.dsp.window.move({ monitor = "+1" }))
+hl.bind(mod .. " + left",    hl.dsp.window.move({ workspace = "-1" }))
+hl.bind(mod .. " + right",   hl.dsp.window.move({ workspace = "+1" }))
 
 -- Swap windows
-hl.bind(mod .. " + SHIFT + left",     hl.dsp.window.swap({ direction = "l" }))
-hl.bind(mod .. " + SHIFT + right",    hl.dsp.window.swap({ direction = "r" }))
-hl.bind(mod .. " + SHIFT + up",       hl.dsp.window.swap({ direction = "u" }))
-hl.bind(mod .. " + SHIFT + down",     hl.dsp.window.swap({ direction = "d" }))
+hl.bind(mod .. " + CTRL + left",     hl.dsp.window.swap({ direction = "l" }))
+hl.bind(mod .. " + CTRL + right",    hl.dsp.window.swap({ direction = "r" }))
+hl.bind(mod .. " + CTRL + up",       hl.dsp.window.swap({ direction = "u" }))
+hl.bind(mod .. " + CTRL + down",     hl.dsp.window.swap({ direction = "d" }))
 
 -- ─────────────────────────────────────────────────────────────
 -- MEDIA CONTROLS
