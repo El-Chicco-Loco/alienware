@@ -1,8 +1,0 @@
-
---- 2026-07-23T19:26:45.597Z debug
-🪵  Writing logs to "/home/alienware/.config/.wrangler/logs/wrangler-2026-07-23_19-26-45_385.log"
----
-
---- 2026-07-23T19:26:45.597Z debug
-local dev variables file not found at ".dev.vars". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
----
