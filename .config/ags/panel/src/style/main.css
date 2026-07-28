@@ -17,9 +17,6 @@ window#panel tooltip {
   margin: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
-window#panel .panel-main-page {
-  display: flex;
-}
 window#panel .panel-main-page .header .footer {
   min-height: 50px;
 }

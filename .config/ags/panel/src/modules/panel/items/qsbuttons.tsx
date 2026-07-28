@@ -220,34 +220,6 @@ function BluetoothButton() {
    );
 }
 
-function NotificationsButton() {
-   const enabled = createBinding(notifd, "dontDisturb");
-   const notifications = createBinding(notifd, "notifications");
-
-   return (
-      <QSButton
-         icon={icons.bell}
-         label={"Notifications"}
-         subtitle={notifications((n) =>
-            n.length === 0 ? "None" : n.length.toString(),
-         )}
-         arrow={"separate"}
-         onClicked={() => notifd.set_dont_disturb(!notifd.dontDisturb)}
-         onArrowClicked={() => qs_page_set("notificationslist")}
-         ArrowClasses={enabled((p) => {
-            const classes = ["arrow"];
-            !p && classes.push("active");
-            return classes;
-         })}
-         ButtonClasses={enabled((p) => {
-            const classes = ["qs-button-box-arrow"];
-            !p && classes.push("active");
-            return classes;
-         })}
-      />
-   );
-}
-
 export function QSButtons() {
    const getVisibleButtons = () => {
       const buttons = config.quicksettings.buttons;
