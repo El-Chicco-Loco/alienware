@@ -4,8 +4,9 @@ import AstalBluetooth from "gi://AstalBluetooth?version=0.1";
 import AstalPowerProfiles from "gi://AstalPowerProfiles?version=0.1";
 import AstalWp from "gi://AstalWp?version=0.1";
 import { createBinding, createComputed, For } from "ags";
+import app from "ags/gtk4/app";
 import { resetCss } from "@/src/services/styles";
-import { QSButton } from "@/src/widgets/qsbutton";
+import { Button } from "@/src/widgets/button";
 import { config, theme } from "@/options";
 import { timeout } from "ags/time";
 import Adw from "gi://Adw?version=1";
@@ -22,16 +23,8 @@ const powerprofile = AstalPowerProfiles.get_default();
 const wp = AstalWp.get_default();
 const notifd = AstalNotifd.get_default();
 
-const Buttons = {
-   network: () => <InternetButton />,
-   bluetooth: () => (bluetooth.adapter !== null ? <BluetoothButton /> : null),
-   power: () =>
-      powerprofile.get_profiles().length !== 0 ? <PowerProfilesButton /> : null,
-   volume: () => <VolumeButton />,
-   microphone: () => <MicrophoneButton />,
-} as Record<string, any>;
 
-function VolumeButton() {
+/* function VolumeButton() {
    const speaker = wp.get_default_speaker();
    const mute = createBinding(speaker, "mute");
    const volume = createBinding(speaker, "volume");
@@ -41,7 +34,7 @@ function VolumeButton() {
    });
 
    return (
-      <QSButton
+      <Button
          icon={VolumeIcon}
          label={"Volume"}
          subtitle={level((level) => (level !== "" ? level : "None"))}
@@ -72,7 +65,7 @@ function MicrophoneButton() {
    });
 
    return (
-      <QSButton
+      <Button
          icon={icons.microphone.default}
          label={"Microphone"}
          subtitle={level((level) => (level !== "" ? level : "None"))}
@@ -97,7 +90,7 @@ function PowerProfilesButton() {
    const activeprofile = createBinding(powerprofile, "activeProfile");
 
    return (
-      <QSButton
+      <Button
          icon={activeprofile((profile) => icons.powerprofiles[profile])}
          label={"Power"}
          subtitle={activeprofile((profile) => profiles_names[profile])}
@@ -127,7 +120,7 @@ function PowerProfilesButton() {
          })}
       />
    );
-}
+} */
 
 function InternetButton() {
    const wifi = network.wifi;
@@ -160,7 +153,7 @@ function InternetButton() {
    });
 
    return (
-      <QSButton
+      <Button
          icon={getNetworkIconBinding()}
          label={"Internet"}
          subtitle={subtitle((text) => (text !== "" ? text : "None"))}
@@ -175,8 +168,8 @@ function InternetButton() {
          onArrowClicked={() => {
             wifi.scan();
             qs_page_set("network");
-            toggleWindow("panel");
-            toggleWindow("network");
+            app.get_window("network").show();
+            app.get_window("panel").hide();
          }}
          arrow={network.wifi !== null ? "separate" : "none"}
          ArrowClasses={active((p) => {
@@ -202,13 +195,17 @@ function BluetoothButton() {
    );
 
    return (
-      <QSButton
+      <Button
          icon={icons.bluetooth}
          label={"Bluetooth"}
          subtitle={device((d) => (d ? d.alias : "None"))}
          arrow={"separate"}
          onClicked={() => bluetooth.toggle()}
-         onArrowClicked={() => qs_page_set("bluetooth")}
+         onArrowClicked={() => {
+            qs_page_set("bluetooth");
+            app.get_window("bluetooth").show();
+            app.get_window("panel").hide();
+         }}
          ArrowClasses={powered((p) => {
             const classes = ["arrow"];
             p && classes.push("active");
@@ -223,27 +220,7 @@ function BluetoothButton() {
    );
 }
 
-export function QSButtons() {
-   const getVisibleButtons = () => {
-      const buttons = config.quicksettings.buttons;
-      const visible = [];
-
-      for (const button of buttons) {
-         const Widget = Buttons[button];
-         if (!Widget) {
-            console.error(`Failed create qsbutton: unknown name "${button}"`);
-            continue;
-         }
-         const result = Widget();
-         if (result !== null && result !== undefined) {
-            visible.push(result);
-         }
-      }
-
-      return visible;
-   };
-
-   const buttons = getVisibleButtons();
+export function Buttons() {
 
    return (
       <Adw.WrapBox
@@ -253,8 +230,8 @@ export function QSButtons() {
          widthRequest={440 - theme.window.padding * 2}
          naturalLineLength={440 - theme.window.padding * 2}
       >
-         {buttons}
-         {buttons.length % 2 !== 0 && <box widthRequest={200} />}
+         <InternetButton />
+         <BluetoothButton />
       </Adw.WrapBox>
    );
 }

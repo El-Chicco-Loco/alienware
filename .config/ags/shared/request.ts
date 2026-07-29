@@ -15,7 +15,7 @@ export default function request(
             toggleWindow("btop");
             break;
          case "panel":
-            toggleWindow("panel");
+            toggleWindow(qs_page());
             qs_page_set("main");
             break;
          case "powermenu":

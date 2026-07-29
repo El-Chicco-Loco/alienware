@@ -20,7 +20,7 @@ type QSButtonProps = {
    maxWidthChars?: number;
 };
 
-export function QSButton({
+export function Button({
    icon,
    label,
    subtitle,

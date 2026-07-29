@@ -30,7 +30,11 @@ function Header({ showArrow = false }: { showArrow?: boolean }) {
             <button
                cssClasses={["qs-header-button", "qs-page-prev"]}
                focusOnClick={false}
-               onClicked={() => qs_page_set("main")}
+               onClicked={() => {
+                  qs_page_set("main");
+                  app.get_window("panel").show();
+                  app.get_window("bluetooth").hide();
+               }}
             >
                <image iconName={icons.arrow.left} pixelSize={theme["icon-size"].normal} />
             </button>

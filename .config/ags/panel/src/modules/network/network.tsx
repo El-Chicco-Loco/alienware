@@ -35,8 +35,8 @@ function Header({ showArrow = false }: { showArrow?: boolean }) {
                focusOnClick={false}
                onClicked={() => {
                   qs_page_set("main");
-                  toggleWindow("panel");
-                  toggleWindow("network");
+                  app.get_window("panel").show();
+                  app.get_window("network").hide();
                }}
             >
                <image

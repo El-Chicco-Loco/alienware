@@ -1,13 +1,12 @@
 import { Gtk } from "ags/gtk4";
 import { QSSliders } from "./items/sliders";
 import { MprisPlayers } from "./items/media";
-import { QSButtons } from "./items/buttons";
+import { Buttons } from "./items/buttons";
 import { icons, VolumeIcon, BatteryIcon } from "@/src/lib/icons";
 import AstalBattery from "gi://AstalBattery?version=0.1";
 import AstalWp from "gi://AstalWp?version=0.1";
 import Brightness from "panel/src/services/brightness";
 import { createBinding, createEffect, createComputed } from "ags";
-import { height } from "../panel"
 const wp = AstalWp.get_default();
 const speaker = wp.get_default_speaker();
 const battery = AstalBattery.get_default();
@@ -108,7 +107,7 @@ export function MainPage() {
          heightRequest={50}
       >
          <Header />
-         <QSButtons />
+         <Buttons />
          <Footer />
          <MprisPlayers />
       </box>
