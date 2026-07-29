@@ -1,4 +1,4 @@
-import { toggleQsModule, toggleWindow } from "./src/lib/utils";
+import { toggleWindow } from "./src/lib/utils";
 import { createState } from "ags";
 export const [qs_page, qs_page_set] = createState("main");
 

@@ -10,11 +10,12 @@ import { config, theme } from "@/options";
 import { timeout } from "ags/time";
 import Adw from "gi://Adw?version=1";
 import { dependencies } from "@/src/lib/utils";
-import { qs_page_set } from "../panel";
+import { qs_page, qs_page_set } from "../../../windows/panel";
 import { profiles_names } from "../../power/power";
 import Weather from "@/src/services/weather";
 import AstalNotifd from "gi://AstalNotifd?version=0.1";
 import { FunctionsList } from "@/src/widgets/baritem";
+import { toggleWindow } from "@/src/lib/utils";
 const network = AstalNetwork.get_default();
 const bluetooth = AstalBluetooth.get_default();
 const powerprofile = AstalPowerProfiles.get_default();
@@ -174,6 +175,8 @@ function InternetButton() {
          onArrowClicked={() => {
             wifi.scan();
             qs_page_set("network");
+            toggleWindow("panel");
+            toggleWindow("network");
          }}
          arrow={network.wifi !== null ? "separate" : "none"}
          ArrowClasses={active((p) => {

@@ -4,8 +4,9 @@ import { icons, getAccessPointIcon } from "@/src/lib/icons";
 import { Gtk } from "ags/gtk4";
 import { createBinding, createComputed, For } from "ags";
 import { theme } from "@/options";
-import { qs_page, qs_page_set } from "../panel/panel";
+import { qs_page, qs_page_set } from "../../windows/panel";
 import { windows_names } from "@/windows";
+import { toggleWindow } from "@/src/lib/utils";
 import app from "ags/gtk4/app";
 const network = AstalNetwork.get_default();
 
@@ -32,7 +33,11 @@ function Header({ showArrow = false }: { showArrow?: boolean }) {
             <button
                cssClasses={["qs-header-button", "qs-page-prev"]}
                focusOnClick={false}
-               onClicked={() => qs_page_set("main")}
+               onClicked={() => {
+                  qs_page_set("main");
+                  toggleWindow("panel");
+                  toggleWindow("network");
+               }}
             >
                <image
                   iconName={icons.arrow.left}
@@ -152,3 +157,6 @@ export function NetworkModule({ showArrow = false }: { showArrow?: boolean }) {
       </box>
    );
 }
+
+
+

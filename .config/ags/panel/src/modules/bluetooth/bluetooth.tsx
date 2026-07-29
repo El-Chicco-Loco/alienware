@@ -4,7 +4,7 @@ import AstalBluetooth from "gi://AstalBluetooth?version=0.1";
 import { timeout } from "ags/time";
 import { createBinding, createComputed, For } from "ags";
 import { theme } from "@/options";
-import { qs_page, qs_page_set } from "../panel/panel";
+import { qs_page, qs_page_set } from "../../windows/panel";
 import app from "ags/gtk4/app";
 import { windows_names } from "@/windows";
 const bluetooth = AstalBluetooth.get_default();

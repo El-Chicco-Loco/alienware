@@ -25,8 +25,8 @@ hl.env("GDK_SCALE", "1")
 hl.env("QT_SCALE_FACTOR", "1")
 
 -- Cursor theme
-hl.env("HYPRCURSOR_THEME", "Adwaita")
-hl.env("HYPRCURSOR_SIZE", "24")
+-- hl.env("HYPRCURSOR_THEME", "Adwaita")
+-- hl.env("HYPRCURSOR_SIZE", "24")
 
 -- Firefox
 hl.env("MOZ_ENABLE_WAYLAND", "1")

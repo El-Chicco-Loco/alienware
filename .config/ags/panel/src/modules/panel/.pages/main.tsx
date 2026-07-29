@@ -1,7 +1,7 @@
 import { Gtk } from "ags/gtk4";
 import { QSSliders } from "../items/sliders";
-import { MprisPlayers } from "../items/media";
-import { QSButtons } from "../items/qsbuttons";
+import { MprisPlayers } from "items/media";
+import { QSButtons } from "items/buttons";
 import { icons, VolumeIcon, BatteryIcon } from "@/src/lib/icons";
 import AstalBattery from "gi://AstalBattery?version=0.1";
 import AstalWp from "gi://AstalWp?version=0.1";
@@ -97,25 +97,15 @@ export function Footer() {
 
 export function MainPage() {
 
-   const H = createComputed(() => {
-      console.log('height at main = ', height());
-      return height();
-   });
-
    return (
       <box
+         visible
          $type={"named"}
          name={"main"}
          class={"panel-main-page"}
          orientation={Gtk.Orientation.HORIZONTAL}
          spacing={spacing}
-         heightRequest={H}
-         $={(self) => {
-            createEffect(() => {
-               const h = height();
-               self.set_size_request(-1, h);
-            });
-         }}
+         heightRequest={50}
       >
          <Header />
          <QSButtons />

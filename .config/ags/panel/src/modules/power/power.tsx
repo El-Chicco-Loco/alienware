@@ -3,7 +3,7 @@ import { Gtk } from "ags/gtk4";
 import AstalPowerProfiles from "gi://AstalPowerProfiles?version=0.1";
 import { createBinding } from "ags";
 import { theme } from "@/options";
-import { qs_page_set } from "../panel/panel";
+import { qs_page_set } from "../../windows/panel";
 const power = AstalPowerProfiles.get_default();
 
 function Header({ showArrow = false }: { showArrow?: boolean }) {
