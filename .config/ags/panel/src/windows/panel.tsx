@@ -4,14 +4,15 @@ import { BluetoothPage } from "../modules/panel/bluetooth";
 import { Popup } from "@/src/widgets/popup";
 import { Astal, Gtk } from "ags/gtk4";
 import { createEffect, createState } from "ags";
-export const [qs_page, qs_page_set] = createState("main");
+import { qs_page, qs_page_set } from "@/request";
+// export const [qs_page, qs_page_set] = createState("main");
 const { TOP, RIGHT, LEFT } = Astal.WindowAnchor;
 
 export function MainWindow() {
    return (
       <Popup 
          visible={true} 
-         name={"panel"}
+         name={"main"}
          halign={Gtk.Align.CENTER} 
          valign={Gtk.Align.TOP}
          anchor={TOP}

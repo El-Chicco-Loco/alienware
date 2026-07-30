@@ -11,7 +11,8 @@ import { config, theme } from "@/options";
 import { timeout } from "ags/time";
 import Adw from "gi://Adw?version=1";
 import { dependencies } from "@/src/lib/utils";
-import { qs_page, qs_page_set } from "../../../windows/panel";
+// import { qs_page, qs_page_set } from "../../../windows/panel";
+import { qs_page, qs_page_set } from "@/request";
 import { profiles_names } from "../../power/power";
 import Weather from "@/src/services/weather";
 import AstalNotifd from "gi://AstalNotifd?version=0.1";
@@ -169,7 +170,7 @@ function InternetButton() {
             wifi.scan();
             qs_page_set("network");
             app.get_window("network").show();
-            app.get_window("panel").hide();
+            app.get_window("main").hide();
          }}
          arrow={network.wifi !== null ? "separate" : "none"}
          ArrowClasses={active((p) => {
@@ -204,7 +205,7 @@ function BluetoothButton() {
          onArrowClicked={() => {
             qs_page_set("bluetooth");
             app.get_window("bluetooth").show();
-            app.get_window("panel").hide();
+            app.get_window("main").hide();
          }}
          ArrowClasses={powered((p) => {
             const classes = ["arrow"];

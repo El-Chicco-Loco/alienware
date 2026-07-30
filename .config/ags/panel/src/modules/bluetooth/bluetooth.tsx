@@ -4,7 +4,8 @@ import AstalBluetooth from "gi://AstalBluetooth?version=0.1";
 import { timeout } from "ags/time";
 import { createBinding, createComputed, For } from "ags";
 import { theme } from "@/options";
-import { qs_page, qs_page_set } from "../../windows/panel";
+// import { qs_page, qs_page_set } from "../../windows/panel";
+import { qs_page, qs_page_set } from "@/request";
 import app from "ags/gtk4/app";
 import { windows_names } from "@/windows";
 const bluetooth = AstalBluetooth.get_default();
@@ -32,7 +33,7 @@ function Header({ showArrow = false }: { showArrow?: boolean }) {
                focusOnClick={false}
                onClicked={() => {
                   qs_page_set("main");
-                  app.get_window("panel").show();
+                  app.get_window("main").show();
                   app.get_window("bluetooth").hide();
                }}
             >

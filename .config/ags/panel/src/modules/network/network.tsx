@@ -4,7 +4,8 @@ import { icons, getAccessPointIcon } from "@/src/lib/icons";
 import { Gtk } from "ags/gtk4";
 import { createBinding, createComputed, For } from "ags";
 import { theme } from "@/options";
-import { qs_page, qs_page_set } from "../../windows/panel";
+// import { qs_page, qs_page_set } from "../../windows/panel";
+import { qs_page, qs_page_set } from "@/request";
 import { windows_names } from "@/windows";
 import { toggleWindow } from "@/src/lib/utils";
 import app from "ags/gtk4/app";
@@ -35,7 +36,7 @@ function Header({ showArrow = false }: { showArrow?: boolean }) {
                focusOnClick={false}
                onClicked={() => {
                   qs_page_set("main");
-                  app.get_window("panel").show();
+                  app.get_window("main").show();
                   app.get_window("network").hide();
                }}
             >
