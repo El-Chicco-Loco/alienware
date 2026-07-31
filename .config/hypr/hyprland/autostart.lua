@@ -62,8 +62,10 @@ hl.on("hyprland.start", function()
     hl.timer(function()
         hl.exec_cmd("awcc m")
     end, { timeout = 2000, type = "oneshot" })
-end)
 
+    -- Battery check
+    hl.exec_cmd("python " .. configDir .. "/scripts/battery.py")
+end)
 
 hl.on("monitor.added", function(monitor)
     -- Wallpaper stuff

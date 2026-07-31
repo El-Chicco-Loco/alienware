@@ -1,8 +1,3 @@
--- Settings configuration
--- Based on UserSettings.conf and UserDecorations.conf
-
-local colors = require("wallust-colors")
-
 hl.config({
     dwindle = {
         preserve_split = true,
