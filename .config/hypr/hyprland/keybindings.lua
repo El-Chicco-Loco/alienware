@@ -27,50 +27,38 @@ hl.bind(mod .. " + C",      hl.dsp.exec_cmd("code"),                            
 -- ─────────────────────────────────────────────────────────────
 -- Panel
 hl.gesture({ fingers = 3, direction = "down", action = function() 
-    if ags_window == "NONE" then
-        ags_window = "PANEL"
-        hl.exec_cmd("ags request toggle panel -i panel") 
-    end
+    hl.exec_cmd("ags request open panel -i panel") 
 end})
 hl.gesture({ fingers = 3, direction = "up", action = function() 
-    if ags_window == "PANEL" then
-        ags_window = "NONE"
-        hl.exec_cmd("ags request toggle panel -i panel") 
-    end
+    hl.exec_cmd("ags request close panel -i panel") 
 end})
 
 -- Applauncher and powermenu
 hl.gesture({ fingers = 4, direction = "down", action = function() 
     if ags_window == "LAUNCHER" then
         ags_window = "NONE"
-        hl.exec_cmd("ags request toggle applauncher -i applauncher") 
+        hl.exec_cmd("ags request close applauncher -i applauncher") 
     elseif ags_window == "NONE" then
         ags_window = "POWER"
-        hl.exec_cmd("ags request toggle powermenu -i powermenu") 
+        hl.exec_cmd("ags request open powermenu -i powermenu") 
     end
 end})
 hl.gesture({ fingers = 4, direction = "up", action = function() 
     if ags_window == "NONE" then
         ags_window = "LAUNCHER"
-        hl.exec_cmd("ags request toggle applauncher -i applauncher") 
+        hl.exec_cmd("ags request open applauncher -i applauncher") 
     elseif ags_window == "POWER" then
         ags_window = "NONE"
-        hl.exec_cmd("ags request toggle powermenu -i powermenu") 
+        hl.exec_cmd("ags request close powermenu -i powermenu") 
     end
 end})
 
 -- Btop
 hl.gesture({ fingers = 4, direction = "left", action = function() 
-    if ags_window == "NONE" then
-        ags_window = "BTOP"
-        hl.exec_cmd("ags request toggle btop -i btop") 
-    end
+    hl.exec_cmd("ags request open btop -i btop") 
 end})
 hl.gesture({ fingers = 4, direction = "right", action = function() 
-    if ags_window == "BTOP" then
-        ags_window = "NONE"
-        hl.exec_cmd("ags request toggle btop -i btop") 
-    end
+    hl.exec_cmd("ags request close btop -i btop") 
 end})
 
 

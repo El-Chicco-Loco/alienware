@@ -2,7 +2,6 @@ import app from "ags/gtk4/app";
 import Apps from "gi://AstalApps?version=0.1";
 import { Gtk } from "ags/gtk4";
 import { createComputed, createState, For, onCleanup } from "ags";
-import { hideWindows, windows_names } from "@/windows";
 import { config, theme } from "@/options";
 import { AppButton } from "./appbutton";
 const { width, columns, "sort-type": sort } = config.launcher;
@@ -31,7 +30,7 @@ function Entry() {
 
       console.log(`AppLauncher: launching ${firstApp.name}`);
       firstApp.launch();
-      hideWindows();
+      app.get_window("applauncher").hide();
    };
 
    return (
@@ -42,7 +41,7 @@ function Entry() {
                const winName = win.name;
                const visible = win.visible;
 
-               if (winName == windows_names.applauncher && visible) {
+               if (winName == "applauncher" && visible) {
                   scrolled.set_vadjustment(null);
                   await apps.reload();
                   setText("");

@@ -1,7 +1,6 @@
 import { Gtk } from "ags/gtk4";
 import AstalApps from "gi://AstalApps?version=0.1";
 import Pango from "gi://Pango?version=1.0";
-import { hideWindows } from "@/windows";
 import { theme } from "@/options";
 
 export function AppButton({ app }: { app: AstalApps.Application }) {
@@ -11,7 +10,7 @@ export function AppButton({ app }: { app: AstalApps.Application }) {
          onClicked={() => {
             app.launch();
             console.log(`AppLauncher: launching ${app.name}`);
-            hideWindows();
+            app.get_window("applauncher").hide();
          }}
          focusOnClick={false}
       >
