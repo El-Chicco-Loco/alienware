@@ -33,25 +33,11 @@ hl.gesture({ fingers = 3, direction = "up", action = function()
     hl.exec_cmd("ags request close panel -i panel") 
 end})
 
--- Applauncher and powermenu
-hl.gesture({ fingers = 4, direction = "down", action = function() 
-    if ags_window == "LAUNCHER" then
-        ags_window = "NONE"
-        hl.exec_cmd("ags request close applauncher -i applauncher") 
-    elseif ags_window == "NONE" then
-        ags_window = "POWER"
-        hl.exec_cmd("ags request open powermenu -i powermenu") 
-    end
-end})
-hl.gesture({ fingers = 4, direction = "up", action = function() 
-    if ags_window == "NONE" then
-        ags_window = "LAUNCHER"
-        hl.exec_cmd("ags request open applauncher -i applauncher") 
-    elseif ags_window == "POWER" then
-        ags_window = "NONE"
-        hl.exec_cmd("ags request close powermenu -i powermenu") 
-    end
-end})
+-- Applauncher
+hl.bind(mod .. " + Space", hl.dsp.exec_cmd("ags request toggle applauncher -i applauncher"))
+
+-- Powermenu
+hl.bind(mod .. " + Delete", hl.dsp.exec_cmd("ags request toggle powermenu -i powermenu"))
 
 -- Btop
 hl.gesture({ fingers = 4, direction = "left", action = function() 
@@ -60,6 +46,26 @@ end})
 hl.gesture({ fingers = 4, direction = "right", action = function() 
     hl.exec_cmd("ags request close btop -i btop") 
 end})
+
+-- -- Applauncher and powermenu
+-- hl.gesture({ fingers = 4, direction = "down", action = function() 
+--     if ags_window == "LAUNCHER" then
+--         ags_window = "NONE"
+--         hl.exec_cmd("ags request close applauncher -i applauncher") 
+--     elseif ags_window == "NONE" then
+--         ags_window = "POWER"
+--         hl.exec_cmd("ags request open powermenu -i powermenu") 
+--     end
+-- end})
+-- hl.gesture({ fingers = 4, direction = "up", action = function() 
+--     if ags_window == "NONE" then
+--         ags_window = "LAUNCHER"
+--         hl.exec_cmd("ags request open applauncher -i applauncher") 
+--     elseif ags_window == "POWER" then
+--         ags_window = "NONE"
+--         hl.exec_cmd("ags request close powermenu -i powermenu") 
+--     end
+-- end})
 
 
 -- ─────────────────────────────────────────────────────────────

@@ -2,17 +2,16 @@ window#main {
   all: unset;
   color: #ffffff;
   font-size: 14pt;
-}
-window#main .stack {
   background: #161616;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   padding: 10px;
+  margin: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
 window#main tooltip {
   background: #161616;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   border-radius: 20px;
   margin: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -392,7 +391,7 @@ window#network {
 }
 window#network .main {
   background: #161616;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -405,7 +404,7 @@ window#bluetooth {
 }
 window#bluetooth .main {
   background: #161616;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -418,7 +417,7 @@ window#volume {
 }
 window#volume .main {
   background: #161616;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
@@ -441,7 +440,7 @@ window#volume .main {
 }
 .volume popover contents {
   background: #161616;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
