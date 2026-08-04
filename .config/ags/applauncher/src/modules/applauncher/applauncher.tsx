@@ -89,8 +89,8 @@ function List() {
                      hexpand
                      orientation={Gtk.Orientation.VERTICAL}
                   >
-                     {column.map((app) => (
-                        <AppButton app={app} />
+                     {column.map((App) => (
+                        <AppButton app={App} />
                      ))}
                   </box>
                )}

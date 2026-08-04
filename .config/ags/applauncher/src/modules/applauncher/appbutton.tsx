@@ -1,4 +1,5 @@
 import { Gtk } from "ags/gtk4";
+import app from "ags/gtk4/app";
 import AstalApps from "gi://AstalApps?version=0.1";
 import Pango from "gi://Pango?version=1.0";
 import { theme } from "@/options";
@@ -8,8 +9,9 @@ export function AppButton({ app }: { app: AstalApps.Application }) {
       <button
          class={"appbutton"}
          onClicked={() => {
-            app.launch();
+            // app.launch();
             console.log(`AppLauncher: launching ${app.name}`);
+            console.log(`Icon: ${app.iconName}`);
             app.get_window("applauncher").hide();
          }}
          focusOnClick={false}
