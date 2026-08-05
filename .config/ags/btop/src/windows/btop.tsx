@@ -26,7 +26,7 @@ export function BtopWindow() {
    )
 
    const fg = new Gdk.RGBA();
-   fg.parse('#ffffff');
+   fg.parse('transparent');
    const bg = new Gdk.RGBA();
    bg.parse('#161616');
    terminal.set_colors(fg, bg, []);
