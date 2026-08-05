@@ -18,10 +18,10 @@ export function MainWindow() {
          valign={Gtk.Align.TOP}
          anchor={TOP}
       >
-         <box orientation={Gtk.Orientation.VERTICAL} hexpand={false}>
+         <box orientation={Gtk.Orientation.VERTICAL} vexpand={false}>
             <MainPage />
             <MprisPlayers />
-            <box hexpand />
+            <box vexpand />
          </box>
          
       </Popup>

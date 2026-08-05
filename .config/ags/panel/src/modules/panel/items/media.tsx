@@ -170,55 +170,33 @@ function CustomIndicator({ carousel }: { carousel: Adw.Carousel }) {
 export function MprisPlayers() {
    const list = createBinding(mpris, "players");
 
-   function player_length() {
-      list((players) => {
-         for (const player of players) {
-            const title = createBinding(player, "title");
-            if (!title()) {
-               const i = players.indexOf(player);
-               players.splice(i, 1);
-            }
-         }
-         console.log(`======================= ${players.length}`);
-         return (players.length !== 0);
-      })
-   }
+   let vis = list((players) => {
+               for (const player of players) {
+                  const title = createBinding(player, "title");
+                  if (!title()) {
+                     const i = players.indexOf(player);
+                     players.splice(i, 1);
+                  }
+               }
+
+               if (app.get_window("main") && app.get_window("main").visible) {
+                  if (players.length == 0) {
+                     setTimeout(() => {
+                        app.get_window("main").hide();
+                     }, 100);
+                     setTimeout(() => {
+                        app.get_window("main").show();
+                     }, 600);
+                  }
+               }
+
+               return (players.length !== 0);
+            })
 
    return (
       <overlay
-         heightRequest={
-            list((players) => {
-               for (const player of players) {
-                  const title = createBinding(player, "title");
-                  if (!title()) {
-                     const i = players.indexOf(player);
-                     players.splice(i, 1);
-                  }
-               }
-               console.log(`======================= ${players.length}`);
-               if (players.length == 0) {
-                  console.log(`LENGTH = 0`);
-                  return 1000;
-               }
-               else {
-                  return 300;
-               }
-            })
-         }
-         visible={
-            list((players) => {
-               for (const player of players) {
-                  const title = createBinding(player, "title");
-                  if (!title()) {
-                     const i = players.indexOf(player);
-                     players.splice(i, 1);
-                  }
-
-               }
-               console.log(`======================= ${players.length}`);
-               return (players.length !== 0);
-            })
-         }
+         heightRequest={300}
+         visible={vis}
       >
          <Adw.Carousel
             spacing={theme.spacing}
