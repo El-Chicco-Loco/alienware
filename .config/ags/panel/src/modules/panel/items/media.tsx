@@ -7,6 +7,7 @@ import { createBinding, For } from "ags";
 import Adw from "gi://Adw?version=1";
 import { config, theme } from "@/options";
 import AstalApps from "gi://AstalApps?version=0.1";
+import app from "ags/gtk4/app";
 import { getAppInfo, lengthStr } from "@/src/lib/utils";
 const mpris = AstalMpris.get_default();
 let carousel: Adw.Carousel;
@@ -169,10 +170,55 @@ function CustomIndicator({ carousel }: { carousel: Adw.Carousel }) {
 export function MprisPlayers() {
    const list = createBinding(mpris, "players");
 
+   function player_length() {
+      list((players) => {
+         for (const player of players) {
+            const title = createBinding(player, "title");
+            if (!title()) {
+               const i = players.indexOf(player);
+               players.splice(i, 1);
+            }
+         }
+         console.log(`======================= ${players.length}`);
+         return (players.length !== 0);
+      })
+   }
+
    return (
       <overlay
-         heightRequest={300}
-         visible={list((players) => players.length !== 0)}
+         heightRequest={
+            list((players) => {
+               for (const player of players) {
+                  const title = createBinding(player, "title");
+                  if (!title()) {
+                     const i = players.indexOf(player);
+                     players.splice(i, 1);
+                  }
+               }
+               console.log(`======================= ${players.length}`);
+               if (players.length == 0) {
+                  console.log(`LENGTH = 0`);
+                  return 1000;
+               }
+               else {
+                  return 300;
+               }
+            })
+         }
+         visible={
+            list((players) => {
+               for (const player of players) {
+                  const title = createBinding(player, "title");
+                  if (!title()) {
+                     const i = players.indexOf(player);
+                     players.splice(i, 1);
+                  }
+
+               }
+               console.log(`======================= ${players.length}`);
+               return (players.length !== 0);
+            })
+         }
       >
          <Adw.Carousel
             spacing={theme.spacing}

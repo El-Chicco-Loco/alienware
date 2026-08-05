@@ -196,7 +196,8 @@ window#main {
       }
       font-style: normal;
       color: if(is-light($fg0), $fg0, $bg0);
-      background: if(is-light($fg0), $bg0, $fg0);
+      // background: if(is-light($fg0), $bg0, $fg0);
+      background: #1443ed;
       border-radius: $widget-radius;
 
       .buttons {

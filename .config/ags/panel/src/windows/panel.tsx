@@ -5,6 +5,7 @@ import { Popup } from "@/src/widgets/popup";
 import { Astal, Gtk } from "ags/gtk4";
 import { createEffect, createState } from "ags";
 import { qs_page, qs_page_set } from "@/request";
+import { MprisPlayers } from "../modules/panel/items/media";
 // export const [qs_page, qs_page_set] = createState("main");
 const { TOP, RIGHT, LEFT } = Astal.WindowAnchor;
 
@@ -17,7 +18,12 @@ export function MainWindow() {
          valign={Gtk.Align.TOP}
          anchor={TOP}
       >
-         <MainPage />
+         <box orientation={Gtk.Orientation.VERTICAL} hexpand={false}>
+            <MainPage />
+            <MprisPlayers />
+            <box hexpand />
+         </box>
+         
       </Popup>
    );
 }

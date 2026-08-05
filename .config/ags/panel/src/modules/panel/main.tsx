@@ -108,8 +108,7 @@ export function MainPage() {
       >
          <Header />
          <Buttons />
-         <Footer />
-         <MprisPlayers />
+         <Footer />         
       </box>
    );
 }
