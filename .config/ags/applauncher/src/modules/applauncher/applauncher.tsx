@@ -18,6 +18,17 @@ const list = text((text) => {
    return apps.fuzzy_query(text);
 });
 
+export let clicked = 0;
+export function launch_app(App) {
+   clicked += 1;
+   if (clicked == 1) {
+      app.get_window("applauncher").hide();
+      console.log(`AppLauncher: launching ${App.name}`);
+      App.launch();
+   }
+}
+
+
 function Entry() {
    let appconnect: number;
 
@@ -27,10 +38,8 @@ function Entry() {
 
    const onEnter = () => {
       const firstApp = list.peek()[0];
-
-      console.log(`AppLauncher: launching ${firstApp.name}`);
-      firstApp.launch();
-      app.get_window("applauncher").hide();
+      launch_app(firstApp);
+      
    };
 
    return (
@@ -40,6 +49,7 @@ function Entry() {
             appconnect = app.connect("window-toggled", async (_, win) => {
                const winName = win.name;
                const visible = win.visible;
+               clicked = 0;
 
                if (winName == "applauncher" && visible) {
                   scrolled.set_vadjustment(null);
