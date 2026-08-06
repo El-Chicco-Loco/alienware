@@ -159,37 +159,6 @@ window#main .panel-main-page .slider-box scale:focus trough {
   outline-offset: -2px;
   outline: 2px solid #c0c0c0;
 }
-window#main .panel-main-page .mediaplayer .content {
-  padding: 10px;
-}
-window#main .panel-main-page .mediaplayer {
-  font-style: normal;
-  color: #ffffff;
-  background: #1443ed;
-  border-radius: 20px;
-}
-window#main .panel-main-page .mediaplayer .buttons button {
-  min-height: 40px;
-  border-radius: 20px;
-  min-width: 40px;
-  outline: none;
-  padding: 0;
-  background: #282828;
-  color: #ffffff;
-}
-window#main .panel-main-page .mediaplayer .buttons button:hover, window#main .panel-main-page .mediaplayer .buttons button:active {
-  transition: background 0.2s;
-  background: #363636;
-}
-window#main .panel-main-page .mediaplayer .buttons button:focus {
-  transition: 0s;
-  outline-offset: -2px;
-  outline: 2px solid #c0c0c0;
-}
-window#main .panel-main-page .mediaplayer .art {
-  border-radius: 20px;
-  opacity: 1;
-}
 window#main .panel-main-page .indicator {
   padding: 15px 10px;
 }
@@ -206,6 +175,41 @@ window#main .panel-main-page .indicator .inactive-dot {
   min-height: 6px;
   min-width: 6px;
   transition: background 0.2s;
+}
+window#main .mediaplayer .content {
+  padding: 10px;
+}
+window#main .mediaplayer {
+  font-style: normal;
+  color: #ffffff;
+  background: #161616;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+window#main .mediaplayer .buttons button {
+  min-height: 40px;
+  border-radius: 20px;
+  min-width: 40px;
+  outline: none;
+  padding: 0;
+  background: #282828;
+  color: #ffffff;
+}
+window#main .mediaplayer .buttons button:hover, window#main .mediaplayer .buttons button:active {
+  transition: background 0.2s;
+  background: #363636;
+}
+window#main .mediaplayer .buttons button:focus {
+  transition: 0s;
+  outline-offset: -2px;
+  outline: 2px solid #c0c0c0;
+}
+window#main .mediaplayer .art {
+  border-radius: 20px;
+  opacity: 1;
+  min-width: 100%;
+  margin-left: -50;
+  padding-left: -50;
 }
 
 @keyframes spin {

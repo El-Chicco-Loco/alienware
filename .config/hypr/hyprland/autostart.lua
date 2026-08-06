@@ -67,6 +67,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("python " .. configDir .. "/scripts/battery.py")
 end)
 
+-- hl.exec_cmd("$HOME/.config/ags/panel/dist/app.js")
+
 hl.on("monitor.added", function(monitor)
     -- Wallpaper stuff
     if not monitor.name == "eDP-1" then

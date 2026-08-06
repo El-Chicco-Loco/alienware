@@ -190,46 +190,6 @@ window#main {
       }
     }
 
-    .mediaplayer {
-      .content {
-        padding: 10px;
-      }
-      font-style: normal;
-      color: if(is-light($fg0), $fg0, $bg0);
-      // background: if(is-light($fg0), $bg0, $fg0);
-      background: #1443ed;
-      border-radius: $widget-radius;
-
-      .buttons {
-        button {
-          min-height: 40px;
-          border-radius: $widget-radius;
-          min-width: 40px;
-          outline: none;
-          padding: 0;
-          background: rgba($bg1, $window-opacity);
-          color: $fg0;
-
-          &:hover,
-          &:active {
-            transition: background $transition;
-            background: rgba($bg2, $window-opacity);
-          }
-
-          &:focus {
-            transition: 0s;
-            outline-offset: -$window-outline-width;
-            outline: $window-outline-width solid $window-outline-color;
-          }
-        }
-      }
-
-      .art {
-        border-radius: $widget-radius;
-        opacity: $window-opacity;
-      }
-    }
-
     .indicator {
       padding: 15px 10px;
       .active-dot {
@@ -246,6 +206,49 @@ window#main {
         min-width: 6px;
         transition: background $transition;
       }
+    }
+  }
+
+  .mediaplayer {
+    .content {
+      padding: 10px;
+    }
+    font-style: normal;
+    color: if(is-light($fg0), $fg0, $bg0);
+    background: if(is-light($fg0), $bg0, $fg0);
+    border-radius: $widget-radius;
+    margin-top: $window-margin;
+
+    .buttons {
+      button {
+        min-height: 40px;
+        border-radius: $widget-radius;
+        min-width: 40px;
+        outline: none;
+        padding: 0;
+        background: rgba($bg1, $window-opacity);
+        color: $fg0;
+
+        &:hover,
+        &:active {
+          transition: background $transition;
+          background: rgba($bg2, $window-opacity);
+        }
+
+        &:focus {
+          transition: 0s;
+          outline-offset: -$window-outline-width;
+          outline: $window-outline-width solid $window-outline-color;
+        }
+      }
+    }
+
+    .art {
+      border-radius: $widget-radius;
+      opacity: $window-opacity;
+      min-width: 100%;
+      margin-left: -50;
+      padding-left: -50;
     }
   }
 }

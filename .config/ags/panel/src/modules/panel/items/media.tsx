@@ -8,18 +8,23 @@ import Adw from "gi://Adw?version=1";
 import { config, theme } from "@/options";
 import AstalApps from "gi://AstalApps?version=0.1";
 import app from "ags/gtk4/app";
+import GdkPixbuf from "gi://GdkPixbuf"
+import Mpris from "gi://AstalMpris"
 import { getAppInfo, lengthStr } from "@/src/lib/utils";
 const mpris = AstalMpris.get_default();
 let carousel: Adw.Carousel;
+
+
 
 function MediaPlayer({ player }: { player: AstalMpris.Player }) {
    const title = createBinding(player, "title").as((t) => t || "Unknown Track");
    const artist = createBinding(player, "artist").as(
       (a) => a || "Unknown Artist",
    );
-   const coverArt = createBinding(player, "coverArt").as((c) =>
-      Gio.file_new_for_path(c || `@/assets/defsong.jpg`),
+   let coverArt = createBinding(player, "coverArt").as((c) =>
+      Gio.File.new_for_path(c || `@/assets/defsong.jpg`),
    );
+
    const playIcon = createBinding(player, "playbackStatus").as((s) =>
       s === AstalMpris.PlaybackStatus.PLAYING
          ? icons.player.pause
@@ -195,7 +200,7 @@ export function MprisPlayers() {
 
    return (
       <overlay
-         heightRequest={300}
+         heightRequest={200}
          visible={vis}
       >
          <Adw.Carousel
