@@ -104,7 +104,7 @@ export function MainPage() {
          class={"panel-main-page"}
          orientation={Gtk.Orientation.HORIZONTAL}
          spacing={spacing}
-         heightRequest={50}
+         heightRequest={40}
       >
          <Header />
          <Buttons />

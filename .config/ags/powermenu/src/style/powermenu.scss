@@ -33,9 +33,8 @@ window#powermenu {
 
       &:focus {
          image {
-            transition: 0s;
-            outline-offset: -$window-outline-width;
-            outline: $window-outline-width solid $window-outline-color;
+            transition: background $transition;
+            background: rgba($bg2, $window-opacity);
          }
       }
 

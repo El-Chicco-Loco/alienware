@@ -47,7 +47,7 @@ window#main .panel-main-page .qs-button {
   padding: 0;
   color: #ffffff;
   outline: none;
-  min-height: 60px;
+  min-height: 40px;
 }
 window#main .panel-main-page .qs-button .qs-button-box,
 window#main .panel-main-page .qs-button .qs-button-box-arrow,
