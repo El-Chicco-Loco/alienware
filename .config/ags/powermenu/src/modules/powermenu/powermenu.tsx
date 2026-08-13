@@ -11,7 +11,13 @@ type MenuButtonProps = {
 
 function MenuButton({ icon, label, clicked }: MenuButtonProps) {
    return (
-      <button class={"menubutton"} onClicked={clicked} focusOnClick={false}>
+      <button class={"menubutton"} onClicked={clicked} focusOnClick={false}
+         $={(self) => {
+            if (label == "Shutdown") {
+               self.connect("map", () => self.grab_focus());
+            }
+         }}
+      >
          <box
             orientation={Gtk.Orientation.VERTICAL}
             valign={Gtk.Align.CENTER}
@@ -28,7 +34,6 @@ function MenuButton({ icon, label, clicked }: MenuButtonProps) {
 const list = ["Sleep", "Logout", "Reboot", "Shutdown"];
 
 export function PowerMenuModule() {
-
    return (
       <box spacing={10}>
          {list.map((value) => (

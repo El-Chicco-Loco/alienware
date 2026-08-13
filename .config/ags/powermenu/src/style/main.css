@@ -23,9 +23,8 @@ window#powermenu .menubutton image {
   min-width: 120px;
 }
 window#powermenu .menubutton:focus image {
-  transition: 0s;
-  outline-offset: -2px;
-  outline: 2px solid #c0c0c0;
+  transition: background 0.2s;
+  background: #363636;
 }
 window#powermenu .menubutton:hover image {
   transition: background 0.2s;
