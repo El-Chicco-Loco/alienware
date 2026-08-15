@@ -140,7 +140,7 @@ function InternetButton() {
       if (wifi !== null) return enabled();
    });
 
-   const subtitle = createComputed(() => {
+   const title = createComputed(() => {
       connectivity();
       if (primary() === AstalNetwork.Primary.WIRED) {
          if (wired.internet === AstalNetwork.Internet.CONNECTED) {
@@ -156,7 +156,8 @@ function InternetButton() {
    return (
       <Button
          icon={getNetworkIconBinding()}
-         label={subtitle((text) => (text !== "" ? text : "Network"))}
+         label={title((text) => (text !== "" ? text : "Network"))}
+         width={250}
          onClicked={() => {
             if (
                network.primary === AstalNetwork.Primary.WIFI ||
@@ -195,48 +196,29 @@ function BluetoothButton() {
       () => (devices().filter((device) => (device.connected==true))),
    );
 
-   // device((d) => (d.length>0 ? `${d.length} device${d.length>1 ? "s" : ""} paired` : "Bluetooth"))
-   
-   // console.log('---------------------------------');
-   // console.log(bluetooth.devices);
-// 
-   // const label = createComputed(() => bluetooth.devices.filter((device) => (device.connected==true)).length);
-// 
-// 
-   function watchDevice(device: Bluetooth.Device) {
+   function compose_label(device: Bluetooth.Device) {
       device.connect("notify::connected", () => {
-         if (device.connected) {
-               print(`${device.name} connected`);
-               setLabel(`${bluetooth.devices.filter((device) => (device.connected==true)).length} devices`);
-         } else {
-               print(`${device.name} disconnected`);
-               setLabel(`${bluetooth.devices.filter((device) => (device.connected==true)).length} devices`);
-         }
+         n_devices = bluetooth.devices.filter((device) => (device.connected==true)).length;
+         setLabel(n_devices>0 ? `${n_devices} device${n_devices>1 ? "s" : ""} paired` : "Bluetooth");
       })
    }
 
-   // watch devices already known at startup
+   const [label, setLabel] = createState("Bluetooth");
+   let n_devices = 0;
+
    for (const device of bluetooth.get_devices()) {
-      watchDevice(device)
+      compose_label(device)
    }
 
    bluetooth.connect("device-added", (_bt, device) => {
-      watchDevice(device)
-   })
-
-
-   const [label, setLabel] = createState("boo");
-
-   bluetooth.connect("device-added", (_bt, device) => {
-      console.log(`${bluetooth.devices.filter((device) => (device.connected==true)).length} devices`);
-      setLabel(`${bluetooth.devices.filter((device) => (device.connected==true)).length} devices`);
+      compose_label(device)
    })
 
    return (
       <Button
          icon={icons.bluetooth}
-         label={label
-         }
+         label={label}
+         width={250}
          arrow={"separate"}
          onClicked={() => bluetooth.toggle()}
          onArrowClicked={() => {
@@ -265,9 +247,9 @@ export function Buttons() {
          class={"qs-buttons"}
          child_spacing={theme.spacing}
          lineSpacing={theme.spacing}
-         widthRequest={440 - theme.window.padding * 2}
+         widthRequest={540 - theme.window.padding * 2}
          heightRequest={40}
-         naturalLineLength={440 - theme.window.padding * 2}
+         naturalLineLength={540 - theme.window.padding * 2}
       >
          <InternetButton />
          <BluetoothButton />

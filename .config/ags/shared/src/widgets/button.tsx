@@ -18,6 +18,7 @@ type QSButtonProps = {
    ButtonClasses: string[] | Accessor<string[]>;
    ArrowClasses?: string[] | Accessor<string[]>;
    maxWidthChars?: number;
+   width?: number;
 };
 
 export function Button({
@@ -32,11 +33,12 @@ export function Button({
    ButtonClasses,
    ArrowClasses,
    maxWidthChars = 5,
+   width = 200,
 }: QSButtonProps) {
    return (
       <Adw.Clamp class={"qs-button"} maximumSize={200}>
          <box
-            widthRequest={200}
+            widthRequest={width}
             $={(self) => {
                attachHoverScroll(self, ({ dy }) => {
                   if (dy < 0) onScrollUp();
