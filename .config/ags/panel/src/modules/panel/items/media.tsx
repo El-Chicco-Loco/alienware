@@ -128,21 +128,21 @@ function MediaPlayer({ player }: { player: AstalMpris.Player }) {
 
    function Art() {
       return (
-         <Adw.Clamp $type={"overlay"} opacity={0.5}>
+         <Adw.Clamp $type={"overlay"} opacity={1}>
             <Gtk.Picture
                file={coverArt}
                class={"art"}
-               contentFit={Gtk.ContentFit.COVER}
+               halign={Gtk.Align.START}
             />
          </Adw.Clamp>
       );
    }
 
    return (
-      <overlay hexpand class={"mediaplayer"}>
+      <box hexpand class={"mediaplayer"}>
          <Art />
          <Content />
-      </overlay>
+      </box>
    );
 }
 
