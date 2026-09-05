@@ -2,6 +2,8 @@ window#main {
   all: unset;
   color: #ffffff;
   font-size: 14pt;
+}
+window#main .main {
   background: #161616;
   border: 0px solid transparent;
   padding: 10px;
@@ -9,18 +11,34 @@ window#main {
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
-window#main tooltip {
-  background: #161616;
-  border: 0px solid transparent;
-  border-radius: 20px;
-  margin: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
-}
 window#main .panel-main-page {
   display: flex;
 }
 window#main .panel-main-page .header .footer {
   min-height: 50px;
+}
+window#main .panel-main-page .header .footer .toggle {
+  all: unset;
+  padding: 0;
+  outline: none;
+  min-height: 20px;
+  min-width: 45px;
+  background: #363636;
+  border-radius: 20px;
+}
+window#main .panel-main-page .header .footer .toggle:checked {
+  background: #8999a9;
+}
+window#main .panel-main-page .header .footer .toggle slider {
+  background: get-contrast-color(#8999a9, white, #161616);
+  border-radius: 20px;
+  margin: 4px;
+  box-shadow: none;
+}
+window#main .panel-main-page .header .footer .toggle:focus {
+  transition: 0s;
+  outline-offset: 4px;
+  outline: 2px solid #c0c0c0;
 }
 window#main .panel-main-page .header .footer .value-indicator {
   background: #282828;
@@ -221,6 +239,7 @@ window#main .mediaplayer .art {
 .bluetooth .scanning.active,
 .power .scanning.active,
 .weather .scanning.active,
+.main .scanning.active,
 .notifications-list .scanning.active,
 .qs-menu-page .scanning.active {
   animation: spin 1s linear infinite;
@@ -229,6 +248,7 @@ window#main .mediaplayer .art {
 .bluetooth button,
 .power button,
 .weather button,
+.main button,
 .notifications-list button,
 .qs-menu-page button {
   outline: none;
@@ -238,6 +258,7 @@ window#main .mediaplayer .art {
 .bluetooth .list .header,
 .power .list .header,
 .weather .list .header,
+.main .list .header,
 .notifications-list .list .header,
 .qs-menu-page .list .header {
   min-height: 0;
@@ -250,6 +271,8 @@ window#main .mediaplayer .art {
 .power .notifs-header,
 .weather .header,
 .weather .notifs-header,
+.main .header,
+.main .notifs-header,
 .notifications-list .header,
 .notifications-list .notifs-header,
 .qs-menu-page .header,
@@ -266,6 +289,8 @@ window#main .mediaplayer .art {
 .power .notifs-header .toggle,
 .weather .header .toggle,
 .weather .notifs-header .toggle,
+.main .header .toggle,
+.main .notifs-header .toggle,
 .notifications-list .header .toggle,
 .notifications-list .notifs-header .toggle,
 .qs-menu-page .header .toggle,
@@ -286,6 +311,8 @@ window#main .mediaplayer .art {
 .power .notifs-header .toggle:checked,
 .weather .header .toggle:checked,
 .weather .notifs-header .toggle:checked,
+.main .header .toggle:checked,
+.main .notifs-header .toggle:checked,
 .notifications-list .header .toggle:checked,
 .notifications-list .notifs-header .toggle:checked,
 .qs-menu-page .header .toggle:checked,
@@ -300,6 +327,8 @@ window#main .mediaplayer .art {
 .power .notifs-header .toggle slider,
 .weather .header .toggle slider,
 .weather .notifs-header .toggle slider,
+.main .header .toggle slider,
+.main .notifs-header .toggle slider,
 .notifications-list .header .toggle slider,
 .notifications-list .notifs-header .toggle slider,
 .qs-menu-page .header .toggle slider,
@@ -317,6 +346,8 @@ window#main .mediaplayer .art {
 .power .notifs-header .toggle:focus,
 .weather .header .toggle:focus,
 .weather .notifs-header .toggle:focus,
+.main .header .toggle:focus,
+.main .notifs-header .toggle:focus,
 .notifications-list .header .toggle:focus,
 .notifications-list .notifs-header .toggle:focus,
 .qs-menu-page .header .toggle:focus,
@@ -333,6 +364,8 @@ window#main .mediaplayer .art {
 .power .notifs-header .qs-header-button,
 .weather .header .qs-header-button,
 .weather .notifs-header .qs-header-button,
+.main .header .qs-header-button,
+.main .notifs-header .qs-header-button,
 .notifications-list .header .qs-header-button,
 .notifications-list .notifs-header .qs-header-button,
 .qs-menu-page .header .qs-header-button,
@@ -350,6 +383,8 @@ window#main .mediaplayer .art {
 .power .notifs-header .qs-header-button:focus,
 .weather .header .qs-header-button:focus,
 .weather .notifs-header .qs-header-button:focus,
+.main .header .qs-header-button:focus,
+.main .notifs-header .qs-header-button:focus,
 .notifications-list .header .qs-header-button:focus,
 .notifications-list .notifs-header .qs-header-button:focus,
 .qs-menu-page .header .qs-header-button:focus,
@@ -362,6 +397,7 @@ window#main .mediaplayer .art {
 .bluetooth .page-button,
 .power .page-button,
 .weather .page-button,
+.main .page-button,
 .notifications-list .page-button,
 .qs-menu-page .page-button {
   background: transparent;
@@ -373,6 +409,7 @@ window#main .mediaplayer .art {
 .bluetooth .page-button:hover,
 .power .page-button:hover,
 .weather .page-button:hover,
+.main .page-button:hover,
 .notifications-list .page-button:hover,
 .qs-menu-page .page-button:hover {
   background: #282828;
@@ -381,6 +418,7 @@ window#main .mediaplayer .art {
 .bluetooth .page-button:focus,
 .power .page-button:focus,
 .weather .page-button:focus,
+.main .page-button:focus,
 .notifications-list .page-button:focus,
 .qs-menu-page .page-button:focus {
   transition: 0s;

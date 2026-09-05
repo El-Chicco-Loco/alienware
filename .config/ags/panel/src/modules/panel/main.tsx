@@ -6,12 +6,22 @@ import { icons, VolumeIcon, BatteryIcon } from "@/src/lib/icons";
 import AstalBattery from "gi://AstalBattery?version=0.1";
 import AstalWp from "gi://AstalWp?version=0.1";
 import Brightness from "panel/src/services/brightness";
-import { createBinding, createEffect, createComputed } from "ags";
+import { createBinding, createState } from "ags";
+import { createPoll } from "ags/time";
+import { exec, execAsync } from "ags/process";
 const wp = AstalWp.get_default();
 const speaker = wp.get_default_speaker();
 const battery = AstalBattery.get_default();
 const brightness = Brightness.get_default();
 const spacing = 10;
+
+
+
+
+import AstalNetwork from "gi://AstalNetwork";
+const network = AstalNetwork.get_default();
+
+const idle = createState()
 
 function BatteryIndicator() {
    return (
@@ -75,6 +85,65 @@ function BrightnessIndicator() {
    );
 }
 
+function IdleIndicator() {
+   const idle = createPoll("", 1000, async () => {
+      try {
+         await execAsync(["pgrep", "-x", "hypridle"])
+         return "yes"
+      } catch {
+         return "no"
+      }
+   })
+
+   const date = createPoll("", 1000, `bash -c "date +%H:%M"`);
+   // const idle = createPoll("", 1000, "pgrep -x hypridle");
+
+   // const out = exec("if [[ 'pgrep -x hypridle' == '' ]]; then echo true; fi");
+   // console.log(out);
+
+   return (
+      <box class={"header"} spacing={spacing}>
+      <button
+         class={"value-indicator"}
+         visible={true}
+         focusOnClick={false}
+      >
+         <box spacing={spacing}>
+            <image iconName={icons.idle} pixelSize={24} />
+            <label
+               label={date}
+               halign={Gtk.Align.START}
+               valign={Gtk.Align.CENTER}
+            />
+
+            <label
+               label={idle}
+               halign={Gtk.Align.START}
+               valign={Gtk.Align.CENTER}
+            />
+
+            
+            
+         </box>
+      </button>
+      <switch
+                  class={"toggle"}
+                  valign={Gtk.Align.CENTER}
+                  active={true}
+                  onNotifyActive={({ state }) => {
+                     if (state) {
+                        execAsync("hypridle").catch(console.error)
+                     } else {
+                        execAsync(["pkill", "hypridle"]).catch(console.error)
+                     }
+                     return true // we manage visual state via the poll
+                  }}
+               />
+            </box>
+   );
+}
+
+
 export function Header() {
    return (
       <box spacing={spacing} class={"header"} hexpand={false}>
@@ -89,10 +158,12 @@ export function Footer() {
       <box spacing={spacing} class={"footer"} hexpand={false}>
          <VolumeIndicator />
          <BrightnessIndicator />
+         <IdleIndicator />
          <box hexpand />
       </box>
    );
 }
+
 
 export function MainPage() {
 
