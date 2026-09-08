@@ -71,6 +71,8 @@ export const icons = {
    brightness: "lighttable",
    video: "camera-video-symbolic",
    close: "close-symbolic",
+   clock: "clock",
+   idle: "stopwatch-symbolic",
    // apps_default: "application-x-executable",
    // droplet: "ds-droplet-symbolic",
    // clock: "ds-clock-symbolic",

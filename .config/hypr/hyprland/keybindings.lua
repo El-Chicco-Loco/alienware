@@ -1,4 +1,4 @@
----------------------
+        ---------------------
 ---- KEYBINDINGS ----
 ---------------------
 
@@ -20,6 +20,9 @@ hl.bind(mod .. " + E",      hl.dsp.exec_cmd("thunar"),                          
 hl.bind(mod .. " + W",      hl.dsp.window.float({ action = "toggle" }),                         { desc = "Toggle floating" })
 hl.bind(mod .. " + F",      hl.dsp.window.fullscreen(),                                         { desc = "Toggle floating" })
 hl.bind(mod .. " + C",      hl.dsp.exec_cmd("code"),                                            { desc = "Launch VSCode" })
+hl.bind(mod .. " + I",      hl.dsp.exec_cmd("pkill hypridle || hypridle &"),                    { desc = "Toggle hypridle" })
+
+
 
 
 -- ─────────────────────────────────────────────────────────────
