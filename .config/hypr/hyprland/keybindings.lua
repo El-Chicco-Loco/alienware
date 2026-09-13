@@ -14,7 +14,7 @@ local ags_window = "NONE"
 -- ─────────────────────────────────────────────────────────────
 hl.bind(mod .. " + Q",         hl.dsp.window.close(),                                           { desc = "Close active window" })
 hl.bind(mod .. " + SHIFT + Q", function() user.window.kill_active() end,                        { desc = "Kill active window" })
-hl.bind(mod .. " + B",      hl.dsp.exec_cmd("brave"),                                           { desc = "Open default browser" })
+hl.bind(mod .. " + B",      hl.dsp.exec_cmd("brave --ozone-platform=x11 "),                     { desc = "Open default browser" })
 hl.bind(mod .. " + T",      hl.dsp.exec_cmd("kitty"),                                           { desc = "Open terminal" })
 hl.bind(mod .. " + E",      hl.dsp.exec_cmd("thunar"),                                          { desc = "File manager" })
 hl.bind(mod .. " + W",      hl.dsp.window.float({ action = "toggle" }),                         { desc = "Toggle floating" })

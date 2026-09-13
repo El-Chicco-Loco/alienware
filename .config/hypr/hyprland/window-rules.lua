@@ -30,7 +30,7 @@ for _, cfg in ipairs(float_dialogs) do
 end
 
 local opaque_window = {
-    { class = "brave-browser" },
+    { class = "Brave-browser" },
     { class = "vlc" },
     { class = "Ryujinx" },
     { class = "gimp" },
