@@ -50,10 +50,10 @@ export const icons = {
       muted: "audio-input-microphone-muted-symbolic",
    },
    powermenu: {
-      sleep: "system-suspend-symbolic",
-      reboot: "system-reboot-symbolic",
-      logout: "logout-symbolic",
-      shutdown: "system-shutdown-symbolic",
+      sleep: "suspend_primary-symbolic",
+      reboot: "restart_primary-symbolic",
+      logout: "logout_primary-symbolic",
+      shutdown: "shutdown_primary-symbolic",
    } as Record<string, any>,
    volume: {
       muted: "audio-volume-muted-symbolic",

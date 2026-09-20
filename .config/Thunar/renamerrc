@@ -1,16 +1,16 @@
 [Configuration]
 LastActiveMode=THUNAR_RENAMER_MODE_NAME
-LastActiveRenamer=ThunarSbrRemoveRenamer
-
-[ThunarSbrInsertRenamer]
-Offset=6
-Text=21
-Mode=THUNAR_SBR_INSERT_MODE_OVERWRITE
-OffsetMode=THUNAR_SBR_OFFSET_MODE_LEFT
+LastActiveRenamer=ThunarSbrInsertRenamer
 
 [ThunarSbrRemoveRenamer]
-StartOffset=11
+StartOffset=4
 EndOffset=0
 EndOffsetMode=THUNAR_SBR_OFFSET_MODE_RIGHT
 StartOffsetMode=THUNAR_SBR_OFFSET_MODE_RIGHT
+
+[ThunarSbrInsertRenamer]
+Offset=4
+Text=-symbolic
+Mode=THUNAR_SBR_INSERT_MODE_OVERWRITE
+OffsetMode=THUNAR_SBR_OFFSET_MODE_RIGHT
 

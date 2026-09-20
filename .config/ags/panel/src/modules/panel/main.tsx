@@ -5,7 +5,7 @@ import { Buttons } from "./items/buttons";
 import { icons, VolumeIcon, BatteryIcon } from "@/src/lib/icons";
 import AstalBattery from "gi://AstalBattery?version=0.1";
 import AstalWp from "gi://AstalWp?version=0.1";
-import Brightness from "panel/src/services/brightness";
+import Brightness from "@/src/services/brightness";
 import { createBinding, createState, createComputed } from "ags";
 import { createPoll } from "ags/time";
 import { exec, execAsync } from "ags/process";

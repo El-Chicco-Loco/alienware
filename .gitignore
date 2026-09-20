@@ -27,5 +27,6 @@ Videos
 !.config/swaync**/**
 !.config/Thunar**/**
 !.icons/**
+!.sddm/**
 !.style/**
 !.themes/**
