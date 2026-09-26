@@ -31,6 +31,7 @@ end
 
 local opaque_window = {
     { class = "Brave-browser" },
+    { class = "b0rave-browser" },
     { class = "vlc" },
     { class = "Ryujinx" },
     { class = "gimp" },

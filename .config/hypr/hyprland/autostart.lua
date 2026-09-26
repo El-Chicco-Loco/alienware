@@ -14,6 +14,7 @@ hl.on("hyprland.start", function()
     
     -- Wallpaper stuff
     hl.exec_cmd("awww-daemon --format xrgb")
+    -- hl.exec_cmd("awww img ~/Pictures/wallpaper/wallpaper.GIF --transition-bezier .43,1.19,1,.4 --transition-fps 10 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2 --transition-step 5")
 
     -- Cursor stuff
     hl.exec_cmd("hyprctl setcursor Adwaita 24")
