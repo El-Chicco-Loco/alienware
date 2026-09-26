@@ -93,9 +93,9 @@ hl.config({
 
         blur = {
             enabled = true,
-            xray = true,
+            xray = false,
             special = false,
-            new_optimizations = true,
+            new_optimizations = false,
             size = 3,
             passes = 1,
             brightness = 1,

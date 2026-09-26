@@ -42,7 +42,7 @@ for _, cfg in ipairs(opaque_window) do
     hl.window_rule({
         name  = "opaque-window-" .. cfg.class,
         match = { class = cfg.class },
-        float  = false,
+        float = false,
         opacity = 2.0,
     })
 end
@@ -57,5 +57,7 @@ hl.window_rule({
 hl.window_rule({
     name  = "floating-opacity",
     match = { float = true },
+    no_blur = true,
+    no_shadow = true,
     opacity = 2.0,
 })
