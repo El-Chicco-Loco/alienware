@@ -1,0 +1,69 @@
+@import '/home/alienware/.style/_style.scss';
+
+window#writer {
+   all: unset;
+   color: $fg0;
+   font-size: $font-size;
+   background: #3584e4;
+
+   .writer {
+      background: rgba($bg0, $window-opacity);
+      padding: $window-padding;
+      border: $window-border-width solid $window-border-color;
+      border-radius: $window-radius;
+      @if $shadow {
+         box-shadow: $window-shadow-offset
+            $window-shadow-blur
+            $window-shadow-spread
+            rgba($window-shadow-color, $window-shadow-opacity);
+      }
+   }
+
+   .ASR {
+      padding: 0;
+      background: transparent;
+      font-weight: normal;
+      outline: none;
+
+      image {
+         border-radius: $widget-radius;
+         background: rgba($bg1, $window-opacity);
+         min-height: 120px;
+         min-width: 120px;
+      }
+
+      button {
+         padding: 6px 14px;
+         border: none;
+         border-radius: $widget-radius;
+         background: rgba($bg1, $window-opacity);
+         color: $fg0;
+         font-weight: 600;
+      }
+
+      button:hover {
+         transition: background $transition;
+         background: rgba($bg2, $window-opacity);
+      }
+
+      button:disabled {
+         opacity: 0.6;
+      }
+
+      &:focus {
+         image {
+            transition: background $transition;
+            background: rgba($bg2, $window-opacity);
+         }
+      }
+
+      &:hover {
+         image {
+            transition: background $transition;
+            background: rgba($bg2, $window-opacity);
+         }
+      }
+   }
+}
+
+

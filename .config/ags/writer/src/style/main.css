@@ -1,0 +1,50 @@
+window#writer {
+  all: unset;
+  color: #ffffff;
+  font-size: 14pt;
+  background: #3584e4;
+}
+window#writer .writer {
+  background: #161616;
+  padding: 10px;
+  border: 0px solid transparent;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+window#writer .ASR {
+  padding: 0;
+  background: transparent;
+  font-weight: normal;
+  outline: none;
+}
+window#writer .ASR image {
+  border-radius: 20px;
+  background: #282828;
+  min-height: 120px;
+  min-width: 120px;
+}
+window#writer .ASR button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #282828;
+  color: #ffffff;
+  font-weight: 600;
+}
+window#writer .ASR button:hover {
+  transition: background 0.2s;
+  background: #363636;
+}
+window#writer .ASR button:disabled {
+  opacity: 0.6;
+}
+window#writer .ASR:focus image {
+  transition: background 0.2s;
+  background: #363636;
+}
+window#writer .ASR:hover image {
+  transition: background 0.2s;
+  background: #363636;
+}
+
+/*# sourceMappingURL=main.css.map */
