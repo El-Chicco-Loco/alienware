@@ -4,7 +4,7 @@ window#writer {
    all: unset;
    color: $fg0;
    font-size: $font-size;
-   background: #3584e4;
+   background: rgba($bg0, $window-opacity);
 
    .writer {
       background: rgba($bg0, $window-opacity);

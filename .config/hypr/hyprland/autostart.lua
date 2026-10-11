@@ -58,6 +58,9 @@ hl.on("hyprland.start", function()
     hl.timer(function()
         hl.exec_cmd("$HOME/.config/ags/panel/dist/app.js")
     end, { timeout = 1500, type = "oneshot" })
+    hl.timer(function()
+        hl.exec_cmd("$HOME/.config/ags/writer/dist/app.js")
+    end, { timeout = 2000, type = "oneshot" })
     
     -- Power mode
     hl.timer(function()

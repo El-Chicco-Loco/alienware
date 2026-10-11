@@ -42,6 +42,9 @@ hl.bind(mod .. " + Space", hl.dsp.exec_cmd("ags request toggle applauncher -i ap
 -- Powermenu
 hl.bind(mod .. " + Delete", hl.dsp.exec_cmd("ags request toggle powermenu -i powermenu"))
 
+-- Writer
+hl.bind(mod .. " + S", hl.dsp.exec_cmd("ags request toggle writer -i writer"))
+
 -- Btop
 hl.gesture({ fingers = 4, direction = "left", action = function() 
     hl.exec_cmd("ags request open btop -i btop") 

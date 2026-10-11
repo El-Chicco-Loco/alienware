@@ -22,6 +22,9 @@ export default function request(
          case "powermenu":
             toggleWindow("powermenu");
             break;
+         case "writer":
+            toggleWindow("writer");
+            break;
          default:
             console.error("Unknown request:", request);
             return response("Unknown request");
@@ -45,6 +48,9 @@ export default function request(
          case "powermenu":
             app.get_window("powermenu").show();
             break;
+            case "writer":
+            app.get_window("writer").show();
+            break;
          default:
             console.error("Unknown request:", request);
             return response("Unknown request");
@@ -67,6 +73,9 @@ export default function request(
             break;
          case "powermenu":
             app.get_window("powermenu").hide();
+            break;
+         case "writer":
+            app.get_window("writer").hide();
             break;
          default:
             console.error("Unknown request:", request);

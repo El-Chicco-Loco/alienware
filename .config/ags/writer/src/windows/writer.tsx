@@ -12,9 +12,11 @@ export function WriterWindow() {
          anchor={TOP}
       >
          <box orientation={Gtk.Orientation.VERTICAL} spacing={8}>
-            <label label={"CIAO"} />
             <ASR />
          </box>
       </Popup>
    );
 }
+
+
+

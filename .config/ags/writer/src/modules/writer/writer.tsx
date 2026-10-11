@@ -24,12 +24,32 @@ export function runASR(onExit?: (code: number) => void) {
    return proc;
 }
 
+export function quitASR(onExit?: (code: number) => void) {
+   const proc = subprocess({
+      cmd: "^C",
+      out: (line) => console.log(`[ASR] ${line}`),
+      err: (line) => console.error(`[ASR] ${line}`),
+   });
+
+   if (onExit) proc.connect("exit", (_, code: number) => onExit(code));
+
+   return proc;
+}
+
 export function ASR() {
    const [status, setStatus] = createState("ready");
+   const [recording, setRecording] = createState(true);
 
    function start() {
       setStatus("running");
+      setRecording(true);
       runASR((code) => setStatus(code === 0 ? "done" : `failed (exit ${code})`));
+   }
+
+   function stop() {
+      setStatus("ready");
+      setRecording(false);
+      quitASR((code) => setStatus(code === 0 ? "done" : `failed (exit ${code})`));
    }
 
    return (
@@ -43,6 +63,21 @@ export function ASR() {
             label={"Start ASR"}
             sensitive={status((s) => s !== "running")}
             onClicked={start}
+         />
+         <switch
+            class={"toggle"}
+            valign={Gtk.Align.CENTER}
+            active={recording}
+            onNotifyActive={({ state }) => {
+               if (state) {
+                  setStatus("ON");
+                  start();
+               } else {
+                  setStatus("OFF");
+                  stop();
+               }
+               return true
+            }}
          />
          <label label={status((s) => `ASR: ${s}`)} />
       </box>
