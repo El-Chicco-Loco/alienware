@@ -3,6 +3,7 @@ import { subprocess } from "ags/process";
 import { Gtk } from "ags/gtk4";
 import { theme } from "@/options";
 import app from "ags/gtk4/app";
+import { Visualizer } from "./mic-visualizer";
 
 /** Project that gets executed by the button below. */
 const ASR_DIR = "/home/alienware/Desktop/AI_assistant";
@@ -43,25 +44,29 @@ export function quitASR(onExit?: (code: number) => void) {
 }
 
 export function ASR() {
-   // const [status, setStatus] = createState("ready");
-   const [recording, setRecording] = createState(false);
+   const [status, setStatus] = createState("ready");
+   const [recording, setRecording] = createState(true);
 
    function start() {
-      // setStatus("running");
-      setRecording(true);
-      // runASR((code) => setStatus(code === 0 ? "done" : `failed (exit ${code})`));
+      setStatus("recording");
+      setRecording(false);
       runASR();
    }
 
    function stop() {
-      // setStatus("ready");
-      setRecording(false);
-      // quitASR((code) => setStatus(code === 0 ? "done" : `failed (exit ${code})`));
+      setStatus("ready");
+      setRecording(true);
       quitASR();
    }
 
-   console.log(app.get_window("writer"));
-   // setInterval(() => {console.log(app.get_window("writer")?);}, 1000);
+   app.connect("window-toggled", () => {
+      if (recording()) {
+         start();
+      }
+      else {
+         stop();
+      }
+   })
 
    return (
       <box
@@ -70,23 +75,8 @@ export function ASR() {
          orientation={Gtk.Orientation.VERTICAL}
          spacing={theme.spacing}
       >
-         <switch
-            class={"toggle"}
-            valign={Gtk.Align.CENTER}
-            active={recording}
-            onNotifyActive={({ state }) => {
-               if (state) {
-                  // setStatus("ON");
-                  console.log("---------------------------------")
-                  console.log(app.get_window("writer"));
-                  start();
-               } else {
-                  // setStatus("OFF");
-                  stop();
-               }
-               return true
-            }}
-         />
+         <label label={status}/>
+         <Visualizer />
       </box>
    );
 }
