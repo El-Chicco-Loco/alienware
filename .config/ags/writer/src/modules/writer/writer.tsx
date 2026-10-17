@@ -1,4 +1,5 @@
 import { createState } from "ags";
+import { icons } from "@/src/lib/icons";
 import { subprocess } from "ags/process";
 import { Gtk } from "ags/gtk4";
 import { theme } from "@/options";
@@ -72,11 +73,11 @@ export function ASR() {
       <box
          name={"ASR"}
          class={"ASR"}
-         orientation={Gtk.Orientation.VERTICAL}
+         orientation={Gtk.Orientation.HORIZONTAL}
          spacing={theme.spacing}
       >
-         <label label={status}/>
          <Visualizer />
+         <image iconName={icons.microphone.default} pixelSize={50} />
       </box>
    );
 }

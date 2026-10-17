@@ -9,8 +9,6 @@ app.start({
    main() {
       app.apply_css(css, true);
       app.get_monitors().map(WriterWindow);
-      // the shared Popup starts hidden, so reveal it explicitly
-      app.get_window("writer")?.show();
    },
    requestHandler(argv, response) {
       request(argv, response);

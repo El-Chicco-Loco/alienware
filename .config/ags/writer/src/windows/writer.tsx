@@ -1,7 +1,7 @@
 import { ASR } from "../modules/writer/writer";
 import { Popup } from "@/src/widgets/popup";
 import { Astal, Gtk } from "ags/gtk4";
-const { TOP } = Astal.WindowAnchor;
+const { BOTTOM } = Astal.WindowAnchor;
 
 export function WriterWindow() {
    return (
@@ -9,7 +9,7 @@ export function WriterWindow() {
          name={"writer"}
          halign={Gtk.Align.CENTER}
          valign={Gtk.Align.TOP}
-         anchor={TOP}
+         anchor={BOTTOM}
       >
          <box orientation={Gtk.Orientation.VERTICAL} spacing={8}>
             <ASR />

@@ -1,63 +1,71 @@
-// AGS v2 / Astal example: live visualizer of the default microphone using AstalCava
-// Needs: libastal-cava, libastal-wireplumber, and cava (libcava) installed.
-// Run with: ags run mic-visualizer.tsx
+// AGS 3.x (GTK4) example: live visualizer of the default microphone using AstalCava
+// Needs: libastal-cava, libastal-wireplumber (AstalWp), cava installed.
+// Run with: ags run mic-visualizer-ags3.tsx
 
-import { App, Astal } from "astal/gtk3"
-import { bind } from "astal"
+import { Gtk } from "ags/gtk4"
+import { createBinding } from "ags"
+import { execAsync } from "ags/process"
 import Cava from "gi://AstalCava"
-import Wp from "gi://AstalWp"
+import AstalWp from "gi://AstalWp"
 
-const audio = Wp.get_default()!.audio
-const mic = audio.defaultMicrophone
+const BARS = 20
+
+const wp = AstalWp.get_default()!
+const audio = wp.audio!
 
 const cava = Cava.get_default()!
-cava.input = Cava.Input.PIPEWIRE // use Cava.Input.PULSE if you are on PulseAudio
-cava.source = mic.name            // node name of the default microphone
-cava.bars = 20
+// PULSE opens a real record stream on the source, which wakes a suspended mic.
+// (works on PipeWire too, through pipewire-pulse)
+cava.input = Cava.Input.PULSE
+cava.bars = BARS
 cava.framerate = 60
 
-// Keep Cava pointed at the right mic if the default one changes
-audio.connect("notify::default-microphone", () => {
-    const m = audio.defaultMicrophone
-    if (m) cava.source = m.name
-})
+// NEVER give cava a null/empty source: it segfaults. Only set it when we have a real name.
+export function setSource(name: string | null | undefined) {
+    const n = name?.trim()
+    if (!n) return false
+    console.log("cava source ->", n)
+    cava.source = n
+    return true
+}
+
+// The node name (what `pactl get-default-source` prints) is the reliable source.
+// AstalWp's `name` can still be null right after startup, so ask pactl directly.
+export async function syncSource() {
+    try {
+        const out = await execAsync(["pactl", "get-default-source"])
+        if (setSource(out)) return
+    } catch (e) {
+        console.log("pactl failed:", e)
+    }
+    // Fallback: AstalWp endpoint (may be null if not populated yet)
+    setSource(audio.defaultMicrophone?.name)
+}
+
+syncSource()
+
+// Follow the default microphone if it changes (or appears late)
+audio.connect("notify::default-microphone", () => syncSource())
+
+// One accessor holding the whole array of 0..1 values
+const values = createBinding(cava, "values")
 
 export function Visualizer() {
     return (
-        <box className="mic-visualizer" spacing={4}>
-            {bind(cava, "values").as((vals) =>
-                vals.map((v) => (
-                    <levelbar
-                        orientation={1} // vertical
-                        inverted
-                        value={v}
-                        heightRequest={80}
-                        widthRequest={8}
-                    />
-                ))
-            )}
+        <box class="mic-visualizer" spacing={4}>
+            {/* Create the bars once; each one reads its own index from `values` */}
+            {Array.from({ length: BARS }, (_, i) => (
+                <levelbar
+                    class="levelbar"
+                    orientation={Gtk.Orientation.VERTICAL}
+                    inverted
+                    minValue={0}
+                    maxValue={1}
+                    value={values((v) => v[i] ?? 0)}
+                    heightRequest={50}
+                    widthRequest={10}
+                />
+            ))}
         </box>
     )
 }
-
-/*App.start({
-    css: `
-        window { background: transparent; }
-        .mic-visualizer { padding: 12px; background: rgba(0,0,0,0.6); border-radius: 12px; }
-        levelbar block.filled { background: #89b4fa; border-radius: 4px; }
-        levelbar trough { min-width: 8px; }
-    `,
-    main() {
-        return (
-            <window
-                name="mic-visualizer"
-                application={App}
-                visible
-                anchor={Astal.WindowAnchor.BOTTOM}
-                exclusivity={Astal.Exclusivity.IGNORE}
-            >
-                <Visualizer />
-            </window>
-        )
-    },
-})*/

@@ -61,3 +61,10 @@ hl.window_rule({
     no_shadow = true,
     opacity = 2.0,
 })
+
+hl.window_rule({
+    name  = "proton vpn",
+    match = { class = "proton.vpn.app.gtk" },
+    float = false,
+    opacity = 2.0,
+})
